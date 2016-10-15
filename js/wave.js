@@ -33,7 +33,7 @@ var Wave = (function () {
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
         this.camera.position.z = 0;
         this.camera.position.y = 1000;
-        this.waveGeomery = new THREE.PlaneGeometry(13000, 15000, 60, 80);
+        this.waveGeomery = new THREE.PlaneGeometry(17000, 17000, 60, 80);
         this.waveMaterial = new THREE.MeshLambertMaterial({
             color: 0xffffff,
             wireframe: true

@@ -14,7 +14,6 @@ var FloatingBox = (function () {
         this.createScene();
     }
     FloatingBox.prototype.remove = function () {
-        //console.log(this.scene.children);
         while (this.scene.children.length != 0) {
             this.scene.remove(this.scene.children[0]);
             if (this.scene.children[0] == THREE.Mesh) {
@@ -23,12 +22,6 @@ var FloatingBox = (function () {
             }
         }
         ;
-        // if(this.scene.children.length == 0)
-        // {
-        //     console.log(this.scene);
-        //     //console.log("END");
-        //     this.END = true;
-        // }
     };
     FloatingBox.prototype.createRenderer = function () {
         // WebGL レンダラーを作成
@@ -44,13 +37,9 @@ var FloatingBox = (function () {
     FloatingBox.prototype.createScene = function () {
         // シーン (空間) を作成
         this.scene = new THREE.Scene();
-        // 立方体のジオメトリーを作成
         this.geometry = new THREE.BoxGeometry(1, 1, 1);
-        // 緑のマテリアルを作成
         this.material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-        // 上記作成のジオメトリーとマテリアルを合わせてメッシュを生成
         this.cube = new THREE.Mesh(this.geometry, this.material);
-        // メッシュをシーンに追加
         this.scene.add(this.cube);
         this.scene = new THREE.Scene();
         this.scene.fog = new THREE.Fog(0x000000, -500, 3000);
@@ -195,14 +184,6 @@ var FloatingBox = (function () {
         this.cameraLookAt.z += (this.cameraNextLookAt.z - this.cameraLookAt.z) * speed;
         var lookat = new THREE.Vector3(this.cameraLookAt.x * Math.sin(this.timer), this.cameraLookAt.y * Math.sin(this.timer), this.cameraLookAt.z * Math.sin(this.timer));
         this.camera.lookAt(lookat);
-        //this.render();
-    };
-    FloatingBox.prototype.render = function () {
-        // this.update();
-        this.renderer.render(this.scene, this.camera);
-        // requestAnimationFrame(this.render.bind(this));
-        // // レンダリング
-        // this.renderer.render(this.scene, this.camera);
     };
     return FloatingBox;
 }());

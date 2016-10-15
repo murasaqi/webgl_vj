@@ -35,9 +35,6 @@ class FloatingBox {
     public remove()
     {
 
-
-
-        //console.log(this.scene.children);
         while(this.scene.children.length != 0)
         {
             this.scene.remove(this.scene.children[0]);
@@ -45,19 +42,8 @@ class FloatingBox {
                 this.scene.children[0].geometry.dispose();
                 this.scene.children[0].material.dispose();
             }
-
-
-
         };
 
-
-
-        // if(this.scene.children.length == 0)
-        // {
-        //     console.log(this.scene);
-        //     //console.log("END");
-        //     this.END = true;
-        // }
 
 
     }
@@ -84,13 +70,9 @@ class FloatingBox {
         // シーン (空間) を作成
         this.scene = new THREE.Scene();
 
-        // 立方体のジオメトリーを作成
         this.geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        // 緑のマテリアルを作成
         this.material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-        // 上記作成のジオメトリーとマテリアルを合わせてメッシュを生成
         this.cube = new THREE.Mesh( this.geometry, this.material );
-        // メッシュをシーンに追加
         this.scene.add( this.cube );
 
         this.scene = new THREE.Scene();
@@ -110,8 +92,6 @@ class FloatingBox {
         light.shadow.mapSize.width = 2048;
         light.shadow.mapSize.height = 2048;
         this.scene.add(light);
-
-
 
 
         var light02 = new THREE.SpotLight( 0xffffff,0.4 );
@@ -324,17 +304,15 @@ class FloatingBox {
         );
 
         this.camera.lookAt(lookat);
-        //this.render();
-    }
-
-    public render(){
-        // this.update();
-        this.renderer.render(this.scene, this.camera);
-        // requestAnimationFrame(this.render.bind(this));
-        // // レンダリング
-        // this.renderer.render(this.scene, this.camera);
 
     }
+
+
+
+    // public render(){
+    //     this.renderer.render(this.scene, this.camera);
+    //
+    // }
 
 }
 

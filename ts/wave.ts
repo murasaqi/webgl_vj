@@ -60,7 +60,7 @@ class Wave {
         this.camera.position.y = 1000;
 
 
-        this.waveGeomery = new THREE.PlaneGeometry(13000,15000,60,80);
+        this.waveGeomery = new THREE.PlaneGeometry(17000,17000,60,80);
         this.waveMaterial = new THREE.MeshLambertMaterial({
             color:0xffffff,
             wireframe:true
