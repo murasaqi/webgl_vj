@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My first Three.js app by Typescript</title>
+    <style>
+        body { margin: 0; }
+        canvas { width: 100%; height: 100% }
+    </style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r74/three.min.js"></script>
+<script type="text/javascript" src="js/convex.js"></script>
+<script type="text/javascript" src="js/test.js"></script>
+<script type="text/javascript" src="js/box.js"></script>
+<script type="text/javascript" src="js/perlin.js"></script>
+<script type="text/javascript" src="js/wave.js"></script>
+<script type="text/javascript" src="js/ConvexGeometry.js"></script>
+<script type="text/javascript" src="js/convex.js"></script>
+<script type="text/javascript" src="js/dat.gui.min.js"></script>
+
+<script>
+    var SCENE_NUM = 0;
+
+
+
+    (function () {
+
+        var NUM = 0;
+        var scenes= [];
+
+
+
+
+        // シーン
+        var scene,renderer,cube,camera;
+
+        var testscene;
+        init();
+        render();
+        function init() {
+
+            var _scene = new FloatingBox()
+            scenes.push(_scene);
+
+//            var _scene = new ThreeJSTest()
+//            scenes.push(_scene);
+
+            var _scene = new Wave()
+            scenes.push(_scene);
+
+
+            scene= new THREE.Scene();
+
+            testscene = new Convex();
+            //testscene.animate();
+
+
+// レンダラー
+            renderer = new THREE.WebGLRenderer({antialias: true});
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.sortObjects = false;
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFShadowMap;
+            document.body.appendChild( renderer.domElement );
+
+        }
+
+
+// レンダリング
+        function render() {
+
+            scenes[NUM].update();
+            testscene.update();
+            requestAnimationFrame(render);
+            renderer.render(scenes[NUM].scene, scenes[NUM].camera);
+           // renderer.render(testscene.scene, testscene.camera);
+
+//            if(scene[NUM].END)
+//            {
+//                NUM++;
+//            }
+        }
+
+
+        window.document.onkeydown = function (event) {
+            console.log(event.key);
+            switch (event.key) {
+                case 'ArrowRight':
+                    console.log(scenes[NUM].END);
+                    //scenes[NUM].endEnabled();
+                        NUM++;
+                        if(scenes.length == NUM){
+                            NUM=0;
+                        }
+                  break;
+//
+//
+//
+            }
+
+            //scene = new ThreeJSTest();
+            //console.log(scene);
+            //scene.render();
+        }
+    })();
+
+
+</script>
+</body>
+</html>
