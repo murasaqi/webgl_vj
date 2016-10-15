@@ -14,6 +14,7 @@ var particleCount = 400;
 var r = 800;
 var rHalf = r / 2;
 
+
 var effectController = {
     showDots: true,
     showLines: true,

@@ -182,7 +182,7 @@ class FloatingBox {
 
 
 
-        for ( var i = 0; i < 100; i ++ ) {
+        for ( var i = 0; i < 80; i ++ ) {
 
             var theta = Math.random()*Math.PI*2;
             var phi = Math.random()*Math.PI*2;
