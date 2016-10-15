@@ -83,7 +83,8 @@ var Wave = (function () {
         this.scene.rotateZ(this.noisestepz * 0.05);
         this.camera.position.y = 1300 + 2000 * Math.sin(this.timer);
         this.camera.position.x = 1000 * Math.cos(this.timer);
-        this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+        // this.camera.lookAt(new THREE.Vector3(100*Math.sin(this.timer*0.003),100*Math.cos(this.timer*0.001),100*Math.cos(this.timer*0.005)));
+        this.camera.lookAt(new THREE.Vector3(0, 0, 1000 * Math.cos(this.timer * 0.005)));
     };
     return Wave;
 }());
