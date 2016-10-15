@@ -6,6 +6,16 @@
     <style>
         body { margin: 0; }
         canvas { width: 100%; height: 100% }
+        #fadeInOut
+        {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #000;
+            opacity: 1.0;
+        }
     </style>
 </head>
 <body>
@@ -18,6 +28,10 @@
 <script type="text/javascript" src="js/ConvexGeometry.js"></script>
 <script type="text/javascript" src="js/convex.js"></script>
 <script type="text/javascript" src="js/dat.gui.min.js"></script>
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+<div id="fadeInOut">
+</div>
 
 <script>
     var SCENE_NUM = 0;
@@ -29,6 +43,8 @@
         var NUM = 0;
         var scenes= [];
 
+        var fadeInOutTimer = 0;
+        var screen;
 
 
 
@@ -38,7 +54,16 @@
         var testscene;
         init();
         render();
+
         function init() {
+//            screen = document.getElementsByName("fadeInOut");
+//            screen.style.backgroundColor = '0xffffff';
+
+
+
+
+            var _scene = new Convex()
+            scenes.push(_scene);
 
             var _scene = new FloatingBox()
             scenes.push(_scene);
@@ -50,9 +75,9 @@
             scenes.push(_scene);
 
 
-            scene= new THREE.Scene();
+//            scene= new THREE.Scene();
 
-            testscene = new Convex();
+
             //testscene.animate();
 
 
@@ -71,8 +96,9 @@
 // レンダリング
         function render() {
 
+            //fadeInOut();
             scenes[NUM].update();
-            testscene.update();
+//            testscene.update();
             requestAnimationFrame(render);
             renderer.render(scenes[NUM].scene, scenes[NUM].camera);
            // renderer.render(testscene.scene, testscene.camera);
@@ -81,6 +107,18 @@
 //            {
 //                NUM++;
 //            }
+        }
+
+        function fadeInOut() {
+            if(fadeInOutTimer < Math.PI*2){
+                fadeInOutTimer += 0.07;
+                //screen.style.opacity = Math.sin(fadeInOutTimer);
+                var op = Math.sin(fadeInOutTimer);
+                $("#fadeInOut")
+                        .css({
+                            opacity: op
+                        });
+            }
         }
 
 

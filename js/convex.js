@@ -37,14 +37,14 @@ var Convex = (function () {
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
         this.camera.position.set(0, 10, 150);
-        this.renderer = new THREE.WebGLRenderer();
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(this.renderer.domElement);
-        this.renderer.setClearColor(this.clearColor);
-        this.scene.fog = new THREE.Fog(this.clearColor, 0, 1300);
-        this.renderer.shadowMap.enabled = true;
-        this.renderer.shadowMap.type = THREE.PCFShadowMap;
+        // this.renderer = new THREE.WebGLRenderer();
+        // this.renderer.setPixelRatio( window.devicePixelRatio );
+        // this.renderer.setSize( window.innerWidth, window.innerHeight );
+        // document.body.appendChild( this.renderer.domElement );
+        // this.renderer.setClearColor(this.clearColor);
+        // this.scene.fog = new THREE.Fog(this.clearColor,0,1300);
+        // this.renderer.shadowMap.enabled = true;
+        // this.renderer.shadowMap.type = THREE.PCFShadowMap;
         var dlight = new THREE.DirectionalLight(0xffffff, 1.0);
         dlight.position.set(0, 1, 0);
         dlight.castShadow = true;
@@ -135,8 +135,6 @@ var Convex = (function () {
                 this.END = true;
             }
         }
-    };
-    Convex.prototype.update = function () {
         var date = new Date();
         if (this.pre_sec != date.getSeconds()) {
             this.timer = 0.0;
@@ -162,10 +160,10 @@ var Convex = (function () {
             }
         }
         this.pre_sec = date.getSeconds();
-        this.render();
+        // this.render();
     };
     Convex.prototype.render = function () {
-        this.renderer.render(this.scene, this.camera);
+        // this.renderer.render( this.scene, this.camera );
     };
     return Convex;
 }());

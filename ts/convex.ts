@@ -81,14 +81,14 @@ class Convex {
 
 
 
-        this.renderer = new THREE.WebGLRenderer();
-        this.renderer.setPixelRatio( window.devicePixelRatio );
-        this.renderer.setSize( window.innerWidth, window.innerHeight );
-        document.body.appendChild( this.renderer.domElement );
-        this.renderer.setClearColor(this.clearColor);
-        this.scene.fog = new THREE.Fog(this.clearColor,0,1300);
-        this.renderer.shadowMap.enabled = true;
-        this.renderer.shadowMap.type = THREE.PCFShadowMap;
+        // this.renderer = new THREE.WebGLRenderer();
+        // this.renderer.setPixelRatio( window.devicePixelRatio );
+        // this.renderer.setSize( window.innerWidth, window.innerHeight );
+        // document.body.appendChild( this.renderer.domElement );
+        // this.renderer.setClearColor(this.clearColor);
+        // this.scene.fog = new THREE.Fog(this.clearColor,0,1300);
+        // this.renderer.shadowMap.enabled = true;
+        // this.renderer.shadowMap.type = THREE.PCFShadowMap;
 
 
 
@@ -233,10 +233,7 @@ class Convex {
 
         }
 
-    }
 
-
-    public update() {
 
         var date = new Date();
 
@@ -279,13 +276,13 @@ class Convex {
 
         this.pre_sec = date.getSeconds();
 
-        this.render();
+        // this.render();
 
     }
 
     public render() {
 
-        this.renderer.render( this.scene, this.camera );
+        // this.renderer.render( this.scene, this.camera );
 
     }
 
