@@ -164,29 +164,44 @@ var Terrain = (function () {
         }
         var date = new Date();
         this.timer_roop += 0.03;
-        if (this.preSec != date.getSeconds()) {
-            this.timer = 0.0;
-            for (var i = 0; i < this.noiseseed.length; i++) {
-                this.noiseseed[i].x += 0.1;
-                this.noiseseed[i].y += 0.3;
-                this.noiseseed[i].z += 0.1;
-            }
+        //if(this.preSec != date.getSeconds()){
+        // if(this.preSec != date.getSeconds())
+        // {
+        //     this.timer = 0.0;
+        //
+        //     for(var i = 0; i < this.noiseseed.length; i++)
+        //     {
+        //         this.noiseseed[i].x += 0.01;
+        //         this.noiseseed[i].y += 0.03;
+        //         this.noiseseed[i].z += 0.02;
+        //
+        //     }
+        //
+        // }
+        for (var i = 0; i < this.noiseseed.length; i++) {
+            this.noiseseed[i].x += 0.01;
+            this.noiseseed[i].y += 0.03;
+            this.noiseseed[i].z += 0.02;
         }
-        this.timer += (this.timer_end - this.timer) * 0.1;
+        if (BUNG) {
+            this.timer = 0.0;
+        }
+        BUNG = false;
+        this.timer += (this.timer_end - this.timer) * 0.3;
         this.frameCounter += 0.001;
-        this.planeMat.opacity = Math.sin(this.timer);
+        this.planeMat.opacity = bungValue * 0.4;
         this.camera.position.x = Math.sin(this.frameCounter) * 1000;
         this.camera.position.z = Math.cos(this.frameCounter) * 1000;
         this.camera.lookAt(new THREE.Vector3(0, 0, 0));
         for (var i = 0; i < this.vertex.length; i++) {
-            var value = noise.perlin3(this.noiseseed[i].x, this.noiseseed[i].y, this.noiseseed[i].z) * 200;
+            var value = noise.perlin3(this.noiseseed[i].x, this.noiseseed[i].y, this.noiseseed[i].z) * 200 + bungValue;
             //vertex[i].z+=5;
             this.planeGeo.vertices[i].z = Math.abs(value * Math.sin(this.timer));
         }
         for (var i = 0; i < this.cubePos.length; i++) {
             this.cubePos[i].phi += 0.01;
             this.cubePos[i].theta += 0.01;
-            var rad = 100 + 100 * Math.sin(this.timer);
+            var rad = 200 + 100 * Math.sin(this.timer_roop);
             this.cubePos[i].x = rad * Math.cos(this.cubePos[i].phi) * Math.sin(this.cubePos[i].theta);
             this.cubePos[i].y = rad * Math.cos(this.cubePos[i].theta);
             this.cubePos[i].z = rad * Math.sin(this.cubePos[i].phi) * Math.sin(this.cubePos[i].theta);
@@ -196,24 +211,24 @@ var Terrain = (function () {
             this.cubes[i].rotation.x = this.cubePos[i].phi;
             this.cubes[i].rotation.y = this.cubePos[i].theta;
         }
-        var rad = Math.sin(this.timer_roop * 0.6) * 500 + 700;
+        var rad = Math.sin(this.timer_roop * 0.6) * 300 + 700;
         this.camera.position.x = rad * Math.sin(this.timer_roop * 0.4) * Math.cos(this.timer_roop * 0.3 * 0.4);
         this.camera.position.z = rad * Math.cos(this.timer_roop * 0.4);
         this.camera.position.y = 100 * Math.sin(this.timer_roop * 0.4) * Math.sin(this.timer_roop * 0.3 * 0.4);
         this.camera.lookAt(new THREE.Vector3(0, 0, Math.sin(this.timer_roop * 0.9) * 20));
         this.planeGeo.verticesNeedUpdate = true;
-        this.mainLight.position.x = 200 * Math.sin(this.timer_roop) * Math.cos(this.timer_roop * 0.3);
-        this.mainLight.position.z = 200 * Math.cos(this.timer_roop);
-        this.mainLight.position.y = 200 * Math.sin(this.timer_roop) * Math.sin(this.timer_roop * 0.3);
-        this.redLight.position.x = 200 * Math.sin(this.timer_roop * 0.2) * Math.cos(this.timer_roop * 0.5);
-        this.redLight.position.z = 200 * Math.cos(this.timer_roop * 0.2);
-        this.redLight.position.y = 200 * Math.sin(this.timer_roop * 0.2) * Math.sin(this.timer_roop * 0.5);
-        this.greenLight.position.x = 200 * Math.sin(this.timer_roop + 0.5) * Math.cos(this.timer_roop * 0.3);
-        this.greenLight.position.z = 200 * Math.cos(this.timer_roop + 0.5);
-        this.greenLight.position.y = 200 * Math.sin(this.timer_roop + 0.5) * Math.sin(this.timer_roop * 0.3);
-        this.blueLight.position.x = 200 * Math.sin(this.timer_roop * 0.8) * Math.cos(this.timer_roop * 0.9);
-        this.blueLight.position.z = 200 * Math.cos(this.timer_roop * 0.8);
-        this.blueLight.position.y = 200 * Math.sin(this.timer_roop * 0.8) * Math.sin(this.timer_roop * 0.9);
+        this.mainLight.position.x = 300 * Math.sin(this.timer_roop) * Math.cos(this.timer_roop * 0.3);
+        this.mainLight.position.z = 300 * Math.cos(this.timer_roop);
+        this.mainLight.position.y = 300 * Math.sin(this.timer_roop) * Math.sin(this.timer_roop * 0.3);
+        this.redLight.position.x = 300 * Math.sin(this.timer_roop * 0.2) * Math.cos(this.timer_roop * 0.5);
+        this.redLight.position.z = 300 * Math.cos(this.timer_roop * 0.2);
+        this.redLight.position.y = 300 * Math.sin(this.timer_roop * 0.2) * Math.sin(this.timer_roop * 0.5);
+        this.greenLight.position.x = 300 * Math.sin(this.timer_roop + 0.5) * Math.cos(this.timer_roop * 0.3);
+        this.greenLight.position.z = 300 * Math.cos(this.timer_roop + 0.5);
+        this.greenLight.position.y = 300 * Math.sin(this.timer_roop + 0.5) * Math.sin(this.timer_roop * 0.3);
+        this.blueLight.position.x = 300 * Math.sin(this.timer_roop * 0.8) * Math.cos(this.timer_roop * 0.9);
+        this.blueLight.position.z = 300 * Math.cos(this.timer_roop * 0.8);
+        this.blueLight.position.y = 300 * Math.sin(this.timer_roop * 0.8) * Math.sin(this.timer_roop * 0.9);
         // this.redLight.position.x = 200 * Math.cos(this.timer_roop);
         // this.redLight.position.z = 200 * Math.sin(this.timer_roop);
         //

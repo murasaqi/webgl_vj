@@ -5,7 +5,16 @@
     <title>Simple VJ WebGL</title>
     <style>
         body { margin: 0; }
-        canvas { width: 100%; height: 100% }
+        canvas {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        canvas:last-child {
+            opacity: 0.0;
+        }
         #fadeInOut
         {
             width: 100%;
@@ -15,11 +24,25 @@
             left: 0;
             background-color: #000;
             opacity: 0.0;
+            z-index: 999999;
+        }
+
+        #world
+        {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 0.0;
+
         }
     </style>
 </head>
 <body>
+<canvas id="world"></canvas>
 <script type="text/javascript" src="js/three.min.js"></script>
+<script type="text/javascript" src="js/audio.js"></script>
 <script type="text/javascript" src="js/convex.js"></script>
 <script type="text/javascript" src="js/test.js"></script>
 <script type="text/javascript" src="js/box.js"></script>
@@ -29,6 +52,7 @@
 <script type="text/javascript" src="js/convex.js"></script>
 <script type="text/javascript" src="js/terrain.js"></script>
 <script type="text/javascript" src="js/dat.gui.min.js"></script>
+<script type="text/javascript" src="js/particle.js"></script>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 <div id="fadeInOut">
@@ -46,11 +70,13 @@
 
         var fadeInOutTimer = -1;
         var screen;
+        var overAlpha = 0;
 
 
 
         // シーン
         var scene,renderer,cube,camera;
+        var renderer02,overscene;
 
         var testscene;
         init();
@@ -77,6 +103,11 @@
 
             var _scene = new Terrain()
             scenes.push(_scene);
+
+//            var _scene = new Particle()
+//            scenes.push(_scene);
+
+            overscene = new Particle();
             var keyname;
 
 
@@ -95,6 +126,15 @@
             renderer.shadowMap.type = THREE.PCFShadowMap;
             document.body.appendChild( renderer.domElement );
 
+            renderer02 = new THREE.WebGLRenderer({antialias: true,alpha: true});
+            //renderer.setPixelRatio( window.devicePixelRatio );
+            renderer02.setSize( window.innerWidth, window.innerHeight );
+            renderer02.sortObjects = false;
+            renderer02.shadowMap.enabled = true;
+            renderer02.shadowMap.type = THREE.PCFShadowMap;
+            renderer02.setClearColor( 0x000000, 0 );
+            document.body.appendChild( renderer02.domElement );
+
         }
 
 
@@ -103,9 +143,11 @@
 
             //fadeInOut();
             scenes[NUM].update();
+            overscene.update();
 //            testscene.update();
             requestAnimationFrame(render);
             renderer.render(scenes[NUM].scene, scenes[NUM].camera);
+            renderer02.render(overscene.scene, overscene.camera);
            if(fadeInOutTimer >= 0)
            {
                fadeInOut();
@@ -160,7 +202,38 @@
                 fadeInOutTimer = 0;
             }
 
+            if(event.key == "ArrowUp")
+            {
+                overAlpha+=0.1;
+                if(overAlpha > 1){
+                    overAlpha = 1.0;
+                }
+            }
 
+            if(event.key == "ArrowDown")
+            {
+
+                overAlpha-=0.1;
+                if(overAlpha < 0){
+                    overAlpha = 0.0;
+                }
+            }
+
+            $("canvas:last-child")
+                    .css({
+                        opacity: overAlpha
+                    });
+
+
+            if(isFinite(event.key))
+            {
+
+                NUM = event.key;
+                if(NUM >= scenes.length)
+                {
+                    NUM = scenes.length-1;
+                }
+            }
             //scene = new ThreeJSTest();
             //console.log(scene);
             //scene.render();
