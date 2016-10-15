@@ -23,6 +23,8 @@ class Convex {
     private clearColor:any;
     private camera_timer:number = 0;
 
+
+
     public renderer:THREE.WebGLRenderer;
     constructor() {
 
@@ -76,6 +78,7 @@ class Convex {
 
 
 
+
         // this.renderer = new THREE.WebGLRenderer();
         // this.renderer.setPixelRatio( window.devicePixelRatio );
         // this.renderer.setSize( window.innerWidth, window.innerHeight );
@@ -95,7 +98,7 @@ class Convex {
         var dlight = new THREE.DirectionalLight(0xffffff,1.0);
         dlight.position.set(0,1,0);
         dlight.castShadow = true;
-        this.scene.add(new THREE.DirectionalLightHelper(dlight,7));
+        // this.scene.add(new THREE.DirectionalLightHelper(dlight,7));
         this.scene.add(dlight);
 
         var dlight02 = new THREE.DirectionalLight(0xffffff,1.0);
