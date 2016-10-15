@@ -22,14 +22,14 @@
     <favorites_list name="vj_project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4488889">
+    <splitter split-orientation="horizontal" split-proportion="0.59466666">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="convex.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="convex.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ts/convex.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+                <state relative-caret-position="218">
+                  <caret line="83" column="25" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -81,17 +81,11 @@
           <file leaf-file-name="convex.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/convex.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="647">
-                  <caret line="124" column="6" selection-start-line="124" selection-start-column="6" selection-end-line="124" selection-end-column="6" />
+                <state relative-caret-position="1232">
+                  <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
                   <folding>
-                    <marker date="1476525845000" expanded="true" signature="2754:3531" ph="//..." />
-                    <marker date="1476525845000" expanded="true" signature="5597:5864" ph="{...}" />
-                    <marker date="1476525845000" expanded="true" signature="5666:5859" ph="{...}" />
-                    <marker date="1476525845000" expanded="true" signature="5801:5849" ph="{...}" />
-                    <marker date="1476525845000" expanded="true" signature="5864:7232" ph="{...}" />
-                    <marker date="1476525845000" expanded="true" signature="6030:6177" ph="{...}" />
-                    <marker date="1476525845000" expanded="true" signature="7021:7148" ph="{...}" />
-                    <marker date="1476525845000" expanded="true" signature="7276:7343" ph="{...}" />
+                    <marker date="1476532546000" expanded="true" signature="26:134" ph="{...}" />
+                    <marker date="1476532546000" expanded="true" signature="50:134" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -107,11 +101,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="test.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="test.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/test.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+                <state relative-caret-position="285">
+                  <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -134,8 +128,18 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="98" column="26" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+                <state relative-caret-position="195">
+                  <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="three.min.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/three.min.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -222,11 +226,11 @@
         <option value="$PROJECT_DIR$/ts/template.ts" />
         <option value="$PROJECT_DIR$/ts/tsconfig.json" />
         <option value="$PROJECT_DIR$/js/perlin.js" />
-        <option value="$PROJECT_DIR$/ts/convex.ts" />
         <option value="$PROJECT_DIR$/ts/wave.ts" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/js/drawcall.js" />
         <option value="$PROJECT_DIR$/ts/box.ts" />
+        <option value="$PROJECT_DIR$/ts/convex.ts" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -238,8 +242,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
-    <option name="y" value="65" />
+    <option name="x" value="-187" />
+    <option name="y" value="66" />
     <option name="width" value="1316" />
     <option name="height" value="802" />
   </component>
@@ -284,6 +288,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="vj_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vj_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vj_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -396,12 +414,12 @@
       <updated>1476454099503</updated>
       <workItem from="1476454100713" duration="14413000" />
       <workItem from="1476504017135" duration="155000" />
-      <workItem from="1476504183730" duration="13673000" />
+      <workItem from="1476504183730" duration="14792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28241000" />
+    <option name="totallyTimeSpent" value="29360000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -413,7 +431,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="65" width="1316" height="802" extended-state="0" />
+    <frame x="-187" y="66" width="1316" height="802" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14877589" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -567,17 +585,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/convex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="124" column="6" selection-start-line="124" selection-start-column="6" selection-end-line="124" selection-end-column="6" />
+        <state relative-caret-position="1232">
+          <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
           <folding>
-            <marker date="1476525845000" expanded="true" signature="2754:3531" ph="//..." />
-            <marker date="1476525845000" expanded="true" signature="5597:5864" ph="{...}" />
-            <marker date="1476525845000" expanded="true" signature="5666:5859" ph="{...}" />
-            <marker date="1476525845000" expanded="true" signature="5801:5849" ph="{...}" />
-            <marker date="1476525845000" expanded="true" signature="5864:7232" ph="{...}" />
-            <marker date="1476525845000" expanded="true" signature="6030:6177" ph="{...}" />
-            <marker date="1476525845000" expanded="true" signature="7021:7148" ph="{...}" />
-            <marker date="1476525845000" expanded="true" signature="7276:7343" ph="{...}" />
+            <marker date="1476532546000" expanded="true" signature="26:134" ph="{...}" />
+            <marker date="1476532546000" expanded="true" signature="50:134" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -586,14 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="56" column="24" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ts/convex.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -681,14 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts/test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ts/template.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -705,10 +701,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ts/test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/convex.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="83" column="25" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/three.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="98" column="26" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+        <state relative-caret-position="195">
+          <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
           <folding />
         </state>
       </provider>

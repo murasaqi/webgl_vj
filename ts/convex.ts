@@ -21,6 +21,7 @@ class Convex {
     private planevertex:any;
     private convexRotationValues:[];
     private clearColor:any;
+    private camera_timer:number = 0;
 
     public renderer:THREE.WebGLRenderer;
     constructor() {
@@ -142,7 +143,7 @@ class Convex {
 
 
         var meshMaterial = new THREE.MeshPhongMaterial( {
-            color: 0x3b373e,
+            color: 0xffffff*Math.random(),
             shading:THREE.FlatShading,
             //shiness:200
             //wireframe:true
@@ -217,6 +218,8 @@ class Convex {
 
     public update() {
 
+        this.camera_timer += 0.01;
+
         //console.log(this.END);
         if (this.UPDATE == false) {
             //this.scene.remove(this.scene.children[0]);
@@ -268,7 +271,13 @@ class Convex {
         }
 
 
+
+        // this.camera.rotateY(0.1);
         this.pre_sec = date.getSeconds();
+
+        this.camera.position.y = Math.sin(this.camera_timer) * 100-50;
+        //this.camera.position.x = Math.sin(this.camera_timer) *Math.sin(this.camera_timer) * 100;
+        this.camera.lookAt(new THREE.Vector3(0,80,0));
 
         // this.render();
 
