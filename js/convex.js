@@ -54,7 +54,7 @@ var Convex = (function () {
         var dlight02 = new THREE.DirectionalLight(0xffffff, 1.0);
         dlight02.position.set(0, 1, 1);
         dlight02.castShadow = true;
-        this.scene.add(new THREE.DirectionalLightHelper(dlight02, 7));
+        // this.scene.add(new THREE.DirectionalLightHelper(dlight02,7));
         this.scene.add(dlight02);
         var pointlight = new THREE.PointLight(0xffffff, 0.8, 100, 2);
         pointlight.position.set(0, 100, 0);

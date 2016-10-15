@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41384a8a-e3e3-4bb8-bbb1-c11a3fadfef4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/texture/bumpmap.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/texture/nomalmap.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/convex.js" afterPath="$PROJECT_DIR$/js/convex.js" />
@@ -33,17 +31,17 @@
     <splitter split-orientation="horizontal" split-proportion="0.52977777">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="convex.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="convex.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ts/convex.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                <state relative-caret-position="173">
+                  <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="terrain.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="terrain.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/terrain.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="630">
@@ -133,8 +131,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="88">
-                  <caret line="126" column="25" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
+                <state relative-caret-position="43">
+                  <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -219,8 +217,8 @@
         <option value="$PROJECT_DIR$/js/drawcall.js" />
         <option value="$PROJECT_DIR$/ts/box.ts" />
         <option value="$PROJECT_DIR$/tsconfig.json" />
-        <option value="$PROJECT_DIR$/ts/convex.ts" />
         <option value="$PROJECT_DIR$/ts/terrain.ts" />
+        <option value="$PROJECT_DIR$/ts/convex.ts" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -408,12 +406,12 @@
       <workItem from="1476504017135" duration="155000" />
       <workItem from="1476504183730" duration="16807000" />
       <workItem from="1476538464973" duration="52000" />
-      <workItem from="1476538607275" duration="2308000" />
+      <workItem from="1476538607275" duration="2468000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33735000" />
+    <option name="totallyTimeSpent" value="33895000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -716,14 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts/convex.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -756,10 +746,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ts/convex.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="126" column="25" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
+        <state relative-caret-position="43">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
           <folding />
         </state>
       </provider>
