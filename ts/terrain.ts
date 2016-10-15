@@ -1,4 +1,3 @@
-///<reference path="./typings/index.d.ts" />
 class Terrain {
 
     public scene: THREE.Scene;
@@ -24,9 +23,12 @@ class Terrain {
     private NEAR:number = 1;
     private FAR:number = 2000;
     private planeGeo:THREE.Geometry;
+    private planeMat:any;
+
     private vertex:any[] = [];
 
     private planes:THREE.Mesh[] = [];
+    private noise_timer:number;
 
     private cubes:any[] = [];
     private cubePos:any[] = [];
@@ -112,8 +114,12 @@ class Terrain {
         this.planeGeo = new THREE.PlaneGeometry( width, width ,20,20);
         var wirematerial = new THREE.MeshPhongMaterial({
             color:0xffffff,
-            wireframe: true
+            wireframe: true,
+            transparent:true,
+            opacity:0.3
         });
+
+        this.planeMat = wirematerial;
 
         console.log(this.planeGeo);
 
@@ -129,7 +135,6 @@ class Terrain {
             _z += 0.1;
             this.noiseseed.push({x:_x,y:_y,z:_z})
         }
-//        console.log(noiseseed);
 
         var cubemapmaterial = new THREE.MeshPhongMaterial({
             color: 0x000000,
@@ -140,7 +145,7 @@ class Terrain {
         var ypos = 300;
 
 
-        var upperWire = new THREE.Mesh(this.planeGeo,wirematerial);
+        var upperWire = new THREE.Mesh(this.planeGeo,this.planeMat);
         upperWire.rotateX(Math.PI/2);
         upperWire.position.y = ypos;
         upperWire.position.z = 0;
@@ -148,7 +153,7 @@ class Terrain {
         this.scene.add(upperWire);
 
 
-        var wireMesh = new THREE.Mesh(this.planeGeo,wirematerial);
+        var wireMesh = new THREE.Mesh(this.planeGeo,this.planeMat);
         wireMesh.rotateX( - Math.PI / 2 );
         wireMesh.updateMatrix();
 
@@ -174,17 +179,24 @@ class Terrain {
         this.scene.add( this.mainLight );
 
 
-        this.greenLight = new THREE.PointLight( 0x00ff00, 0.25, 1000 );
+        this.greenLight = new THREE.PointLight( 0x26FFE0, 0.3, 1000 );
         this.greenLight.position.set( 550, 50, 0 );
         this.scene.add( this.greenLight );
 
-        this.redLight = new THREE.PointLight( 0xff0000, 0.25, 1000 );
+
+        this.redLight = new THREE.PointLight( 0xFF30FD, 0.3, 1000 );
         this.redLight.position.set( - 550, 50, 0 );
         this.scene.add( this.redLight );
 
-        this.blueLight = new THREE.PointLight( 0x7f7fff, 0.25, 1000 );
+        this.blueLight = new THREE.PointLight( 0xFACC22, 0.3, 1000 );
         this.blueLight.position.set( 0, 50, 550 );
         this.scene.add( this.blueLight );
+
+
+        // this.scene.add( new THREE.PointLightHelper( this.mainLight, 15 ) );
+        // this.scene.add( new THREE.PointLightHelper( this.greenLight, 15 ) );
+        // this.scene.add( new THREE.PointLightHelper( this.redLight, 15 ) );
+        // this.scene.add( new THREE.PointLightHelper( this.blueLight, 15 ) );
 
 
         var centerLight = new THREE.PointLight( 0xffffff, 0.7, 1000 );
@@ -233,6 +245,8 @@ class Terrain {
 
     public update(){
 
+        this.noise_timer += 0.01;
+
 
         //console.log(this.END);
         if (this.UPDATE == false) {
@@ -265,6 +279,10 @@ class Terrain {
 
         this.frameCounter += 0.001;
 
+
+        this.planeMat.opacity = Math.sin(this.timer);
+
+
         this.camera.position.x = Math.sin(this.frameCounter) * 1000;
         this.camera.position.z = Math.cos(this.frameCounter) * 1000;
 
@@ -285,9 +303,10 @@ class Terrain {
         {
             this.cubePos[i].phi += 0.01;
             this.cubePos[i].theta += 0.01;
-            this.cubePos[i].x = 100 * Math.cos(this.cubePos[i].phi)*Math.sin(this.cubePos[i].theta);
-            this.cubePos[i].y = 100 * Math.cos(this.cubePos[i].theta);
-            this.cubePos[i].z = 100 * Math.sin(this.cubePos[i].phi)*Math.sin(this.cubePos[i].theta);
+            var rad = 100 + 100 * Math.sin(this.timer);
+            this.cubePos[i].x = rad * Math.cos(this.cubePos[i].phi)*Math.sin(this.cubePos[i].theta);
+            this.cubePos[i].y = rad * Math.cos(this.cubePos[i].theta);
+            this.cubePos[i].z = rad * Math.sin(this.cubePos[i].phi)*Math.sin(this.cubePos[i].theta);
 
             this.cubes[i].position.x = this.cubePos[i].x;
             this.cubes[i].position.y = this.cubePos[i].y;
@@ -297,17 +316,37 @@ class Terrain {
             //cubes[i].rotation.z -= 0.1;
         }
 
+
+        var rad = Math.sin(this.timer_roop*0.6)*500 +700;
+        this.camera.position.x = rad*Math.sin(this.timer_roop*0.4)*Math.cos(this.timer_roop*0.3*0.4);
+        this.camera.position.z = rad*Math.cos(this.timer_roop*0.4);
+        this.camera.position.y = 100*Math.sin(this.timer_roop*0.4)*Math.sin(this.timer_roop*0.3*0.4);
+        this.camera.lookAt(new THREE.Vector3(0,0,Math.sin(this.timer_roop*0.9)*20));
+
         this.planeGeo.verticesNeedUpdate = true;
 
-        this.mainLight.position.x = 500 * Math.cos(this.timer_roop);
-        this.mainLight.position.z = -800+500 * Math.sin(this.timer_roop);
+        this.mainLight.position.x = 200*Math.sin(this.timer_roop)*Math.cos(this.timer_roop*0.3);
+        this.mainLight.position.z = 200*Math.cos(this.timer_roop);
+        this.mainLight.position.y = 200*Math.sin(this.timer_roop)*Math.sin(this.timer_roop*0.3);
+
+        this.redLight.position.x = 200*Math.sin(this.timer_roop*0.2)*Math.cos(this.timer_roop*0.5);
+        this.redLight.position.z = 200*Math.cos(this.timer_roop*0.2);
+        this.redLight.position.y = 200*Math.sin(this.timer_roop*0.2)*Math.sin(this.timer_roop*0.5);
+
+        this.greenLight.position.x = 200*Math.sin(this.timer_roop+0.5)*Math.cos(this.timer_roop*0.3);
+        this.greenLight.position.z = 200*Math.cos(this.timer_roop+0.5);
+        this.greenLight.position.y = 200*Math.sin(this.timer_roop+0.5)*Math.sin(this.timer_roop*0.3);
+
+        this.blueLight.position.x = 200*Math.sin(this.timer_roop*0.8)*Math.cos(this.timer_roop*0.9);
+        this.blueLight.position.z = 200*Math.cos(this.timer_roop*0.8);
+        this.blueLight.position.y = 200*Math.sin(this.timer_roop*0.8)*Math.sin(this.timer_roop*0.9);
 
 
-        this.redLight.position.x = 450 * Math.cos(this.timer_roop);
-        this.redLight.position.z = -800+450 * Math.sin(this.timer_roop);
-
-        this.blueLight.position.x = 430 * Math.cos(this.timer_roop);
-        this.blueLight.position.z = -800+430 * Math.sin(this.timer_roop);
+        // this.redLight.position.x = 200 * Math.cos(this.timer_roop);
+        // this.redLight.position.z = 200 * Math.sin(this.timer_roop);
+        //
+        // this.blueLight.position.x = 300 * Math.sin(this.timer_roop+0.5);
+        // this.blueLight.position.z = 300 * Math.cos(this.timer_roop+0.5);
 
         this.preSec = date.getSeconds();
     }
