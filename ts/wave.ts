@@ -124,9 +124,9 @@ class Wave {
         }
         this.waveGeomery.verticesNeedUpdate = true;
 
-        // this.scene.rotateX(this.noisestepx*0.05);
-        // this.scene.rotateY(this.noisestepy*0.05);
-        // this.scene.rotateZ(this.noisestepz*0.05);
+        this.scene.rotateX(this.noisestepx*0.05);
+        this.scene.rotateY(this.noisestepy*0.05);
+        this.scene.rotateZ(this.noisestepz*0.05);
 
         this.camera.position.y = 1300+2000*Math.sin(this.timer);
         this.camera.position.x = 1000* Math.cos(this.timer);

@@ -31,8 +31,6 @@ class Convex {
     public remove()
     {
 
-
-
         //console.log(this.scene.children);
         while(this.scene.children.length != 0)
         {
@@ -41,11 +39,7 @@ class Convex {
                 this.scene.children[0].geometry.dispose();
                 this.scene.children[0].material.dispose();
             }
-
-
-
         };
-
 
     }
 
