@@ -341,7 +341,10 @@
         function onWindowResize( event ) {
             scenes[NUM].camera.aspect = window.innerWidth / window.innerHeight;
             scenes[NUM].camera.updateProjectionMatrix();
+            overscene[_NUM].camera.aspect = window.innerWidth / window.innerHeight;
+            overscene[_NUM].camera.updateProjectionMatrix();
             renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer02.setSize( window.innerWidth, window.innerHeight );
         }
 
 
