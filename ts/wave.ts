@@ -48,7 +48,6 @@ class Wave {
     private createScene(){
 
         this.scene = new THREE.Scene();
-        this.scene = new THREE.Scene();
         this.scene.fog = new THREE.Fog(0x000000,0,6000);
         var ambient = new THREE.AmbientLight(0xffffff);
         this.scene.add(ambient);
