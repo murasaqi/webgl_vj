@@ -44,7 +44,7 @@ var Terrain = (function () {
     Terrain.prototype.createScene = function () {
         // シーン (空間) を作成
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.Fog(0x000000, 1, 2500);
+        this.scene.fog = new THREE.Fog(0x000000, 1, 2000);
         // 立方体のジオメトリーを作成
         this.geometry = new THREE.BoxGeometry(1, 1, 1);
         // 緑のマテリアルを作成
