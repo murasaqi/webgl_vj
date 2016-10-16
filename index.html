@@ -225,11 +225,11 @@
             overscene[_NUM].update();
 //            testscene.update();
 //            setTimeout( function() {
-            if(fps % 2 == 0)
-            {
+//            if(fps % 2 == 0)
+//            {
                 renderer.render(scenes[NUM].scene, scenes[NUM].camera);
                 renderer02.render(overscene[_NUM].scene, overscene[_NUM].camera);
-            }
+//            }
                 requestAnimationFrame(render);
 
 //            }, 1000 / 50 );
@@ -297,7 +297,7 @@
 
             if(event.key == "ArrowUp")
             {
-                overAlpha+=0.1;
+                overAlpha+=0.05;
                 if(overAlpha > 1){
                     overAlpha = 1.0;
                 }
@@ -306,7 +306,7 @@
             if(event.key == "ArrowDown")
             {
 
-                overAlpha-=0.1;
+                overAlpha-=0.05;
                 if(overAlpha < 0){
                     overAlpha = 0.0;
                 }

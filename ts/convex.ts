@@ -164,7 +164,7 @@ class Convex {
             wireframeLinewidth:2
         } );
 
-        for(var i = 0; i < 20; i++)
+        for(var i = 0; i < 40; i++)
         {
             this.meshMaterial.wireframe = false;
             var cvMesh = this.createConvexMesh(20,80,30,this.meshMaterial);

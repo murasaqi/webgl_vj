@@ -63,7 +63,7 @@ var Terrain = (function () {
         var wirematerial = new THREE.MeshPhongMaterial({
             color: 0xffffff,
             wireframe: true,
-            wireframeLinewidth: 3,
+            wireframeLinewidth: 2,
             transparent: true,
             opacity: 0.3
         });
@@ -138,7 +138,7 @@ var Terrain = (function () {
             displacementScale: this.settings.displacementScale,
             displacementBias: -0.428408
         });
-        for (var i = 0; i < 30; i++) {
+        for (var i = 0; i < 50; i++) {
             var phi = Math.random() * Math.PI * 2;
             var theta = Math.random() * Math.PI * 2;
             var mesh = new THREE.Mesh(cubeGeomery, cubeMaterial);

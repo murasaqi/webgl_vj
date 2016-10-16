@@ -48,7 +48,7 @@ class Wave {
     private createScene(){
 
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.Fog(0x000000,0,6000);
+        this.scene.fog = new THREE.Fog(0x000000,0,4000);
         var ambient = new THREE.AmbientLight(0xffffff);
         this.scene.add(ambient);
 
@@ -63,8 +63,9 @@ class Wave {
         this.waveMaterial = new THREE.MeshLambertMaterial({
             color:0xffffff,
             wireframe:true,
-            wireframeLinewidth:3
+            wireframeLinewidth:2
         });
+
 
 
         console.log(this.waveGeomery.vertices);
