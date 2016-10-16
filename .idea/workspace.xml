@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41384a8a-e3e3-4bb8-bbb1-c11a3fadfef4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/box.js" afterPath="$PROJECT_DIR$/js/box.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/box.js.map" afterPath="$PROJECT_DIR$/js/box.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/terrain.js" afterPath="$PROJECT_DIR$/js/terrain.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/terrain.js.map" afterPath="$PROJECT_DIR$/js/terrain.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/wave.js" afterPath="$PROJECT_DIR$/js/wave.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/wave.js.map" afterPath="$PROJECT_DIR$/js/wave.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/box.ts" afterPath="$PROJECT_DIR$/ts/box.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/terrain.ts" afterPath="$PROJECT_DIR$/ts/terrain.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/wave.ts" afterPath="$PROJECT_DIR$/ts/wave.ts" />
-    </list>
+    <list default="true" id="41384a8a-e3e3-4bb8-bbb1-c11a3fadfef4" name="Default" comment="" />
     <ignored path="vj_project.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -196,8 +185,8 @@
           <file leaf-file-name="wave.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ts/wave.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="398">
-                  <caret line="127" column="49" selection-start-line="127" selection-start-column="49" selection-end-line="127" selection-end-column="49" />
+                <state relative-caret-position="188">
+                  <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -435,12 +424,12 @@
       <workItem from="1476504017135" duration="155000" />
       <workItem from="1476504183730" duration="16807000" />
       <workItem from="1476538464973" duration="52000" />
-      <workItem from="1476538607275" duration="13730000" />
+      <workItem from="1476538607275" duration="13937000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45157000" />
+    <option name="totallyTimeSpent" value="45364000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -818,18 +807,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts/wave.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="127" column="49" selection-start-line="127" selection-start-column="49" selection-end-line="127" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ts/terrain.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="87" column="52" selection-start-line="87" selection-start-column="52" selection-end-line="87" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/wave.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="114" column="9" selection-start-line="114" selection-start-column="9" selection-end-line="114" selection-end-column="9" />
           <folding />
         </state>
       </provider>
