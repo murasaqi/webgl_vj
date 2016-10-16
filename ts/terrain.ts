@@ -85,7 +85,7 @@ class Terrain {
 
         // シーン (空間) を作成
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.Fog(0x000000,1,2000);
+        this.scene.fog = new THREE.Fog(0x000000,1,2500);
 
         // 立方体のジオメトリーを作成
         this.geometry = new THREE.BoxGeometry( 1, 1, 1 );
@@ -115,6 +115,7 @@ class Terrain {
         var wirematerial = new THREE.MeshPhongMaterial({
             color:0xffffff,
             wireframe: true,
+            wireframeLinewidth: 3,
             transparent:true,
             opacity:0.3
         });
@@ -262,20 +263,6 @@ class Terrain {
         this.timer_roop += 0.03;
 
 
-        //if(this.preSec != date.getSeconds()){
-        // if(this.preSec != date.getSeconds())
-        // {
-        //     this.timer = 0.0;
-        //
-        //     for(var i = 0; i < this.noiseseed.length; i++)
-        //     {
-        //         this.noiseseed[i].x += 0.01;
-        //         this.noiseseed[i].y += 0.03;
-        //         this.noiseseed[i].z += 0.02;
-        //
-        //     }
-        //
-        // }
 
         for(var i = 0; i < this.noiseseed.length; i++)
         {
@@ -307,7 +294,7 @@ class Terrain {
         for(var i = 0; i < this.vertex.length; i++)
         {
 
-            var value = noise.perlin3(this.noiseseed[i].x, this.noiseseed[i].y,this.noiseseed[i].z) * 200+bungValue;
+            var value = noise.perlin3(this.noiseseed[i].x, this.noiseseed[i].y,this.noiseseed[i].z) * 200+bungValue*0.05;
 
 
             //vertex[i].z+=5;
@@ -318,7 +305,7 @@ class Terrain {
         {
             this.cubePos[i].phi += 0.01;
             this.cubePos[i].theta += 0.01;
-            var rad = 200 + 100 * Math.sin(this.timer_roop);
+            var rad = 100 + 100 * Math.sin(this.timer_roop);
             this.cubePos[i].x = rad * Math.cos(this.cubePos[i].phi)*Math.sin(this.cubePos[i].theta);
             this.cubePos[i].y = rad * Math.cos(this.cubePos[i].theta);
             this.cubePos[i].z = rad * Math.sin(this.cubePos[i].phi)*Math.sin(this.cubePos[i].theta);

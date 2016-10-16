@@ -26,7 +26,7 @@ var Wave = (function () {
     Wave.prototype.createScene = function () {
         this.scene = new THREE.Scene();
         this.scene = new THREE.Scene();
-        this.scene.fog = new THREE.Fog(0x000000, 0, 5000);
+        this.scene.fog = new THREE.Fog(0x000000, 0, 6000);
         var ambient = new THREE.AmbientLight(0xffffff);
         this.scene.add(ambient);
         // カメラを作成
@@ -36,7 +36,8 @@ var Wave = (function () {
         this.waveGeomery = new THREE.PlaneGeometry(17000, 17000, 60, 80);
         this.waveMaterial = new THREE.MeshLambertMaterial({
             color: 0xffffff,
-            wireframe: true
+            wireframe: true,
+            wireframeLinewidth: 3
         });
         console.log(this.waveGeomery.vertices);
         for (var i = 0; i < this.waveGeomery.vertices.length; i++) {

@@ -106,7 +106,8 @@ var FloatingBox = (function () {
         this.scene.add(obj);
         var geometry = new THREE.BoxGeometry(40, 40, 40);
         var material = new THREE.MeshPhongMaterial({
-            color: 0x111111,
+            // color:  0x111111,
+            color: 0xffffff,
             specular: 0x555555,
             shininess: 10,
             shading: THREE.FlatShading
