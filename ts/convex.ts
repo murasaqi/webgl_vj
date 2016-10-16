@@ -169,7 +169,7 @@ class Convex {
             this.meshMaterial.wireframe = false;
             var cvMesh = this.createConvexMesh(20,80,30,this.meshMaterial);
             var pos = this.randomPoint();
-            cvMesh.position.set(pos.x*400-150,pos.y*800,pos.z*200-200);
+            cvMesh.position.set(pos.x*400,pos.y*800,pos.z*200-200);
             cvMesh.castShadow = true;
             cvMesh.receiveShadow = true;
             this.convexmeshs.push(cvMesh);
