@@ -246,6 +246,7 @@
                 fadeInOutTimer += 0.07;
                 //screen.style.opacity = Math.sin(fadeInOutTimer);
                 var op = Math.sin(fadeInOutTimer);
+
                 $("#fadeInOut")
                         .css({
                             opacity: op
@@ -263,6 +264,7 @@
                         console.log(scenes[NUM].END);
                         //scenes[NUM].endEnabled();
                         NUM++;
+                        alphaReset();
                         if(scenes.length == NUM){
                             NUM=0;
                         }
@@ -270,8 +272,10 @@
 
                     case 'ArrowLeft':
                         console.log(scenes[NUM].END);
+                        alphaReset();
                         //scenes[NUM].endEnabled();
                         NUM--;
+
                         if(NUM <0){
                             NUM=scenes.length-1;
                         }
@@ -286,6 +290,7 @@
             if(event.key == "ArrowRight" || event.key == "ArrowLeft")
             {
                 keyname = event.key;
+
                 fadeInOutTimer = 0;
                 //scenes[0].meshMaterial.color = 0xffffff*Math.random();
             }
@@ -375,6 +380,21 @@
             //scene = new ThreeJSTest();
             //console.log(scene);
             //scene.render();
+        }
+
+        function alphaReset() {
+            overAlpha = 0.0;
+            mainOP = 1.0;
+
+            $("canvas:last-child")
+                    .css({
+                        opacity: overAlpha
+                    });
+
+            $("#main")
+                    .css({
+                        opacity: 1.0-overAlpha
+                    });
         }
     })();
 
