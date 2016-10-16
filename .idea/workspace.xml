@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41384a8a-e3e3-4bb8-bbb1-c11a3fadfef4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/box.js" afterPath="$PROJECT_DIR$/js/box.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/convex.js" afterPath="$PROJECT_DIR$/js/convex.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/convex.js.map" afterPath="$PROJECT_DIR$/js/convex.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/gpuParticle.js" afterPath="$PROJECT_DIR$/js/gpuParticle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/box.ts" afterPath="$PROJECT_DIR$/ts/box.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/convex.ts" afterPath="$PROJECT_DIR$/ts/convex.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/gpuParticle.ts" afterPath="$PROJECT_DIR$/ts/gpuParticle.ts" />
     </list>
     <ignored path="vj_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +30,8 @@
           <file leaf-file-name="convex.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ts/convex.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="198">
-                  <caret line="167" column="9" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
+                <state relative-caret-position="153">
+                  <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -162,7 +154,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="wave.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="wave.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ts/wave.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="225">
@@ -172,7 +164,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="box.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="box.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/box.ts">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="98">
@@ -439,12 +431,12 @@
       <workItem from="1476504017135" duration="155000" />
       <workItem from="1476504183730" duration="16807000" />
       <workItem from="1476538464973" duration="52000" />
-      <workItem from="1476538607275" duration="21940000" />
+      <workItem from="1476538607275" duration="21984000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53367000" />
+    <option name="totallyTimeSpent" value="53411000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -774,14 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts/wave.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/perlin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -830,14 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts/gpuParticle.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ts/box.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
@@ -848,8 +824,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ts/convex.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="167" column="9" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
+        <state relative-caret-position="153">
+          <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/gpuParticle.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/wave.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
