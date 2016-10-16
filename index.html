@@ -5,6 +5,7 @@
     <title>Simple VJ WebGL</title>
     <style>
         body {
+            font-weight: lighter;
             width: 100%;
             height:100%;
             margin: 0;
@@ -51,6 +52,35 @@
             top: 0;
             left: 0;
             background-color: #000;
+        }
+        .description
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 999999999999;
+            padding: 20px;
+
+        }
+        p
+        {
+            font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+            font-weight: 500;
+            color: #fff;
+            font-size: 12px;
+        }
+        span
+        {
+            color: mediumpurple;
+        }
+        .hide
+        {
+            display: none;
+        }
+        .sceneInfo
+        {
+            line-height: 9px;
         }
     </style>
 </head>
@@ -122,6 +152,23 @@
 			if ( diffuseColor.w < 0.5 ) discard;
 		}
 	</script>
+    <div class="description">
+        <p style="font-weight: bold">Key action</p>
+        <p><span>Left | Right : </span> main scene change</p>
+        <p><span>"0" ~ "3" : </span> main scene change</p>
+        <p><span>Up | Down : </span> scene opacity change</p>
+        <p><span>"A" : </span> sub scene change</p>
+
+        <p><span>"D" : </span> description hide</p>
+
+        <p class="mainscne sceneInfo" style="margin-top: 20px"></p>
+        <p class="mainopacity sceneInfo"></p>
+        <p class="subscene sceneInfo"></p>
+        <p class="subopacity sceneInfo"></p>
+
+
+    </div>
+
 <div id="fadeInOut">
 </div>
 
@@ -133,6 +180,7 @@
     (function () {
 
 
+        window.addEventListener( 'resize', onWindowResize, false );
         var NUM = 0;
         var _NUM = 0;
         var scenes= [];
@@ -220,6 +268,12 @@
         function render() {
             fps ++;
 
+            $('.mainscne').text("main scene num : "+NUM);
+            $('.mainopacity').text('main pacity : ' + (1.0-overAlpha));
+            $('.subscene').text("sub scene num : "+_NUM);
+            $('.subopacity').text('sub pacity : ' + (overAlpha));
+
+
             //fadeInOut();
             scenes[NUM].update();
             overscene[_NUM].update();
@@ -284,6 +338,12 @@
             }
         }
 
+        function onWindowResize( event ) {
+            scenes[NUM].camera.aspect = window.innerWidth / window.innerHeight;
+            scenes[NUM].camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+        }
+
 
         window.document.onkeydown = function (event) {
             console.log(event.key);
@@ -321,14 +381,14 @@
                 }
             }
 
-            if(event.key == "d")
-            {
-                _NUM++;
-                if(_NUM >=overscene.length)
-                {
-                    _NUM = 0;
-                }
-            }
+//            if(event.key == "d")
+//            {
+//                _NUM++;
+//                if(_NUM >=overscene.length)
+//                {
+//                    _NUM = 0;
+//                }
+//            }
 
 
 
@@ -353,6 +413,11 @@
                 {
                     mainOP = 0;
                 }
+            }
+
+            if(event.key == "d")
+            {
+                $(".description").toggleClass("hide");
             }
 
             $("canvas:last-child")
