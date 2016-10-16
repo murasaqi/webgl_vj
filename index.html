@@ -53,6 +53,7 @@
 <script type="text/javascript" src="js/terrain.js"></script>
 <script type="text/javascript" src="js/dat.gui.min.js"></script>
 <script type="text/javascript" src="js/particle.js"></script>
+<script type="text/javascript" src="js/cameraEffect.js"></script>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 <div id="fadeInOut">
@@ -85,8 +86,9 @@
         function init() {
 //            screen = document.getElementsByName("fadeInOut");
 //            screen.style.backgroundColor = '0xffffff';
+            overscene = [];
 
-
+//            scenes.push( new CameraEffect());
 
 
             var _scene = new Convex()
@@ -107,7 +109,9 @@
 //            var _scene = new Particle()
 //            scenes.push(_scene);
 
-            overscene = new Particle();
+
+            overscene.push( new Particle());
+            overscene.push( new CameraEffect());
             var keyname;
 
 
@@ -143,11 +147,11 @@
 
             //fadeInOut();
             scenes[NUM].update();
-            overscene.update();
+            overscene[0].update();
 //            testscene.update();
             requestAnimationFrame(render);
             renderer.render(scenes[NUM].scene, scenes[NUM].camera);
-            renderer02.render(overscene.scene, overscene.camera);
+            renderer02.render(overscene[0].scene, overscene[0].camera);
            if(fadeInOutTimer >= 0)
            {
                fadeInOut();
