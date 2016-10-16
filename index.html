@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <title>Simple VJ WebGL</title>
     <style>
-        body { margin: 0; }
+        body {
+            width: 100%;
+            height:100%;
+            margin: 0;
+            background-color: #000
+        }
         canvas {
             width: 100%;
             height: 100%;
             position: fixed;
             top: 0;
             left: 0;
+            opacity: 1.0;
         }
         canvas:last-child {
             opacity: 0.0;
@@ -40,7 +46,6 @@
     </style>
 </head>
 <body>
-<canvas id="world"></canvas>
 <script type="text/javascript" src="js/three.min.js"></script>
 <script type="text/javascript" src="js/audio.js"></script>
 <script type="text/javascript" src="js/convex.js"></script>
@@ -116,6 +121,7 @@
 
     (function () {
 
+
         var NUM = 0;
         var _NUM = 0;
         var scenes= [];
@@ -123,6 +129,7 @@
         var fadeInOutTimer = -1;
         var screen;
         var overAlpha = 0;
+        var mainOP = 1.0;
 
 
 
@@ -181,6 +188,7 @@
             renderer.sortObjects = false;
             renderer.shadowMap.enabled = true;
             renderer.shadowMap.type = THREE.PCFShadowMap;
+            renderer.domElement.id = "main";
             document.body.appendChild( renderer.domElement );
 
             renderer02 = new THREE.WebGLRenderer({antialias: true,alpha: true});
@@ -197,6 +205,7 @@
 
 // レンダリング
         function render() {
+
 
             //fadeInOut();
             scenes[NUM].update();
@@ -294,10 +303,42 @@
                 }
             }
 
+
+
+
+            if(event.key == "q")
+            {
+                mainOP+=0.1;
+
+                if(mainOP > 1)
+                {
+                    mainOP = 1.0;
+                }
+
+                console.log(mainOP);
+            }
+
+            if(event.key == "w")
+            {
+                mainOP-=0.1;
+                console.log(mainOP);
+                if(mainOP<=0)
+                {
+                    mainOP = 0;
+                }
+            }
+
             $("canvas:last-child")
                     .css({
                         opacity: overAlpha
                     });
+
+            $("#main")
+                    .css({
+                        opacity: mainOP
+                    });
+
+
 
 
             if(isFinite(event.key))

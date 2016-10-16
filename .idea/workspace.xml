@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41384a8a-e3e3-4bb8-bbb1-c11a3fadfef4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/texture/circle.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ts/gpuParticle.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/wave.js" afterPath="$PROJECT_DIR$/js/wave.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/wave.js.map" afterPath="$PROJECT_DIR$/js/wave.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/wave.ts" afterPath="$PROJECT_DIR$/ts/wave.ts" />
     </list>
     <ignored path="vj_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -143,8 +138,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="290" column="42" selection-start-line="290" selection-start-column="42" selection-end-line="290" selection-end-column="42" />
+                <state relative-caret-position="60">
+                  <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -259,8 +254,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="35" />
-    <option name="y" value="104" />
+    <option name="x" value="61" />
+    <option name="y" value="224" />
     <option name="width" value="1316" />
     <option name="height" value="802" />
   </component>
@@ -437,12 +432,12 @@
       <workItem from="1476504017135" duration="155000" />
       <workItem from="1476504183730" duration="16807000" />
       <workItem from="1476538464973" duration="52000" />
-      <workItem from="1476538607275" duration="17317000" />
+      <workItem from="1476538607275" duration="18491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48744000" />
+    <option name="totallyTimeSpent" value="49918000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,7 +449,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="35" y="104" width="1316" height="802" extended-state="0" />
+    <frame x="61" y="224" width="1316" height="802" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.118309855" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -827,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="290" column="42" selection-start-line="290" selection-start-column="42" selection-end-line="290" selection-end-column="42" />
+        <state relative-caret-position="60">
+          <caret line="45" column="12" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
           <folding />
         </state>
       </provider>
