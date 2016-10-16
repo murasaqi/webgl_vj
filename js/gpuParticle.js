@@ -25,7 +25,7 @@ var GPUParticle = (function () {
         this.scene = new THREE.Scene();
         this.geometry = new THREE.InstancedBufferGeometry();
         this.geometry.copy(new THREE.CircleBufferGeometry(1, 6));
-        var particleCount = 20000;
+        var particleCount = 10000;
         var translateArray = new Float32Array(particleCount * 3);
         for (var i = 0, i3 = 0, l = particleCount; i < l; i++, i3 += 3) {
             translateArray[i3 + 0] = Math.random() * 2 - 1;

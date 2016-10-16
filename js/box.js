@@ -112,7 +112,7 @@ var FloatingBox = (function () {
             shininess: 10,
             shading: THREE.FlatShading
         });
-        for (var i = 0; i < 80; i++) {
+        for (var i = 0; i < 60; i++) {
             var theta = Math.random() * Math.PI * 2;
             var phi = Math.random() * Math.PI * 2;
             var object = new THREE.Mesh(geometry, material);

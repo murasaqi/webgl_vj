@@ -21,7 +21,9 @@ class Convex {
     private planevertex:any;
     private convexRotationValues:[];
     private clearColor:any;
+    public color:THREE.Color;
     private camera_timer:number = 0;
+    public meshMaterial:any;
 
 
 
@@ -144,9 +146,10 @@ class Convex {
         //
         // });
 
+        this.color = 0xffffff*Math.random();
 
-        var meshMaterial = new THREE.MeshPhongMaterial( {
-            color: 0xffffff*Math.random(),
+        this.meshMaterial = new THREE.MeshPhongMaterial( {
+            color: this.color,
             shading:THREE.FlatShading,
             //shiness:200
             //wireframe:true
@@ -161,12 +164,12 @@ class Convex {
             wireframeLinewidth:2
         } );
 
-        for(var i = 0; i < 30; i++)
+        for(var i = 0; i < 20; i++)
         {
-            meshMaterial.wireframe = false;
-            var cvMesh = this.createConvexMesh(20,80,20,meshMaterial);
+            this.meshMaterial.wireframe = false;
+            var cvMesh = this.createConvexMesh(20,80,30,this.meshMaterial);
             var pos = this.randomPoint();
-            cvMesh.position.set(pos.x*200,pos.y*800,pos.z*200-200);
+            cvMesh.position.set(pos.x*400-150,pos.y*800,pos.z*200-200);
             cvMesh.castShadow = true;
             cvMesh.receiveShadow = true;
             this.convexmeshs.push(cvMesh);
@@ -237,8 +240,11 @@ class Convex {
 
         var date = new Date();
 
+
+
         if(this.pre_sec != date.getSeconds()){
             this.timer = 0.0;
+
 
             for(var i = 0; i < this.noiseseed.length; i++)
             {

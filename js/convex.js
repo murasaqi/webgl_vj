@@ -81,8 +81,9 @@ var Convex = (function () {
         //     scene.fog = new THREE.Fog(new THREE.Color(e),0,1300);
         //
         // });
-        var meshMaterial = new THREE.MeshPhongMaterial({
-            color: 0xffffff * Math.random(),
+        this.color = 0xffffff * Math.random();
+        this.meshMaterial = new THREE.MeshPhongMaterial({
+            color: this.color,
             shading: THREE.FlatShading
         });
         var meshwireMaterial = new THREE.MeshBasicMaterial({
@@ -92,11 +93,11 @@ var Convex = (function () {
             wireframe: true,
             wireframeLinewidth: 2
         });
-        for (var i = 0; i < 30; i++) {
-            meshMaterial.wireframe = false;
-            var cvMesh = this.createConvexMesh(20, 80, 20, meshMaterial);
+        for (var i = 0; i < 20; i++) {
+            this.meshMaterial.wireframe = false;
+            var cvMesh = this.createConvexMesh(20, 80, 30, this.meshMaterial);
             var pos = this.randomPoint();
-            cvMesh.position.set(pos.x * 200, pos.y * 800, pos.z * 200 - 200);
+            cvMesh.position.set(pos.x * 400 - 150, pos.y * 800, pos.z * 200 - 200);
             cvMesh.castShadow = true;
             cvMesh.receiveShadow = true;
             this.convexmeshs.push(cvMesh);

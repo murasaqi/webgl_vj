@@ -215,16 +215,26 @@
 
 
 // レンダリング
-        function render() {
 
+        var fps = 0;
+        function render() {
+            fps ++;
 
             //fadeInOut();
             scenes[NUM].update();
             overscene[_NUM].update();
 //            testscene.update();
-            requestAnimationFrame(render);
-            renderer.render(scenes[NUM].scene, scenes[NUM].camera);
-            renderer02.render(overscene[_NUM].scene, overscene[_NUM].camera);
+//            setTimeout( function() {
+            if(fps % 2 == 0)
+            {
+                renderer.render(scenes[NUM].scene, scenes[NUM].camera);
+                renderer02.render(overscene[_NUM].scene, overscene[_NUM].camera);
+            }
+                requestAnimationFrame(render);
+
+//            }, 1000 / 50 );
+
+
            if(fadeInOutTimer >= 0)
            {
                fadeInOut();
@@ -277,6 +287,7 @@
             {
                 keyname = event.key;
                 fadeInOutTimer = 0;
+                //scenes[0].meshMaterial.color = 0xffffff*Math.random();
             }
 
             if(event.key == "ArrowUp")
