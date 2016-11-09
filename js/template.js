@@ -1,3 +1,4 @@
+/// <reference path="typings/tsd.d.ts" />
 var Template = (function () {
     function Template() {
         this.UPDATE = true;

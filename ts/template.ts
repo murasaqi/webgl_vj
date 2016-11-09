@@ -1,3 +1,4 @@
+/// <reference path="typings/tsd.d.ts" />
 class Template {
 
     public scene: THREE.Scene;
@@ -13,7 +14,6 @@ class Template {
     }
     public remove()
     {
-
 
 
         //console.log(this.scene.children);

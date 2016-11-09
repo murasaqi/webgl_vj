@@ -149,16 +149,13 @@ class FloatingBox {
             color:0xffffff,
             roughness: settings.roughness,
             metalness: settings.metalness,
-
             normalMap: this.normalMap,
             normalScale: new THREE.Vector2( 1, - 1 ), // why does the normal map require negation in this case?
-
             displacementMap: this.displacementMap,
             displacementScale: settings.displacementScale,
             displacementBias: - 0.428408, // from original model
             map:this.map,
             side: THREE.DoubleSide
-
         });
         var planeWireMaterial = new THREE.MeshPhongMaterial({
             color:0x000000,

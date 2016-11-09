@@ -1,3 +1,4 @@
+///<reference path="typings/index.d.ts" />
 var Wave = (function () {
     function Wave() {
         this.UPDATE = true;

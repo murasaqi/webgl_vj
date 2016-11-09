@@ -3,5 +3,11 @@
     "target": "ES5",
     "module": "commonjs",
     "sourceMap": true
-  }
+  },
+
+  "exclude": [
+    "node_modules",
+    "typings/index.d.ts", // これと
+    "typings/globals"
+  ]
 }

@@ -1,3 +1,4 @@
+///<reference path="typings/index.d.ts" />
 class Wave {
 
     public scene: THREE.Scene;
@@ -6,7 +7,6 @@ class Wave {
     public waveGeomery:THREE.Geometry;
     public waveMaterial:THREE.Geometry;
     public waveMesh:THREE.Mesh;
-
     public UPDATE:boolean = true;
     public END:boolean = false;
     private controls:any;

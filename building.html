@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple VJ WebGL</title>
+    <style>
+        body {
+            font-weight: lighter;
+            width: 100%;
+            height:100%;
+            margin: 0;
+            background-color: #000
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 1.0;
+        }
+        canvas:last-child {
+            opacity: 0.0;
+        }
+        #fadeInOut
+        {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #000;
+            opacity: 0.0;
+            z-index: 999;
+        }
+
+        #world
+        {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 0.0;
+
+        }
+        #bg
+        {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #000;
+        }
+        .description
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 999999999999;
+            padding: 20px;
+
+        }
+        p
+        {
+            font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+            font-weight: 500;
+            color: #fff;
+            font-size: 12px;
+        }
+        span
+        {
+            color: mediumpurple;
+        }
+        .hide
+        {
+            display: none;
+        }
+        .sceneInfo
+        {
+            line-height: 9px;
+        }
+
+        #main
+        {
+            z-index: 999;
+        }
+
+        .ac
+        {
+            z-index: 99999999999!important;
+        }
+
+
+    </style>
+    <meta property='og:image' content='https://murasaki-uma.github.io/webgl_vj/img/og.png' />
+    <meta property='og:description' content='simple vj app on browser' />
+    <meta property='og:title' content='simple webgl vj' />
+</head>
+<body>
+<div id="bg"></div>>
+<canvas id="world"></canvas>
+<script type="text/javascript" src="js/dat.gui.min.js"></script>
+<script type="text/javascript" src="js/perlin.js"></script>
+<script type="text/javascript" src="js/three.min.js"></script>
+<script type="text/javascript" src="js/GPUComputationRenderer.js"></script>
+<script type="text/javascript" src="js/GPUParticleSystem.js"></script>
+<script src="js/Detector.js"></script>
+<script src="js/stats.min.js"></script>
+<script type="text/javascript" src="js/OrbitControls.js"></script>
+<script type="text/javascript" src="js/building_secne01.js"></script>
+<script type="text/javascript" src="js/GPGPUParticle.js"></script>
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+<div class="description">
+    <p style="font-weight: bold">Key action</p>
+    <p><span>Left | Right : </span> main scene change</p>
+    <p><span>"0" ~ "3" : </span> main scene change</p>
+    <p><span>Up | Down : </span> scene opacity change</p>
+    <p><span>"A" : </span> sub scene change</p>
+
+    <p><span>"D" : </span> description hide</p>
+
+    <p class="mainscne sceneInfo" style="margin-top: 20px"></p>
+    <p class="mainopacity sceneInfo"></p>
+    <p class="subscene sceneInfo"></p>
+    <p class="subopacity sceneInfo"></p>
+
+
+</div>
+
+<div id="fadeInOut">
+</div>
+
+<script>
+    var SCENE_NUM = 0;
+
+
+
+    (function () {
+
+
+        window.addEventListener( 'resize', onWindowResize, false );
+        var NUM = 0;
+        var _NUM = 0;
+        var scenes= [];
+
+        var fadeInOutTimer = -1;
+        var overAlpha = 0;
+        var mainOP = 1.0;
+
+
+
+        // シーン
+        var scene,renderer;
+        var renderer02,overscene;
+
+
+        init();
+        render();
+
+        function init() {
+
+
+            renderer = new THREE.WebGLRenderer({antialias: true});
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.sortObjects = false;
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFShadowMap;
+            renderer.domElement.id = "main";
+            document.body.appendChild( renderer.domElement );
+
+            renderer02 = new THREE.WebGLRenderer({antialias: true,alpha: true});
+            renderer02.setSize( window.innerWidth, window.innerHeight );
+            renderer02.sortObjects = false;
+            renderer02.domElement.id = "sub";
+            renderer02.shadowMap.enabled = true;
+            renderer02.shadowMap.type = THREE.PCFShadowMap;
+            renderer02.setClearColor( 0x000000, 0 );
+            document.body.appendChild( renderer02.domElement );
+
+
+            overscene = [];
+            scenes.push( new building_00());
+            scenes.push( new GPGPUParticle(renderer));
+            scenes[NUM].initOrbitControls(renderer);
+
+
+
+
+
+        }
+
+
+// レンダリング
+
+        var fps = 0;
+        function render() {
+            fps ++;
+
+            $('.mainscne').text("main scene num : "+NUM);
+            $('.mainopacity').text('main pacity : ' + (1.0-overAlpha));
+            $('.subscene').text("sub scene num : "+_NUM);
+            $('.subopacity').text('sub pacity : ' + (overAlpha));
+
+
+            scenes[NUM].update();
+            scenes[0].updateControls();
+//            overscene[_NUM].update();
+            renderer.render(scenes[NUM].scene, scenes[NUM].camera);
+//            renderer02.render(overscene[_NUM].scene, overscene[_NUM].camera);
+            requestAnimationFrame(render);
+            if(fadeInOutTimer >= 0)
+            {
+                fadeInOut();
+            }
+        }
+
+        function fadeInOut() {
+            if(fadeInOutTimer <= Math.PI*2){
+                fadeInOutTimer += 0.07;
+                //screen.style.opacity = Math.sin(fadeInOutTimer);
+                var op = Math.sin(fadeInOutTimer);
+
+                $("#fadeInOut")
+                        .css({
+                            opacity: op
+                        });
+            } else {
+
+                fadeInOutTimer = -1;
+                op = 0.0;
+            }
+
+            if(op > 0.95 && op <= 1.0)
+            {
+                switch (keyname) {
+                    case 'ArrowRight':
+                        console.log(scenes[NUM].END);
+                        //scenes[NUM].endEnabled();
+                        NUM++;
+                        alphaReset();
+                        if(scenes.length == NUM){
+                            NUM=0;
+                        }
+                        break;
+
+                    case 'ArrowLeft':
+                        console.log(scenes[NUM].END);
+                        alphaReset();
+                        //scenes[NUM].endEnabled();
+                        NUM--;
+
+                        if(NUM <0){
+                            NUM=scenes.length-1;
+                        }
+                        break;
+                }
+            }
+        }
+
+        function onWindowResize( event ) {
+            scenes[NUM].camera.aspect = window.innerWidth / window.innerHeight;
+            scenes[NUM].camera.updateProjectionMatrix();
+//            overscene[_NUM].camera.aspect = window.innerWidth / window.innerHeight;
+//            overscene[_NUM].camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer02.setSize( window.innerWidth, window.innerHeight );
+        }
+
+
+        window.document.onkeydown = function (event) {
+            console.log(event.key);
+            if(event.key == "ArrowRight" || event.key == "ArrowLeft")
+            {
+                keyname = event.key;
+
+                fadeInOutTimer = 0;
+                //scenes[0].meshMaterial.color = 0xffffff*Math.random();
+            }
+
+            if(event.key == "ArrowUp")
+            {
+                overAlpha+=0.05;
+                if(overAlpha > 1){
+                    overAlpha = 1.0;
+                }
+            }
+
+            if(event.key == "ArrowDown")
+            {
+
+                overAlpha-=0.05;
+                if(overAlpha < 0){
+                    overAlpha = 0.0;
+                }
+            }
+
+            if(event.key == "a")
+            {
+                _NUM--;
+                if(_NUM <0)
+                {
+                    _NUM = overscene.length-1;
+                }
+            }
+
+
+            if(event.key == "q")
+            {
+                mainOP+=0.1;
+
+                if(mainOP > 1)
+                {
+                    mainOP = 1.0;
+                }
+
+                console.log(mainOP);
+            }
+
+            if(event.key == "w")
+            {
+                mainOP-=0.1;
+                console.log(mainOP);
+                if(mainOP<=0)
+                {
+                    mainOP = 0;
+                }
+            }
+
+            if(event.key == "d")
+            {
+                $(".description").toggleClass("hide");
+            }
+
+            $("canvas:last-child")
+                    .css({
+                        opacity: overAlpha
+                    });
+
+            $("#main")
+                    .css({
+                        opacity: 1.0-overAlpha
+                    });
+
+
+
+
+            if(isFinite(event.key))
+            {
+
+                NUM = event.key;
+                if(NUM >= scenes.length)
+                {
+                    NUM = scenes.length-1;
+                }
+            }
+
+        }
+
+        function alphaReset() {
+            overAlpha = 0.0;
+            mainOP = 1.0;
+
+            $("canvas:last-child")
+                    .css({
+                        opacity: overAlpha
+                    });
+
+            $("#main")
+                    .css({
+                        opacity: 1.0-overAlpha
+                    });
+        }
+    })();
+
+
+</script>
+</body>
+</html>
