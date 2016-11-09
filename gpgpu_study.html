@@ -488,7 +488,7 @@
     }
 
     function getCameraConstant( camera ) {
-        // カメラ情報を計算。
+        // カメラ情報をから遠近を計算。
         return window.innerHeight / ( Math.tan( THREE.Math.DEG2RAD * 0.5 * camera.fov*0.57 ) / camera.zoom );
 
     }
