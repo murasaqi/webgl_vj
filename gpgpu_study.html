@@ -68,7 +68,6 @@
             'uniform float offsetC_x;',
             'uniform float offsetC_y;',
             'uniform float offsetC_z;',
-            'uniform float time;',
             'float rnd(vec2 p){',
             '    return fract(sin(dot(p ,vec2(12.9898,78.233))) * 43758.5453);',
             '}',
@@ -278,21 +277,23 @@
 
 
     if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-    var WIDTH = 100;
+    var WIDTH ;
     var container, stats;
-    var camera, scene, renderer, geometry, controls;
-    var PARTICLES = WIDTH * WIDTH;
+    var camera;
+    var scene;
+    var renderer;
+    var geometry;
+    var controls;
+    var PARTICLES;
 
 
     var gpuCompute;
     var velocityVariable;
     var positionVariable;
     var offsetVariable;
-    var positionUniforms;
     var velocityUniforms;
     var offsetUniforms;
     var particleUniforms;
-    var effectController;
     init();
     animate();
     function init() {
@@ -309,13 +310,12 @@
         renderer.setSize( window.innerWidth, window.innerHeight );
         container.appendChild( renderer.domElement );
         controls = new THREE.OrbitControls( camera, renderer.domElement );
-        effectController = {
-            time: 0.0,
-        };
+
+        WIDTH = 100;
+        PARTICLES = WIDTH * WIDTH;
 
         // gpuCopute用のRenderを作る
         initComputeRenderer();
-
 
         // リサイズイベントの登録
         window.addEventListener( 'resize', onWindowResize, false );
@@ -336,8 +336,7 @@
         // noiseに使うoffset
         var dtOffset = gpuCompute.createTexture();
 
-
-        // おまじない
+        // テクスチャーにデータを保存する
         fillTextures( dtPosition, dtVelocity,dtOffset );
 
         // shader Programの登録
@@ -345,23 +344,17 @@
         positionVariable = gpuCompute.addVariable( "texturePosition", computeShaderPosition.shader, dtPosition );
         offsetVariable = gpuCompute.addVariable( "offsetValue", offsetValueShader.shader, dtOffset );
 
-
+        // Shaderの依存関係を設定
         gpuCompute.setVariableDependencies( velocityVariable, [ positionVariable, velocityVariable, offsetVariable ] );
         gpuCompute.setVariableDependencies( positionVariable, [ positionVariable, velocityVariable, offsetVariable ] );
         gpuCompute.setVariableDependencies( offsetVariable,   [ positionVariable, velocityVariable, offsetVariable ] );
 
 
-        // uniform変数の登録？
-        positionUniforms = positionVariable.material.uniforms;
+        // uniform変数の登録
         velocityUniforms = velocityVariable.material.uniforms;
         offsetUniforms   = offsetVariable.material.uniforms;
-//        velocityUniforms.gravityConstant = { value: 0.0 };
-//        velocityUniforms.density = { value: 0.0 };
-
-
         velocityUniforms.time = { value: 1.0 };
         var seed = 0.1;
-        positionUniforms.time = {value: 0.0};
         velocityUniforms.offseX = {value: Math.random()*seed};
         velocityUniforms.offseY = {value: Math.random()*seed};
         velocityUniforms.offseZ = {value: Math.random()*seed};
@@ -388,6 +381,7 @@
             // z
             positions[ p++ ] = 0;
         }
+
         // テクスチャーに保存した情報を取り出すためにvec2(x,y)座標を記録
         var uvs = new Float32Array( PARTICLES * 2 );
         p = 0;
@@ -397,7 +391,6 @@
                 uvs[ p++ ] = j / ( WIDTH - 1 );
             }
         }
-
 
         // vertex-shaderに登録
         geometry.addAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
@@ -428,6 +421,7 @@
         // シーンに追加
         scene.add( particles );
     }
+
     function fillTextures( texturePosition, textureVelocity,offsetValue ) {
 
         // 場所と移動方向を保存するテクスチャーの初期化
@@ -435,19 +429,9 @@
         var velArray = textureVelocity.image.data;
         var offsetArray = offsetValue.image.data;
 
-        var phi =0;
-        var theta = 0;
-
-        var xoff = 0;
-        var yoff = 0;
-        var zoff = 0;
-
         for ( var k = 0, kl = posArray.length; k < kl; k += 4 ) {
             // Position
             var x, y, z;
-            phi = Math.random() * Math.PI*2;
-            theta = Math.random() * Math.PI*2;
-
             var width = 50;
 
             x = Math.random()*width-width/2;
@@ -463,16 +447,9 @@
             velArray[ k + 2 ] = Math.random()*0.2-0.1;
             velArray[ k + 3 ] = Math.random()*0.2-0.1;
 
-            // x
-            xoff += 0.1;
             offsetArray[ k + 0 ] = x;
-            // y
-            yoff += 0.2;
             offsetArray[ k + 1 ] = y;
-            // z
-            zoff += 0.15;
             offsetArray[ k + 2 ] = z;
-
             offsetArray[ k + 3 ] = 0;
         }
 
@@ -510,7 +487,6 @@
         particleUniforms.textureVelocity.value = gpuCompute.getCurrentRenderTarget( velocityVariable ).texture;
         // uniform変数の値を更新
         velocityUniforms.time.value = new Date().getSeconds()*0.01;
-        positionUniforms.time.value += 1.0;
         // レンダリング
         renderer.render( scene, camera );
         console.log(camera.fov);

@@ -1,4 +1,4 @@
-/// <reference path="typings/tsd.d.ts" />
+/// <reference path="typings/index.d.ts" />
 class Template {
 
     public scene: THREE.Scene;
@@ -12,6 +12,53 @@ class Template {
         this.createScene();
 
     }
+
+
+    public update() {
+
+        //console.log(this.END);
+        if (this.UPDATE == false) {
+            //this.scene.remove(this.scene.children[0]);
+            this.remove();
+            if (this.scene.children.length == 0) {
+                this.END = true;
+            }
+
+        }
+
+    }
+
+    private createScene(){
+
+        this.scene = new THREE.Scene();
+        this.scene = new THREE.Scene();
+        // this.scene.fog = new THREE.Fog(0x000000,-500,3000);
+
+
+        // カメラを作成
+        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 10000 );
+        this.camera.position.z = 1000;
+
+
+
+
+
+
+    }
+
+    public click()
+    {
+
+    }
+
+    public  initOrbitControls()
+    {
+        // this.controls = new THREE.OrbitControls(this.camera,this.renderer.domElement);
+        // this.controls.enableKeys = false;
+    }
+
+
+
     public remove()
     {
 
@@ -33,20 +80,7 @@ class Template {
     }
 
 
-    private createScene(){
 
-        this.scene = new THREE.Scene();
-        this.scene = new THREE.Scene();
-        // this.scene.fog = new THREE.Fog(0x000000,-500,3000);
-
-
-        // カメラを作成
-        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 10000 );
-        this.camera.position.z = 1000;
-
-
-
-    }
 
 
 
@@ -56,19 +90,7 @@ class Template {
     }
 
 
-    public update() {
 
-        //console.log(this.END);
-        if (this.UPDATE == false) {
-            //this.scene.remove(this.scene.children[0]);
-            this.remove();
-            if (this.scene.children.length == 0) {
-                this.END = true;
-            }
-
-        }
-
-    }
 
 
 }

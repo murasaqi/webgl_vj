@@ -201,6 +201,9 @@ class building_00 {
 
         this.particleSystem.update(this.tick);
 
+        // this.camera.position.z -= 5;
+
+        //this.camera.position.set(0,0,new Date().getSeconds()*-1);
         // this.timer+=0.01;
         //
         // var date = new Date();

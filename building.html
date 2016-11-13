@@ -112,6 +112,9 @@
 <script type="text/javascript" src="js/OrbitControls.js"></script>
 <script type="text/javascript" src="js/building_secne01.js"></script>
 <script type="text/javascript" src="js/GPGPUParticle.js"></script>
+<script type="text/javascript" src="js/WireBox.js"></script>
+<script type="text/javascript" src="js/BigBox.js"></script>
+<script type="text/javascript" src="js/frame.js"></script>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 <div class="description">
@@ -143,6 +146,7 @@
 
 
         window.addEventListener( 'resize', onWindowResize, false );
+        window.addEventListener( 'click', onWindowClick, false );
         var NUM = 0;
         var _NUM = 0;
         var scenes= [];
@@ -184,9 +188,18 @@
 
 
             overscene = [];
-            scenes.push( new building_00());
-            scenes.push( new GPGPUParticle(renderer));
-            scenes[NUM].initOrbitControls(renderer);
+//            scenes.push( new building_00());
+//            scenes.push( new GPGPUParticleScene(renderer));
+            scenes.push(new Frame(renderer));
+            scenes.push(new LineBoxScene(renderer));
+
+
+
+            for(var i = 0; i < scenes.length; i++)
+            {
+                scenes[i].initOrbitControls(renderer);
+            }
+
 
 
 
@@ -208,7 +221,7 @@
 
 
             scenes[NUM].update();
-            scenes[0].updateControls();
+//            scenes[0].updateControls();
 //            overscene[_NUM].update();
             renderer.render(scenes[NUM].scene, scenes[NUM].camera);
 //            renderer02.render(overscene[_NUM].scene, overscene[_NUM].camera);
@@ -265,10 +278,16 @@
         function onWindowResize( event ) {
             scenes[NUM].camera.aspect = window.innerWidth / window.innerHeight;
             scenes[NUM].camera.updateProjectionMatrix();
+            scenes[NUM].resize();
 //            overscene[_NUM].camera.aspect = window.innerWidth / window.innerHeight;
 //            overscene[_NUM].camera.updateProjectionMatrix();
             renderer.setSize( window.innerWidth, window.innerHeight );
             renderer02.setSize( window.innerWidth, window.innerHeight );
+        }
+
+        function onWindowClick( event ) {
+            scenes[NUM].click();
+
         }
 
 

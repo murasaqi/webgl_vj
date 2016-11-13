@@ -135,6 +135,8 @@ var building_00 = (function () {
             this.particleSystem.spawnParticle(this.options);
         }
         this.particleSystem.update(this.tick);
+        // this.camera.position.z -= 5;
+        //this.camera.position.set(0,0,new Date().getSeconds()*-1);
         // this.timer+=0.01;
         //
         // var date = new Date();
