@@ -157,9 +157,9 @@ var computeShaderVelocity = {
         '    float _scale = snoise(pos)*0.1;',
         '    //float _scale = 0.04;',
         '    vec3 n = normalize(translate)+normalize(pos);',
-        '    vel.x=snoise(vec3(pos.x*scale, pos.y*scale,time*scalex+offsetX));',
-        '    vel.y=snoise(vec3(pos.x*scale, pos.y*scale,time*scaley+offsetY));',
-        '    vel.z=snoise(vec3(pos.x*scale, pos.y*scale,time*scalez+offsetZ));',
+        '    vel.x=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetX));',
+        '    vel.y=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetY));',
+        '    vel.z=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetZ));',
         '    vel += n*1.0;',
         '    vel.z *=0.5;',
         '    // ノイズの値を位置情報から生成',
@@ -264,6 +264,9 @@ var GPGPUParticle = (function () {
         this.offsetUniforms = this.offsetVariable.material.uniforms;
         this.positionUniforms = this.positionVariable.material.uniforms;
         this.velocityUniforms.time = { value: 1.0 };
+        this.velocityUniforms.offsetX = { value: Math.random() };
+        this.velocityUniforms.offsetY = { value: Math.random() };
+        this.velocityUniforms.offsetZ = { value: Math.random() };
         this.positionUniforms.alpha = { value: 1.0 };
         var seed = 0.1;
         this.velocityUniforms.offseX = { value: Math.random() * seed };
@@ -374,6 +377,7 @@ var GPGPUParticle = (function () {
         this.group.position.set(pos.x, pos.y, pos.z);
     };
     GPGPUParticle.prototype.update = function () {
+        this.renderer.setClearColor(0x000000, 1.0);
         // this.resize();
         if (this.startUpdate) {
             if (this.particleUniforms.alpha.value >= 0.0) {

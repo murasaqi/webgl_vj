@@ -14,6 +14,7 @@ class WierBox
     private depth:number = 100;
     private color:any;
     private isCreateFace:Boolean;
+    public rotation:any;
 
     private alpah:Number = 0.5;
     public position:THREE.Vector3 = new THREE.Vector3(0,0,0);
@@ -32,6 +33,7 @@ class WierBox
         this.position.set(position.x,position.y,position.z);
         this.color = color;
         this.isCreateFace = isCreateFace;
+        this.rotation = this.Obj.rotation;
 
         this.init();
     }
@@ -202,6 +204,7 @@ class WierBox
         var p = this.Obj.position;
         p.z--;
 
+        // this.Obj.rotateX(0.1)
         // this.Obj.position.set(
 
     }

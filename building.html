@@ -109,6 +109,7 @@
 <script type="text/javascript" src="js/GPUParticleSystem.js"></script>
 <script src="js/Detector.js"></script>
 <script src="js/stats.min.js"></script>
+<script type="text/javascript" src="js/Tween.js"></script>
 <script type="text/javascript" src="js/OrbitControls.js"></script>
 <script type="text/javascript" src="js/building_secne01.js"></script>
 <script type="text/javascript" src="js/GPGPUParticle.js"></script>
@@ -147,6 +148,7 @@
 
         window.addEventListener( 'resize', onWindowResize, false );
         window.addEventListener( 'click', onWindowClick, false );
+        //window.addEventListener( 'keydown', onWindowKeyDown, false );
         var NUM = 0;
         var _NUM = 0;
         var scenes= [];
@@ -189,9 +191,9 @@
 
             overscene = [];
 //            scenes.push( new building_00());
-//            scenes.push( new GPGPUParticleScene(renderer));
+            scenes.push( new GPGPUParticleScene(renderer));
             scenes.push(new Frame(renderer));
-            scenes.push(new LineBoxScene(renderer));
+//            scenes.push(new LineBoxScene(renderer));
 
 
 
@@ -293,6 +295,7 @@
 
         window.document.onkeydown = function (event) {
             console.log(event.key);
+            scenes[NUM].keyDown(event.key);
             if(event.key == "ArrowRight" || event.key == "ArrowLeft")
             {
                 keyname = event.key;

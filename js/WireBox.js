@@ -16,6 +16,7 @@ var WierBox = (function () {
         this.position.set(position.x, position.y, position.z);
         this.color = color;
         this.isCreateFace = isCreateFace;
+        this.rotation = this.Obj.rotation;
         this.init();
     }
     WierBox.prototype.init = function () {
@@ -142,6 +143,7 @@ var WierBox = (function () {
     WierBox.prototype.update = function () {
         var p = this.Obj.position;
         p.z--;
+        // this.Obj.rotateX(0.1)
         // this.Obj.position.set(
     };
     return WierBox;

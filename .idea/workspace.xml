@@ -2,101 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41384a8a-e3e3-4bb8-bbb1-c11a3fadfef4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/01_-_Default1noCulling.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/01_-_Default1noCulling.dds" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/Male02_bin.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/male-02-1noCulling.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/male-02-1noCulling.dds" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/orig_02_-_Defaul1noCulling.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/orig_02_-_Defaul1noCulling.dds" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/DDSLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/MTLLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/OBJLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/OBJMTLLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/Three.Legacy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/Three.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/3MFLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/AMFLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/AWDLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/AssimpJSONLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/BVHLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/BabylonLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/BinaryLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ColladaLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ColladaLoader2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/DDSLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/FBXLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/GLTFLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/HDRCubeTextureLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/KMZLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/MD2Loader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/MMDLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/MTLLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/NRRDLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/OBJLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/PCDLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/PDBLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/PLYLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/PVRLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/PlayCanvasLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/RGBELoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/STLLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/SVGLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/TGALoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/TTFLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/UTF8Loader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/VRMLLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/VTKLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/collada/Animation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/collada/AnimationHandler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/collada/KeyFrameAnimation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ctm/CTMLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ctm/CTMWorker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ctm/ctm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ctm/license/OpenCTM.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ctm/license/js-lzma.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ctm/license/js-openctm.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/ctm/lzma.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/deprecated/SceneLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/deprecated/gltf/glTF-parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/deprecated/gltf/glTFAnimation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/deprecated/gltf/glTFLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/deprecated/gltf/glTFLoaderUtils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/deprecated/gltf/glTFShaders.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/deprecated/gltf/gltfUtilities.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/sea3d/SEA3D.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/sea3d/SEA3DDeflate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/sea3d/SEA3DLZMA.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/sea3d/SEA3DLegacy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/loaders/sea3d/SEA3DLoader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/noise_wave_shader_testure_test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02.mtl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02.obj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/Male02_bin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/Male02_dds.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/Male02_slim.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/male02.mtl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/male02.obj" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/male02_dds.mtl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj/male02/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/obj_shader_test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sphere_shader_test.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ts/BigBox.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ts/WireBox.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ts/frame.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/Tween.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/building.html" afterPath="$PROJECT_DIR$/building.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gpgpu_study.html" afterPath="$PROJECT_DIR$/gpgpu_study.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/GPGPUParticle.js" afterPath="$PROJECT_DIR$/js/GPGPUParticle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/GPGPUParticle.js.map" afterPath="$PROJECT_DIR$/js/GPGPUParticle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/building_secne01.js" afterPath="$PROJECT_DIR$/js/building_secne01.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/building_secne01.js.map" afterPath="$PROJECT_DIR$/js/building_secne01.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/template.js" afterPath="$PROJECT_DIR$/js/template.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/template.js.map" afterPath="$PROJECT_DIR$/js/template.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/WireBox.js" afterPath="$PROJECT_DIR$/js/WireBox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/WireBox.js.map" afterPath="$PROJECT_DIR$/js/WireBox.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/frame.js" afterPath="$PROJECT_DIR$/js/frame.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/frame.js.map" afterPath="$PROJECT_DIR$/js/frame.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/GPGPUParticle.ts" afterPath="$PROJECT_DIR$/ts/GPGPUParticle.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/building_secne01.ts" afterPath="$PROJECT_DIR$/ts/building_secne01.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/template.ts" afterPath="$PROJECT_DIR$/ts/template.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/WireBox.ts" afterPath="$PROJECT_DIR$/ts/WireBox.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/frame.ts" afterPath="$PROJECT_DIR$/ts/frame.ts" />
     </list>
     <ignored path="vj_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,14 +35,14 @@
     <favorites_list name="vj_project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6112782">
+    <splitter split-orientation="horizontal" split-proportion="0.761426">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="building.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/building.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="244">
-                  <caret line="181" column="43" selection-start-line="181" selection-start-column="43" selection-end-line="181" selection-end-column="43" />
+                <state relative-caret-position="312">
+                  <caret line="194" column="20" selection-start-line="194" selection-start-column="20" selection-end-line="194" selection-end-column="20" />
                   <folding>
                     <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#p#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -134,41 +51,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GPGPUParticle.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="GPGPUParticle.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ts/GPGPUParticle.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="364">
-                  <caret line="516" column="0" selection-start-line="516" selection-start-column="0" selection-end-line="516" selection-end-column="0" />
+                <state relative-caret-position="367">
+                  <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="noise_wave_shader_testure_test.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/noise_wave_shader_testure_test.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="325">
-                  <caret line="159" column="38" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="38" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="WireBox.ts" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ts/WireBox.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-120">
-                  <caret line="159" column="34" selection-start-line="159" selection-start-column="34" selection-end-line="159" selection-end-column="34" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="frame.ts" pinned="false" current-in-tab="true">
+          <file leaf-file-name="frame.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/frame.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="520">
-                  <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
+                <state relative-caret-position="-1622">
+                  <caret line="169" column="12" selection-start-line="169" selection-start-column="12" selection-end-line="169" selection-end-column="66" />
                   <folding />
                 </state>
               </provider>
@@ -177,8 +74,8 @@
           <file leaf-file-name="particle.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/particle.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="611">
-                  <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
+                <state relative-caret-position="39">
+                  <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -187,7 +84,7 @@
           <file leaf-file-name="BigBox.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/BigBox.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="351">
+                <state relative-caret-position="557">
                   <caret line="208" column="0" selection-start-line="203" selection-start-column="4" selection-end-line="208" selection-end-column="0" />
                   <folding />
                 </state>
@@ -201,8 +98,8 @@
           <file leaf-file-name="gpgpu_study.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/gpgpu_study.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="430" column="0" selection-start-line="430" selection-start-column="0" selection-end-line="431" selection-end-column="0" />
+                <state relative-caret-position="382">
+                  <caret line="415" column="45" selection-start-line="415" selection-start-column="45" selection-end-line="415" selection-end-column="45" />
                   <folding />
                 </state>
               </provider>
@@ -256,7 +153,6 @@
         <option value="$PROJECT_DIR$/gpgpuParticle_class_study.html" />
         <option value="$PROJECT_DIR$/gpgpu_study.html" />
         <option value="$PROJECT_DIR$/ts/building_secne01.ts" />
-        <option value="$PROJECT_DIR$/ts/GPGPUParticle.ts" />
         <option value="$PROJECT_DIR$/js/DDSLoader.js" />
         <option value="$PROJECT_DIR$/js/MTLLoader.js" />
         <option value="$PROJECT_DIR$/js/Three.js" />
@@ -267,10 +163,11 @@
         <option value="$PROJECT_DIR$/shaderMaterial_test.html" />
         <option value="$PROJECT_DIR$/sphere_shader_test.html" />
         <option value="$PROJECT_DIR$/noise_wave_shader_testure_test.html" />
-        <option value="$PROJECT_DIR$/building.html" />
         <option value="$PROJECT_DIR$/ts/template.ts" />
         <option value="$PROJECT_DIR$/ts/WireBox.ts" />
         <option value="$PROJECT_DIR$/ts/frame.ts" />
+        <option value="$PROJECT_DIR$/building.html" />
+        <option value="$PROJECT_DIR$/ts/GPGPUParticle.ts" />
       </list>
     </option>
   </component>
@@ -281,9 +178,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="63" />
-    <option name="y" value="105" />
-    <option name="width" value="1399" />
+    <option name="x" value="121" />
+    <option name="y" value="23" />
+    <option name="width" value="1327" />
     <option name="height" value="863" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -312,7 +209,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -461,6 +357,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -475,17 +372,17 @@
     <property name="js-tslint-nodeInterpreter" value="$USER_HOME$/.nodebrew/current/bin/node" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/texture" />
+      <recent name="$PROJECT_DIR$/ts" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/obj" />
       <recent name="$PROJECT_DIR$/textures" />
       <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$/texture" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/texture" />
-      <recent name="$PROJECT_DIR$/ts" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -568,12 +465,23 @@
       <workItem from="1478694120507" duration="11997000" />
       <workItem from="1478761859467" duration="26102000" />
       <workItem from="1478870669884" duration="16703000" />
-      <workItem from="1478960845716" duration="22383000" />
+      <workItem from="1478960845716" duration="22623000" />
+      <workItem from="1479042222018" duration="5333000" />
+      <workItem from="1479108939594" duration="258000" />
+      <workItem from="1479111748934" duration="1773000" />
+      <workItem from="1479135671479" duration="956000" />
+      <workItem from="1479143077015" duration="484000" />
+      <workItem from="1479145160077" duration="503000" />
+      <workItem from="1479181612799" duration="452000" />
+      <workItem from="1479205669946" duration="6438000" />
+      <workItem from="1479229038464" duration="1549000" />
+      <workItem from="1479357366647" duration="8988000" />
+      <workItem from="1479382752241" duration="9642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185020000" />
+    <option name="totallyTimeSpent" value="221636000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -585,14 +493,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="105" width="1399" height="863" extended-state="0" />
+    <frame x="121" y="23" width="1327" height="863" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2075227" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16182874" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16232772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294423" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -604,6 +511,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294423" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -629,29 +537,19 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/DDSLoader.js</url>
           <line>250</line>
-          <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/ts/GPGPUParticle.ts</url>
-          <line>109</line>
-          <properties />
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/gpgpu_study.html</url>
+          <line>418</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ts/cameraEffect.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/perlin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -671,25 +569,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="166" column="28" selection-start-line="166" selection-start-column="28" selection-end-line="166" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/box.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/box.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -697,7 +593,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,7 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,7 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="200" column="63" selection-start-line="200" selection-start-column="56" selection-end-line="200" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -800,7 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3512">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="637">
           <caret line="48" column="105" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="105" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
           <caret line="144" column="9" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -824,7 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
           <caret line="179" column="5" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -832,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1313">
           <caret line="101" column="5" selection-start-line="0" selection-start-column="0" selection-end-line="113" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,7 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,7 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4350">
           <caret line="715" column="43" selection-start-line="715" selection-start-column="43" selection-end-line="715" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7397">
           <caret line="532" column="2" selection-start-line="532" selection-start-column="2" selection-end-line="532" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -896,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -904,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="404">
           <caret line="42794" column="59" selection-start-line="42794" selection-start-column="59" selection-end-line="42794" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
           <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -920,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,7 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1092">
           <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -936,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1260">
           <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,7 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3757">
           <caret line="270" column="15" selection-start-line="270" selection-start-column="15" selection-end-line="270" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -952,7 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -960,26 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
           <caret line="66" column="60" selection-start-line="65" selection-start-column="16" selection-end-line="66" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/building.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="181" column="43" selection-start-line="181" selection-start-column="43" selection-end-line="181" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ts/BigBox.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="208" column="0" selection-start-line="203" selection-start-column="4" selection-end-line="208" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -987,54 +840,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ts/particle.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ts/GPGPUParticle.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="516" column="0" selection-start-line="516" selection-start-column="0" selection-end-line="516" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/noise_wave_shader_testure_test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
+        <state relative-caret-position="2067">
           <caret line="159" column="38" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts/WireBox.ts">
+    <entry file="file://$PROJECT_DIR$/js/Tween.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="159" column="34" selection-start-line="159" selection-start-column="34" selection-end-line="159" selection-end-column="34" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gpgpu_study.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="430" column="0" selection-start-line="430" selection-start-column="0" selection-end-line="431" selection-end-column="0" />
+        <state relative-caret-position="382">
+          <caret line="415" column="45" selection-start-line="415" selection-start-column="45" selection-end-line="415" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/BigBox.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="208" column="0" selection-start-line="203" selection-start-column="4" selection-end-line="208" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/WireBox.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2041">
+          <caret line="156" column="19" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/building.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="194" column="20" selection-start-line="194" selection-start-column="20" selection-end-line="194" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/particle.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ts/frame.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
+        <state relative-caret-position="-1622">
+          <caret line="169" column="12" selection-start-line="169" selection-start-column="12" selection-end-line="169" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/GPGPUParticle.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
           <folding />
         </state>
       </provider>
