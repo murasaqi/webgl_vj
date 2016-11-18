@@ -274,9 +274,11 @@ class GPGPUParticle {
         this.camera = camera;
         this.renderer = renderer;
         this.color = color;
-        this.position = position;
+
         this.boxWidth = width;
         this.group = new THREE.Group();
+        this.group.position.set(position.x,position.y,position.z);
+        this.position = this.group.position;
         this.initComputeRenderer();
         this.initPosition();
         this.createBox();
@@ -290,9 +292,8 @@ class GPGPUParticle {
         // var color = new THREE.Color(0xBF53F8);
         this.boxMaterial = new THREE.MeshLambertMaterial({color:this.color.getHex(),wireframe:false,transparent:true,opacity:1.0});
         this.boxMesh = new THREE.Mesh(this.boxGeomery,this.boxMaterial);
-        this.boxMesh.position.set(this.position.x,this.position.y,this.position.z);
-        // this.group.add(this.boxMesh)
-        this.scene.add(this.boxMesh);
+        this.group.add(this.boxMesh)
+        // this.scene.add(this.boxMesh);
     }
 
 
@@ -408,7 +409,7 @@ class GPGPUParticle {
         // group.translateX(this.position.x);
         // group.translateY(this.position.y);
         // group.translateZ(this.position.z);
-        this.group.position.set(this.position.x,this.position.y,this.position.z);
+        // this.group.position.set(this.position.x,this.position.y,this.position.z);
         //particles.position.set(this.position.x,this.position.y,this.position.z);
         this.scene.add( this.group );
 
@@ -552,7 +553,7 @@ class GPGPUParticleScene {
         this.renderer = renderer
         this.camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1,50000 );
         this.camera.position.y = 0;
-        this.camera.position.z = 400;
+        this.camera.position.z = 600;
         this.scene = new THREE.Scene();
 
 
@@ -568,7 +569,7 @@ class GPGPUParticleScene {
                 for(var z = 0; z < 4; z++)
                 {
 
-                    var position = new THREE.Vector3(140*x-(100*4)/2,140*y-(100*4)/2,140*z-800);
+                    var position = new THREE.Vector3(140*x-(100*4)/2,140*y-(100*4)/2,140*z-480);
                     this.startUpdate = false;
                     var color = new THREE.Color(0xffffff);
                     // scene, camera, renderer,width,position,color
@@ -578,6 +579,12 @@ class GPGPUParticleScene {
 
             }
         }
+
+        // var position = new THREE.Vector3(140*x-(100*4)/2,140*y-(100*4)/2,140*z-480);
+        // this.startUpdate = false;
+        // var color = new THREE.Color(0xffffff);
+        // // scene, camera, renderer,width,position,color
+        // this.gpuparticle.push( new GPGPUParticle(this.scene,this.camera,this.renderer,50,position,color));
 
 
 

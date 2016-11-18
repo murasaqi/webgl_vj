@@ -276,6 +276,7 @@ class GPGPUParticle_frame {
     public rotation:any;
 
     private time:number = 0.0;
+    private isSpeedDown:Boolean = false;
 
     private HEIGHT:any;
 
@@ -301,7 +302,6 @@ class GPGPUParticle_frame {
         this.initPosition();
         this.createBox();
         this.boxRemove = false;
-
     }
 
     private createBox()
@@ -498,6 +498,16 @@ class GPGPUParticle_frame {
         this.startUpdate = true;
     }
 
+    public enableSpeedDown()
+    {
+        this.isSpeedDown = true;
+    }
+
+    public disableSpeedDown()
+    {
+        this.isSpeedDown = false;
+    }
+
     public initUpdate()
     {
         this.time = 0.0;
@@ -528,13 +538,16 @@ class GPGPUParticle_frame {
             this.time += 0.01;
             var speed = 0.0;
 
-            if(Math.sin(this.time) < 0.0)
+
+            if(this.isSpeedDown)
             {
                 speed= 0.1;
-
-            } else {
-                speed = 1.0;
             }
+            else
+            {
+                speed= 1.0;
+            }
+
 
 
 
@@ -628,6 +641,7 @@ class Frame {
     private scene01FrameVector:any[];
     private scene01CameraRotation:any[];
     private clickCount:number = 0;
+    private isSpeedDown:Boolean = false;
 
     constructor(renderer) {
 
@@ -909,8 +923,7 @@ class Frame {
                     var y = now.y;
                     var z = now.z;
 
-                    this.boxs[i].rotation.set(x, y, z);
-                    this.particles[i].rotation.set(x, y, z);
+
 
                     // console.log(this.scene01Speed.now);
                     var pos = new THREE.Vector3(x, y, z).normalize();
@@ -1063,7 +1076,7 @@ class Frame {
                 this.scene02Update = true;
                 break;
             case 82:
-                this.remove();
+                this.isSpeedDown = true;
                 break;
         }
 

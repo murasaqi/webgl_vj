@@ -224,9 +224,10 @@ var GPGPUParticle = (function () {
         this.camera = camera;
         this.renderer = renderer;
         this.color = color;
-        this.position = position;
         this.boxWidth = width;
         this.group = new THREE.Group();
+        this.group.position.set(position.x, position.y, position.z);
+        this.position = this.group.position;
         this.initComputeRenderer();
         this.initPosition();
         this.createBox();
@@ -237,9 +238,8 @@ var GPGPUParticle = (function () {
         // var color = new THREE.Color(0xBF53F8);
         this.boxMaterial = new THREE.MeshLambertMaterial({ color: this.color.getHex(), wireframe: false, transparent: true, opacity: 1.0 });
         this.boxMesh = new THREE.Mesh(this.boxGeomery, this.boxMaterial);
-        this.boxMesh.position.set(this.position.x, this.position.y, this.position.z);
-        // this.group.add(this.boxMesh)
-        this.scene.add(this.boxMesh);
+        this.group.add(this.boxMesh);
+        // this.scene.add(this.boxMesh);
     };
     GPGPUParticle.prototype.initComputeRenderer = function () {
         // 画面サイズだけGPU Rendererを生成
@@ -335,7 +335,7 @@ var GPGPUParticle = (function () {
         // group.translateX(this.position.x);
         // group.translateY(this.position.y);
         // group.translateZ(this.position.z);
-        this.group.position.set(this.position.x, this.position.y, this.position.z);
+        // this.group.position.set(this.position.x,this.position.y,this.position.z);
         //particles.position.set(this.position.x,this.position.y,this.position.z);
         this.scene.add(this.group);
     };
@@ -422,7 +422,7 @@ var GPGPUParticleScene = (function () {
         this.renderer = renderer;
         this.camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 50000);
         this.camera.position.y = 0;
-        this.camera.position.z = 400;
+        this.camera.position.z = 600;
         this.scene = new THREE.Scene();
         // var x = 0;
         // var y = 0;
@@ -432,7 +432,7 @@ var GPGPUParticleScene = (function () {
         for (var x = 0; x < 4; x++) {
             for (var y = 0; y < 4; y++) {
                 for (var z = 0; z < 4; z++) {
-                    var position = new THREE.Vector3(140 * x - (100 * 4) / 2, 140 * y - (100 * 4) / 2, 140 * z - 800);
+                    var position = new THREE.Vector3(140 * x - (100 * 4) / 2, 140 * y - (100 * 4) / 2, 140 * z - 480);
                     this.startUpdate = false;
                     var color = new THREE.Color(0xffffff);
                     // scene, camera, renderer,width,position,color
@@ -440,6 +440,11 @@ var GPGPUParticleScene = (function () {
                 }
             }
         }
+        // var position = new THREE.Vector3(140*x-(100*4)/2,140*y-(100*4)/2,140*z-480);
+        // this.startUpdate = false;
+        // var color = new THREE.Color(0xffffff);
+        // // scene, camera, renderer,width,position,color
+        // this.gpuparticle.push( new GPGPUParticle(this.scene,this.camera,this.renderer,50,position,color));
         this.scene.add(new THREE.AmbientLight(0xffffff, 0.5));
         var dLight = new THREE.DirectionalLight(0xffffff, 0.8);
         dLight.position.set(0, 800, 0);

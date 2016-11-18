@@ -223,6 +223,7 @@ var GPGPUParticle_frame = (function () {
     function GPGPUParticle_frame(scene, camera, renderer, width, height, position, color) {
         this.PARTICLE_NUM = 400;
         this.time = 0.0;
+        this.isSpeedDown = false;
         this.radian = 0.0;
         this.WIDTH = width;
         this.HEIGHT = height;
@@ -393,6 +394,12 @@ var GPGPUParticle_frame = (function () {
     GPGPUParticle_frame.prototype.enableUpdate = function () {
         this.startUpdate = true;
     };
+    GPGPUParticle_frame.prototype.enableSpeedDown = function () {
+        this.isSpeedDown = true;
+    };
+    GPGPUParticle_frame.prototype.disableSpeedDown = function () {
+        this.isSpeedDown = false;
+    };
     GPGPUParticle_frame.prototype.initUpdate = function () {
         this.time = 0.0;
         this.positionUniforms.reset.value = 1.0;
@@ -411,7 +418,7 @@ var GPGPUParticle_frame = (function () {
         if (this.startUpdate) {
             this.time += 0.01;
             var speed = 0.0;
-            if (Math.sin(this.time) < 0.0) {
+            if (this.isSpeedDown) {
                 speed = 0.1;
             }
             else {
@@ -465,6 +472,7 @@ var Frame = (function () {
         this.scene01Update = false;
         this.scene02Update = false;
         this.clickCount = 0;
+        this.isSpeedDown = false;
         this.renderer = renderer;
         this.createScene();
     }
@@ -640,8 +648,6 @@ var Frame = (function () {
                     var x = now.x;
                     var y = now.y;
                     var z = now.z;
-                    this.boxs[i].rotation.set(x, y, z);
-                    this.particles[i].rotation.set(x, y, z);
                     // console.log(this.scene01Speed.now);
                     var pos = new THREE.Vector3(x, y, z).normalize();
                     this.scene01FrameVector[i].multiplyScalar(this.scene01Speed.now);
@@ -741,7 +747,7 @@ var Frame = (function () {
                 this.scene02Update = true;
                 break;
             case 82:
-                this.remove();
+                this.isSpeedDown = true;
                 break;
         }
     };

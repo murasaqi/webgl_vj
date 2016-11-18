@@ -102,6 +102,10 @@
 <body>
 <div id="bg"></div>>
 <canvas id="world"></canvas>
+<script src="js/p5.js" type="text/javascript"></script>
+<script src="js/p5.dom.js" type="text/javascript"></script>
+<script src="js/p5.sound.js" type="text/javascript"></script>
+<script src="js/sketch.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/dat.gui.min.js"></script>
 <script type="text/javascript" src="js/perlin.js"></script>
 <script type="text/javascript" src="js/three.min.js"></script>
@@ -116,6 +120,7 @@
 <script type="text/javascript" src="js/WireBox.js"></script>
 <script type="text/javascript" src="js/BigBox.js"></script>
 <script type="text/javascript" src="js/frame.js"></script>
+<script type="text/javascript" src="js/frame_normal.js"></script>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 <div class="description">
@@ -191,6 +196,7 @@
 
             overscene = [];
 //            scenes.push( new building_00());
+            scenes.push(new Frame01(renderer));
             scenes.push( new GPGPUParticleScene(renderer));
             scenes.push(new Frame(renderer));
 //            scenes.push(new LineBoxScene(renderer));
@@ -292,10 +298,14 @@
 
         }
 
+        window.document.onkeyup = function (e){
+            scenes[NUM].keyUp();
+        };
+
 
         window.document.onkeydown = function (event) {
             console.log(event.key);
-            scenes[NUM].keyDown(event.key);
+            scenes[NUM].keyDown(event);
             if(event.key == "ArrowRight" || event.key == "ArrowLeft")
             {
                 keyname = event.key;

@@ -15,7 +15,9 @@
     <script>
 
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        var context = new AudioContext();
+        var audioContext = new AudioContext();
+        var rythmsA;
+        var gainNode = audioContext.createGain();
 
         // Audio 用の buffer を読み込む
         var getAudioBuffer = function(url, fn) {
@@ -27,7 +29,7 @@
                 if (req.readyState === 4) {
                     if (req.status === 0 || req.status === 200) {
                         // array buffer を audio buffer に変換
-                        context.decodeAudioData(req.response, function(buffer) {
+                        audioContext.decodeAudioData(req.response, function(buffer) {
                             // コールバックを実行
                             fn(buffer);
                         });
@@ -40,29 +42,40 @@
         };
 
         // サウンドを再生
-        var playSound = function(buffer) {
+        var playSound = function(buffer,gain) {
             // source を作成
-            var source = context.createBufferSource();
+
+
+
+            var source = audioContext.createBufferSource();
             // buffer をセット
             source.buffer = buffer;
             // context に connect
-            source.connect(context.destination);
+            source.connect(audioContext.destination);
             // 再生
+
+
+            source.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            gainNode.gain.value = gain;
+
             source.start(0);
         };
+
+
 
         // main
         window.onload = function() {
             // サウンドを読み込む
             getAudioBuffer('./sounds/rhythm.wav', function(buffer) {
-                // 読み込み完了後にボタンにクリックイベントを登録
-                var btn = document.getElementById('btn');
-                btn.onclick = function() {
-                    // サウンドを再生
-                    playSound(buffer);
-                };
+                rythmsA = buffer;
             });
         };
+
+        window.document.onkeydown = function (event) {
+            console.log('pusu');
+            playSound(rythmsA,5);
+        }
 
 
     </script>
