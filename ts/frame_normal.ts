@@ -59,7 +59,7 @@ class Frame01 {
         this.scene = new THREE.Scene();
         // this.scene.fog = new THREE.Fog(0x000000,-500,3000);
         this.scene.add(new THREE.AmbientLight(0xffffff,0.8));
-        this.renderer.setClearColor ( 0xffffff, 1.0 );
+
 
 
 
@@ -117,7 +117,7 @@ class Frame01 {
 
 
         // カメラを作成
-        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 10000 );
+        this.camera = new THREE.PerspectiveCamera( 110, window.innerWidth/window.innerHeight, 0.1, 10000 );
         this.camera.position.z = 500;
 
         var textureLoader = new THREE.TextureLoader();
@@ -288,6 +288,7 @@ class Frame01 {
     public update() {
 
 
+        this.renderer.setClearColor ( 0xffffff, 1.0 );
         if (this.sceneUpdate) {
             this.time_scene02 += 0.01;
 
@@ -335,16 +336,19 @@ class Frame01 {
         }
 
     }
-    public click()
-    {
-        // this.rythm.play();
-    }
+
 
     public initOrbitControls()
     {
         this.controls = new THREE.OrbitControls(this.camera,this.renderer.domElement);
         this.controls.enableKeys = false;
     }
+
+    public click()
+    {
+        // this.rythm.play();
+    }
+
     public keyUp()
     {
         this.disableSpeedDown();

@@ -28,6 +28,7 @@ var computeShaderPosition = {
         'uniform float offsetC_y;',
         'uniform float offsetC_z;',
         'uniform float time;',
+        'uniform float speed;',
         'float rnd(vec2 p){',
         '    return fract(sin(dot(p ,vec2(12.9898,78.233))) * 43758.5453);',
         '}',
@@ -46,7 +47,7 @@ var computeShaderPosition = {
         '    vec4 offsetV = texture2D( offsetValue, uv);',
         '    vec3 offset = offsetV.xyz;',
         '    //w -= 0.01;',
-        '    pos += vel;',
+        '    pos += vel*speed;',
         '    if(distance(pos.xyz,offsetV.xyz) > 200.0)',
         '    {',
         '        //w = 0.0;',
@@ -156,12 +157,13 @@ var computeShaderVelocity = {
         '    float  scalez = time  * speed +    1.5564;',
         '    float _scale = snoise(pos)*0.1;',
         '    //float _scale = 0.04;',
-        '    vec3 n = normalize(translate)+normalize(pos);',
+        '    vec3 dist = pos;',
+        '    vec3 n = normalize(translate)*-1.0+normalize(dist);',
         '    vel.x=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetX));',
         '    vel.y=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetY));',
         '    vel.z=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetZ));',
         '    vel += n*1.0;',
-        '    vel.z *=0.5;',
+        '    //vel.z * = 1.0;',
         '    // ノイズの値を位置情報から生成',
         '    gl_FragColor = vec4( vec3(vel.x,vel.y,vel.z), 1.0 );',
         '}',
@@ -219,7 +221,7 @@ var particleShader = {
 var GPGPUParticle = (function () {
     function GPGPUParticle(scene, camera, renderer, width, position, color) {
         this.WIDTH = width;
-        this.PARTICLES = this.WIDTH * this.WIDTH;
+        this.PARTICLES = 500 * 500;
         this.scene = scene;
         this.camera = camera;
         this.renderer = renderer;
@@ -228,6 +230,7 @@ var GPGPUParticle = (function () {
         this.group = new THREE.Group();
         this.group.position.set(position.x, position.y, position.z);
         this.position = this.group.position;
+        this.rotation = this.group.rotation;
         this.initComputeRenderer();
         this.initPosition();
         this.createBox();
@@ -267,6 +270,8 @@ var GPGPUParticle = (function () {
         this.velocityUniforms.offsetX = { value: Math.random() };
         this.velocityUniforms.offsetY = { value: Math.random() };
         this.velocityUniforms.offsetZ = { value: Math.random() };
+        this.positionUniforms.speed = { value: 1.0 };
+        // this.velocityUniforms.velocity = { value: this.position };
         this.positionUniforms.alpha = { value: 1.0 };
         var seed = 0.1;
         this.velocityUniforms.offseX = { value: Math.random() * seed };
@@ -389,19 +394,12 @@ var GPGPUParticle = (function () {
                 this.particleUniforms.textureVelocity.value = this.gpuCompute.getCurrentRenderTarget(this.velocityVariable).texture;
                 // this.particleUniforms.alpha.value -= 0.001;
                 this.positionUniforms.alpha.value = this.particleUniforms.alpha.value;
+                this.velocityUniforms.translate.value = this.position;
             }
             else {
             }
-            // if(this.boxMaterial.opacity > 0.0)
-            // {
-            this.boxMaterial.opacity = 0.0;
-            //this.boxMaterial.wireframe = true;
-            // this.boxMaterial.opacity *= 0.998;
-            // if(this.boxMaterial.opacity < 0.01)
-            // {
-            //     this.boxMaterial.opacity = 0.0;
-            // }
-            // } else{
+            this.boxMaterial.opacity = 1.0;
+            this.boxMaterial.color.set(0x000000);
             if (!this.boxRemove) {
                 this.scene.remove(this.boxMesh);
                 this.boxGeomery.dispose();
@@ -419,37 +417,50 @@ var GPGPUParticleScene = (function () {
         this.END = false;
         this.gpuparticle = [];
         this.clickCounter = 0;
+        this.isUpdate = false;
+        this.animateSetting = [];
+        this.speed = 1.0;
         this.renderer = renderer;
-        this.camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 50000);
+        this.camera = new THREE.PerspectiveCamera(110, window.innerWidth / window.innerHeight, 1, 50000);
         this.camera.position.y = 0;
         this.camera.position.z = 600;
         this.scene = new THREE.Scene();
-        // var x = 0;
-        // var y = 0;
-        // var z = -200;
-        // var pi = 0;
-        // var number = 20;
-        for (var x = 0; x < 4; x++) {
-            for (var y = 0; y < 4; y++) {
-                for (var z = 0; z < 4; z++) {
-                    var position = new THREE.Vector3(140 * x - (100 * 4) / 2, 140 * y - (100 * 4) / 2, 140 * z - 480);
-                    this.startUpdate = false;
-                    var color = new THREE.Color(0xffffff);
-                    // scene, camera, renderer,width,position,color
-                    this.gpuparticle.push(new GPGPUParticle(this.scene, this.camera, this.renderer, 50, position, color));
-                }
+        for (var i = 0; i < 6; i++) {
+            var vec = 1;
+            if (i % 2 == 0) {
+                vec = -1;
             }
+            else {
+                vec = 1;
+            }
+            var setting = {
+                direction: vec * -1,
+                moveToX: vec * 2,
+                y: Math.random() - 0.5,
+                z: Math.random() - 0.5,
+                rotateX: Math.random() - 0.5,
+                rotateY: Math.random() - 0.5,
+                rotateZ: Math.random() - 0.5
+            };
+            this.animateSetting.push(setting);
+            var position = new THREE.Vector3(vec * (200 + Math.random() * 100), Math.random() * 200 - 100, Math.random() * 200 - 100);
+            this.startUpdate = false;
+            var color = new THREE.Color(0xffffff);
+            // scene, camera, renderer,width,position,color
+            this.gpuparticle.push(new GPGPUParticle(this.scene, this.camera, this.renderer, 100, position, color));
         }
-        // var position = new THREE.Vector3(140*x-(100*4)/2,140*y-(100*4)/2,140*z-480);
-        // this.startUpdate = false;
-        // var color = new THREE.Color(0xffffff);
-        // // scene, camera, renderer,width,position,color
-        // this.gpuparticle.push( new GPGPUParticle(this.scene,this.camera,this.renderer,50,position,color));
         this.scene.add(new THREE.AmbientLight(0xffffff, 0.5));
         var dLight = new THREE.DirectionalLight(0xffffff, 0.8);
         dLight.position.set(0, 800, 0);
         this.scene.add(dLight);
+        var dLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dLight.position.set(0, 0, 300);
+        this.scene.add(dLight);
     }
+    GPGPUParticleScene.prototype.keyUp = function () {
+    };
+    GPGPUParticleScene.prototype.keyDown = function (event) {
+    };
     GPGPUParticleScene.prototype.initOrbitControls = function () {
         this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
         this.controls.enableKeys = false;
@@ -476,6 +487,9 @@ var GPGPUParticleScene = (function () {
     GPGPUParticleScene.prototype.click = function () {
         if (this.clickCounter < this.gpuparticle.length) {
         }
+        if (this.clickCounter == 0) {
+            this.isUpdate = true;
+        }
         if (this.clickCounter == 1) {
             for (var i = 0; i < this.gpuparticle.length; i++) {
                 this.gpuparticle[i].startUpdate = true;
@@ -495,6 +509,24 @@ var GPGPUParticleScene = (function () {
             }
         }
         // this.camera.position.z -= 1;
+        if (this.isUpdate) {
+            for (var i = 0; i < this.gpuparticle.length; i++) {
+                this.gpuparticle[i].position.x += this.animateSetting[i].direction * this.speed;
+                // this.gpuparticle[i].rotation.set(
+                //     this.animateSetting[i].rotateX,
+                //     this.animateSetting[i].rotateY,
+                //     this.animateSetting[i].rotateZ
+                // )
+                if (Math.abs(this.gpuparticle[i].position.x) <= 10) {
+                    this.speed = 0.01;
+                }
+                if (Math.abs(this.gpuparticle[i].position.x) <= 10) {
+                    for (var i = 0; i < this.gpuparticle.length; i++) {
+                        this.gpuparticle[i].startUpdate = true;
+                    }
+                }
+            }
+        }
         for (var i = 0; i < this.gpuparticle.length; i++) {
             this.gpuparticle[i].update();
         }

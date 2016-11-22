@@ -25,7 +25,6 @@ var Frame01 = (function () {
         this.scene = new THREE.Scene();
         // this.scene.fog = new THREE.Fog(0x000000,-500,3000);
         this.scene.add(new THREE.AmbientLight(0xffffff, 0.8));
-        this.renderer.setClearColor(0xffffff, 1.0);
         this.scene01FramePositions = {
             now: [
                 new THREE.Vector3(-200, 0, 3),
@@ -64,7 +63,7 @@ var Frame01 = (function () {
                 slow: 0.01
             };
         // カメラを作成
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+        this.camera = new THREE.PerspectiveCamera(110, window.innerWidth / window.innerHeight, 0.1, 10000);
         this.camera.position.z = 500;
         var textureLoader = new THREE.TextureLoader();
         var image = textureLoader.load("textures/frame.jpg");
@@ -164,6 +163,7 @@ var Frame01 = (function () {
         this.time_scene02 = 0.0;
     };
     Frame01.prototype.update = function () {
+        this.renderer.setClearColor(0xffffff, 1.0);
         if (this.sceneUpdate) {
             this.time_scene02 += 0.01;
             if (this.isSpeedDown) {
@@ -195,12 +195,12 @@ var Frame01 = (function () {
             }
         }
     };
-    Frame01.prototype.click = function () {
-        // this.rythm.play();
-    };
     Frame01.prototype.initOrbitControls = function () {
         this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
         this.controls.enableKeys = false;
+    };
+    Frame01.prototype.click = function () {
+        // this.rythm.play();
     };
     Frame01.prototype.keyUp = function () {
         this.disableSpeedDown();

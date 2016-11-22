@@ -8,14 +8,31 @@
 var song;
 var counter = 0;
 var noise01;
-var ring;
+var ring,ring00,ring01,ring02,ring03,ring04,ring05;
 var isKeyUp = true;
 var start = false;
+var rings = [];
 function setup() {
-  song = loadSound('sounds/rhythm.wav');
-  noise01 = loadSound('sounds/noise01.wav');
-  ring = loadSound('sounds/ring.wav');
-  
+    song = loadSound('sounds/rhythm.wav');
+    noise01 = loadSound('sounds/noise01.wav');
+    ring = loadSound('sounds/ring.wav');
+    ring00 = loadSound('sounds/ring00.wav');
+    ring01 = loadSound('sounds/ring01.wav');
+    ring02 = loadSound('sounds/ring02.wav');
+    ring03 = loadSound('sounds/ring03.wav');
+    ring04 = loadSound('sounds/ring04.wav');
+    // ring05 = loadSound('sounds/ring05.wav');
+
+    rings = [ring00,ring01,ring02,ring03,ring04];
+
+    for(var i = 0; i < rings.length; i++)
+    {
+        rings[i].playMode('restart');
+    }
+
+
+
+
   song.playMode('restart');
   noise01.playMode('restart');
   ring.playMode('restart');
@@ -47,8 +64,11 @@ function draw()
     // {
         
     // }
-    console.log(keyCode);
+    // console.log(keyCode);
 }
+
+
+
 
 function keyReleased()
 {
@@ -67,6 +87,9 @@ function keyPressed() {
         }
 
     }
+
+    var num = Math.floor(Math.random()*rings.length);
+    rings[num].play();
 
     if(keyCode == '188')
     {

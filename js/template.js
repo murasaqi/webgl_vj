@@ -25,6 +25,10 @@ var Template = (function () {
     };
     Template.prototype.click = function () {
     };
+    Template.prototype.keyUp = function () {
+    };
+    Template.prototype.keyDown = function (event) {
+    };
     Template.prototype.initOrbitControls = function () {
         // this.controls = new THREE.OrbitControls(this.camera,this.renderer.domElement);
         // this.controls.enableKeys = false;

@@ -51,6 +51,16 @@ class Template {
 
     }
 
+    public keyUp()
+    {
+
+    }
+
+    public keyDown(event)
+    {
+
+    }
+
     public  initOrbitControls()
     {
         // this.controls = new THREE.OrbitControls(this.camera,this.renderer.domElement);

@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="UTF-8">
     <title>Simple VJ WebGL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Heebo|Open+Sans');
+    </style>
     <style>
         body {
             font-weight: lighter;
@@ -24,6 +28,7 @@
         }
         #fadeInOut
         {
+            display: none;
             width: 100%;
             height: 100%;
             position: fixed;
@@ -46,6 +51,7 @@
         }
         #bg
         {
+            display: none;
             width: 100%;
             height: 100%;
             position: fixed;
@@ -53,6 +59,7 @@
             left: 0;
             background-color: #000;
         }
+
         .description
         {
             position: fixed;
@@ -93,6 +100,27 @@
             z-index: 99999999999!important;
         }
 
+        .title
+        {
+            display: block;
+            width:300px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            letter-spacing: 10px;
+            opacity: 0.8;
+
+            z-index: 9999999999999;
+            color: #050505;
+            font-size: 50px;
+            font-family: 'Heebo', sans-serif;
+            font-weight: lighter!important;
+        }
+
 
     </style>
     <meta property='og:image' content='https://murasaki-uma.github.io/webgl_vj/img/og.png' />
@@ -100,8 +128,8 @@
     <meta property='og:title' content='simple webgl vj' />
 </head>
 <body>
-<div id="bg"></div>>
-<canvas id="world"></canvas>
+<!--<div id="bg"></div>>-->
+<!--<canvas id="world"></canvas>-->
 <script src="js/p5.js" type="text/javascript"></script>
 <script src="js/p5.dom.js" type="text/javascript"></script>
 <script src="js/p5.sound.js" type="text/javascript"></script>
@@ -117,9 +145,11 @@
 <script type="text/javascript" src="js/OrbitControls.js"></script>
 <script type="text/javascript" src="js/building_secne01.js"></script>
 <script type="text/javascript" src="js/GPGPUParticle.js"></script>
+<!--<script type="text/javascript" src="js/FontSwimming.js"></script>-->
 <script type="text/javascript" src="js/WireBox.js"></script>
 <script type="text/javascript" src="js/BigBox.js"></script>
 <script type="text/javascript" src="js/frame.js"></script>
+<script type="text/javascript" src="js/clock.js"></script>
 <script type="text/javascript" src="js/frame_normal.js"></script>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
@@ -140,8 +170,10 @@
 
 </div>
 
-<div id="fadeInOut">
-</div>
+<!--<div id="fadeInOut">-->
+<!--</div>-->
+
+<!--<p class="title"><img src="img/title.svg"></p>-->
 
 <script>
     var SCENE_NUM = 0;
@@ -153,16 +185,15 @@
 
         window.addEventListener( 'resize', onWindowResize, false );
         window.addEventListener( 'click', onWindowClick, false );
-        //window.addEventListener( 'keydown', onWindowKeyDown, false );
+
+
+
         var NUM = 0;
         var _NUM = 0;
         var scenes= [];
-
         var fadeInOutTimer = -1;
         var overAlpha = 0;
         var mainOP = 1.0;
-
-
 
         // シーン
         var scene,renderer;
@@ -195,24 +226,16 @@
 
 
             overscene = [];
-//            scenes.push( new building_00());
+            scenes.push(new Clock(renderer));
+            scenes.push(new Frame(renderer));
             scenes.push(new Frame01(renderer));
             scenes.push( new GPGPUParticleScene(renderer));
-            scenes.push(new Frame(renderer));
-//            scenes.push(new LineBoxScene(renderer));
-
 
 
             for(var i = 0; i < scenes.length; i++)
             {
                 scenes[i].initOrbitControls(renderer);
             }
-
-
-
-
-
-
         }
 
 
@@ -222,6 +245,10 @@
         function render() {
             fps ++;
 
+
+
+            // debug infomation
+
             $('.mainscne').text("main scene num : "+NUM);
             $('.mainopacity').text('main pacity : ' + (1.0-overAlpha));
             $('.subscene').text("sub scene num : "+_NUM);
@@ -229,59 +256,16 @@
 
 
             scenes[NUM].update();
-//            scenes[0].updateControls();
-//            overscene[_NUM].update();
+            //overscene[_NUM].update();
             renderer.render(scenes[NUM].scene, scenes[NUM].camera);
-//            renderer02.render(overscene[_NUM].scene, overscene[_NUM].camera);
+            //renderer02.render(overscene[_NUM].scene, overscene[_NUM].camera);
             requestAnimationFrame(render);
             if(fadeInOutTimer >= 0)
             {
-                fadeInOut();
+                 //fadeInOut();
             }
         }
 
-        function fadeInOut() {
-            if(fadeInOutTimer <= Math.PI*2){
-                fadeInOutTimer += 0.07;
-                //screen.style.opacity = Math.sin(fadeInOutTimer);
-                var op = Math.sin(fadeInOutTimer);
-
-                $("#fadeInOut")
-                        .css({
-                            opacity: op
-                        });
-            } else {
-
-                fadeInOutTimer = -1;
-                op = 0.0;
-            }
-
-            if(op > 0.95 && op <= 1.0)
-            {
-                switch (keyname) {
-                    case 'ArrowRight':
-                        console.log(scenes[NUM].END);
-                        //scenes[NUM].endEnabled();
-                        NUM++;
-                        alphaReset();
-                        if(scenes.length == NUM){
-                            NUM=0;
-                        }
-                        break;
-
-                    case 'ArrowLeft':
-                        console.log(scenes[NUM].END);
-                        alphaReset();
-                        //scenes[NUM].endEnabled();
-                        NUM--;
-
-                        if(NUM <0){
-                            NUM=scenes.length-1;
-                        }
-                        break;
-                }
-            }
-        }
 
         function onWindowResize( event ) {
             scenes[NUM].camera.aspect = window.innerWidth / window.innerHeight;
@@ -302,16 +286,36 @@
             scenes[NUM].keyUp();
         };
 
+        function checkNum(length)
+        {
+            if(NUM <0)
+            {
+                NUM = length-1;
+            }
+
+            if(NUM >= length)
+            {
+                NUM = 0;
+            }
+        }
+
 
         window.document.onkeydown = function (event) {
             console.log(event.key);
             scenes[NUM].keyDown(event);
-            if(event.key == "ArrowRight" || event.key == "ArrowLeft")
+            if(event.key == "ArrowRight")
+            {
+                keyname = event.key;
+                NUM++;
+                checkNum(scenes.length);
+            }
+
+            if( event.key == "ArrowLeft")
             {
                 keyname = event.key;
 
-                fadeInOutTimer = 0;
-                //scenes[0].meshMaterial.color = 0xffffff*Math.random();
+                NUM--;
+                checkNum(scenes.length);
             }
 
             if(event.key == "ArrowUp")
@@ -361,6 +365,10 @@
                 {
                     mainOP = 0;
                 }
+            }
+            if(event.key == "c")
+            {
+                scenes[NUM].click();
             }
 
             if(event.key == "d")

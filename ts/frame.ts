@@ -175,7 +175,7 @@ var computeShaderVelocity_frame = {
             '    vel += n*1.0; //vel.x += normalize(translate).x;',
             '    vel.z +=1.0; float addZ = 0.5;',
             '    // ノイズの値を位置情報から生成',
-            '    if(reset == 1.0){vel = vec3(0.0,0.0,0.0); addZ = 0.0;}',
+            '    //if(reset == 1.0){vel = vec3(0.0,0.0,0.0); addZ = 0.0;}',
             '    gl_FragColor = vec4( vec3(vel.x,vel.y,vel.z+addZ), 1.0 );',
             '}',
 
@@ -660,7 +660,7 @@ class Frame {
         this.scene = new THREE.Scene();
         // this.scene.fog = new THREE.Fog(0x000000,-500,3000);
         this.scene.add(new THREE.AmbientLight(0xffffff,0.8));
-        this.renderer.setClearColor ( 0xffffff, 1.0 );
+
 
 
 
@@ -718,7 +718,7 @@ class Frame {
 
 
         // カメラを作成
-        this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 10000 );
+        this.camera = new THREE.PerspectiveCamera( 110, window.innerWidth/window.innerHeight, 0.1, 10000 );
         this.camera.position.z = 500;
 
         var textureLoader = new THREE.TextureLoader();
@@ -802,9 +802,9 @@ class Frame {
         this.scene01FramePositions ={
             now:
                 [
-                    new THREE.Vector3(-200,-500,3),
-                    new THREE.Vector3(0,500,3),
-                    new THREE.Vector3(200,-500,3)
+                    new THREE.Vector3(-200,-200,3),
+                    new THREE.Vector3(0,200,3),
+                    new THREE.Vector3(200,-200,3)
 
                 ],
             next:
@@ -879,23 +879,47 @@ class Frame {
         }
 
         this.time_scene02 = 0.0;
+        this.time_scene01 = 0.0;
 
 
     }
     public update() {
 
+        this.renderer.setClearColor ( 0xffffff, 1.0 );
 
-        if (this.scene01Update) {
-            this.time_scene01 += 0.03;
+
+        if (this.scene02Update) {
+            this.time_scene01 += 0.02;
+
+
+            if (Math.sin(this.time_scene01) < 0.0) {
+                this.speed += (0.001 - this.speed) * 0.1;
+
+            } else {
+                this.speed += (0.015 - this.speed) * 0.1;
+                // this.tween
+            }
 
             this.scene01Speed.now += (this.scene01Speed.slow - this.scene01Speed.now) * 0.1;
 
             for (var i = 0; i < this.boxs.length; i++) {
-                if (this.scene01FramePositions.now[i].distanceTo(this.scene01FramePositions.next[i]) > 0.4) {
-                    var framePos = this.boxs[i].position;
-                    var speed = 0.1;
-                    var next = this.scene01FramePositions.next[i];
-                    var now = this.scene01FramePositions.now[i];
+
+
+                if (Math.sin(this.time_scene01) < 0.0) {
+                    this.particles[i].enableSpeedDown();
+
+                } else {
+                    this.speed += (0.015 - this.speed) * 0.1;
+                    this.particles[i].disableSpeedDown();
+                }
+
+
+                var framePos = this.boxs[i].position;
+                var speed = 0.1;
+                var next = this.scene01FramePositions.next[i];
+                var now = this.scene01FramePositions.now[i];
+                if (Math.abs(this.boxs[i].position.y - next.y) > 1.0) {
+
                     // console.log(now);
                     now.x += (next.x - now.x) * speed;
                     now.y += (next.y - now.y) * speed;
@@ -923,19 +947,22 @@ class Frame {
                     var y = now.y;
                     var z = now.z;
 
+                    this.boxs[i].rotation.set(x, y, z);
+                    this.particles[i].rotation.set(x,y,z);
 
 
-                    // console.log(this.scene01Speed.now);
+
+
                     var pos = new THREE.Vector3(x, y, z).normalize();
                     this.scene01FrameVector[i].multiplyScalar(this.scene01Speed.now);
                     this.boxs[i].position.add(this.scene01FrameVector[i]);
                     this.particles[i].position.add(this.scene01FrameVector[i]);
                     this.particles[i].enableUpdate();
-                    this.particles[i].update(this.scene01Speed.now * 20);
+                    this.particles[i].update();
 
                     this.camera.position.x = 500 * Math.cos(this.time_scene01 * 0.1 + Math.PI / 2);
                     this.camera.position.y = 200 * Math.sin(this.time_scene01 * 0.1);
-                    var z = 700 * Math.sin(this.time_scene01 * 0.1 + Math.PI / 2);
+                    var z = 800 * Math.sin(this.time_scene01 * 0.1 + Math.PI / 2);
                     this.camera.position.z += (z - this.camera.position.z) * 0.01;
                     this.camera.position.add(this.scene01CameraRotation.multiplyScalar(this.scene01Speed.now * 0.4));
                     this.camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -968,7 +995,7 @@ class Frame {
         }
 
 
-        if (this.scene02Update) {
+        if (this.scene01Update) {
             this.time_scene02 += 0.01;
 
 
@@ -984,13 +1011,21 @@ class Frame {
 
             for (var i = 0; i < this.particles.length; i++) {
                 this.particles[i].update();
+
+                if (Math.sin(this.time_scene02) < 0.0) {
+                    this.particles[i].enableSpeedDown();
+
+                } else {
+                    this.particles[i].disableSpeedDown();
+                }
+
                 // if(Math.abs(this.particles[i].position.y) > 200 )
                 {
                     if (i == 1) {
-                        this.particles[i].position.y += (-200 - this.particles[i].position.y) * 0.01;
+                        this.particles[i].position.y += (100 - this.particles[i].position.y) * 0.1;
                         this.boxs[i].position.y = this.particles[i].position.y;
                     } else {
-                        this.particles[i].position.y += (200 - this.particles[i].position.y) * 0.01;
+                        this.particles[i].position.y += (-100 - this.particles[i].position.y) * 0.1;
                         this.boxs[i].position.y = this.particles[i].position.y;
                     }
 
@@ -1025,6 +1060,16 @@ class Frame {
         }
 
     }
+
+    public keyUp()
+    {
+
+    }
+
+    public keyDown(event)
+    {
+
+    }
     public click()
     {
 
@@ -1033,28 +1078,39 @@ class Frame {
 
         if(this.clickCount == 1)
         {
-            this.scene01Update = true;
-            this.scene02Update = false;
+            this.scene01Update = false;
+            this.scene02Update = true;
         }
 
         if(this.clickCount == 0)
         {
 
-            this.scene01Update = false;
-            this.scene02Update = true;
+            this.scene01Update = true;
+            this.scene02Update = false;
             for(var i = 0; i < this.particles.length; i++)
             {
                 this.particles[i].enableUpdate();
             }
         }
 
-        if(this.clickCount == 5)
+        if(this.clickCount >= 3)
         {
-            this.remove();
+            // this.remove();
+            this.initPosition();
+            this.scene01Update = true;
+            this.scene02Update = false;
+            for(var i = 0; i < this.particles.length; i++)
+            {
+                // this.particles[i].enableUpdate();
+                this.particles[i].initUpdate();
+            }
+            this.clickCount = 0;
+        } else {
+            this.clickCount++;
         }
 
 
-        this.clickCount++;
+
 
 
 
