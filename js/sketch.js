@@ -37,9 +37,7 @@ function setup() {
   noise01.playMode('restart');
   ring.playMode('restart');
   
-  
-//   createCanvas(720, 200);
-//   background(255,0,0);
+
   
 }
 function draw()

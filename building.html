@@ -151,6 +151,7 @@
 <script type="text/javascript" src="js/frame.js"></script>
 <script type="text/javascript" src="js/clock.js"></script>
 <script type="text/javascript" src="js/frame_normal.js"></script>
+<script type="text/javascript" src="js/BoxParticle.js"></script>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 <div class="description">
@@ -226,6 +227,7 @@
 
 
             overscene = [];
+            scenes.push(new BoxParticle(renderer));
             scenes.push(new Clock(renderer));
             scenes.push(new Frame(renderer));
             scenes.push(new Frame01(renderer));
