@@ -22,7 +22,8 @@ var BoxParticle = (function () {
                 vec = 1;
             }
             var setting = {
-                moveToY: 200
+                moveToY: 200,
+                time: 0.0
             };
             this.animateSetting.push(setting);
             var position = new THREE.Vector3(yStep * i - (yStep * 6) / 2 + 100, -200, 0);
@@ -71,8 +72,19 @@ var BoxParticle = (function () {
             this.isUpdate = true;
         }
         // particle start
-        //this.gpuparticle[this.clickCounter].startUpdate = true;
+        // this.gpuparticle[this.clickCounter].startUpdate = true;
         this.clickCounter++;
+    };
+    BoxParticle.prototype.easeOutCubic = function (t, b, c, d) {
+        // t : 時間(進行度) 0~1
+        // b : 開始の値(開始時の座標やスケールなど)
+        // c : 開始と終了の値の差分
+        // d : Tween(トゥイーン)の合計時間
+        if (t >= 1.0) {
+            t = 1.0;
+        }
+        return c * ((t = t / d - 1) * t * t + 1) + b;
+        // }
     };
     BoxParticle.prototype.update = function () {
         //console.log(this.END);
@@ -85,15 +97,15 @@ var BoxParticle = (function () {
         }
         // this.camera.position.z -= 1;
         if (this.isUpdate) {
-            for (var i = 0; i < this.gpuparticle.length; i++) {
-                // this.gpuparticle[i].position.x += this.animateSetting[i].direction*this.speed;
-                if (Math.abs(this.gpuparticle[i].position.x) <= 10) {
-                    this.speed = 0.01;
-                }
-                if (Math.abs(this.gpuparticle[i].position.x) <= 10) {
-                    for (var i = 0; i < this.gpuparticle.length; i++) {
-                        this.gpuparticle[i].startUpdate = true;
-                    }
+            this.speed = 0.01;
+            for (var i = 0; i < this.clickCounter; i++) {
+                var value = this.easeOutCubic(this.animateSetting[i].time, -200, 400, 1.0);
+                console.log(value);
+                console.log(this.animateSetting[i].time);
+                this.animateSetting[i].time += 0.01;
+                this.gpuparticle[i].position.y = value;
+                if (value > 150) {
+                    this.gpuparticle[i].startUpdate = true;
                 }
             }
         }

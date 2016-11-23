@@ -43,7 +43,8 @@ class BoxParticle {
 
             var setting =
             {
-                moveToY:200
+                moveToY:200,
+                time:0.0;
             };
             this.animateSetting.push(setting);
 
@@ -133,7 +134,7 @@ class BoxParticle {
 
 
         // particle start
-        //this.gpuparticle[this.clickCounter].startUpdate = true;
+        // this.gpuparticle[this.clickCounter].startUpdate = true;
 
 
 
@@ -144,6 +145,21 @@ class BoxParticle {
 
 
     }
+
+    private easeOutCubic (t, b, c, d) {
+        // t : 時間(進行度) 0~1
+        // b : 開始の値(開始時の座標やスケールなど)
+        // c : 開始と終了の値の差分
+        // d : Tween(トゥイーン)の合計時間
+        if(t>=1.0){
+            t = 1.0;
+        }
+            return c*((t=t/d-1)*t*t + 1) + b;
+        // }
+
+
+    }
+
 
     public update() {
 
@@ -165,23 +181,28 @@ class BoxParticle {
 
         if(this.isUpdate)
         {
-            for(var i = 0; i < this.gpuparticle.length; i++)
+            this.speed = 0.01;
+            for(var i = 0; i < this.clickCounter; i++)
             {
 
-                // this.gpuparticle[i].position.x += this.animateSetting[i].direction*this.speed;
-                if(Math.abs(this.gpuparticle[i].position.x)<=10)
-                {
-                    this.speed = 0.01;
+                var value = this.easeOutCubic(this.animateSetting[i].time,-200,400,1.0);
+                console.log(value);
+                console.log(this.animateSetting[i].time);
+                this.animateSetting[i].time += 0.01;
 
+                this.gpuparticle[i].position.y = value;
+                if(value > 150)
+                {
+                    this.gpuparticle[i].startUpdate = true;
                 }
 
-                if(Math.abs(this.gpuparticle[i].position.x)<=10)
-                {
-                    for(var i = 0; i < this.gpuparticle.length; i++)
-                    {
-                        this.gpuparticle[i].startUpdate = true;
-                    }
-                }
+                // if(Math.abs(this.gpuparticle[i].position.x)<=10)
+                // {
+                //     for(var i = 0; i < this.gpuparticle.length; i++)
+                //     {
+                //         this.gpuparticle[i].startUpdate = true;
+                //     }
+                // }
 
 
 
