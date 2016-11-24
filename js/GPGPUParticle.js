@@ -244,6 +244,11 @@ var GPGPUParticle = (function () {
         this.group.add(this.boxMesh);
         // this.scene.add(this.boxMesh);
     };
+    GPGPUParticle.prototype.setRotateXYZ = function (x, y, z) {
+        this.group.rotateX(x);
+        this.group.rotateX(y);
+        this.group.rotateX(z);
+    };
     GPGPUParticle.prototype.initComputeRenderer = function () {
         // 画面サイズだけGPU Rendererを生成
         this.gpuCompute = new GPUComputationRenderer(this.WIDTH, this.WIDTH, this.renderer);

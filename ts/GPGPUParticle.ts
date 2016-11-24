@@ -300,6 +300,13 @@ class GPGPUParticle {
         // this.scene.add(this.boxMesh);
     }
 
+    public setRotateXYZ(x,y,z)
+    {
+        this.group.rotateX(x);
+        this.group.rotateX(y);
+        this.group.rotateX(z);
+    }
+
 
     private initComputeRenderer()
     {
