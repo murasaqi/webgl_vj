@@ -151,7 +151,7 @@ var Clock = (function () {
         this.context.textAlign = "center";
         this.context.beginPath();
         this.context.fillStyle = color;
-        this.context.font = " bold 300px 'Source Sans Pro'";
+        this.context.font = " bold 250px 'Source Sans Pro'";
         this.context.fillText(text, this.textPos.x, this.textPos.y);
         this.context.fill();
     };
@@ -210,7 +210,11 @@ var Clock = (function () {
         }
         this.textAlpha = Math.sin(this.alphaTimer[0]);
         var rgb = "rgba(255,255,255," + String(this.textAlpha * 0.4) + ")";
-        var textureText = String(date.getHours()) + ":" + String(date.getMinutes()) + ":" + String(date.getSeconds());
+        var sec = date.getSeconds().toString();
+        if (date.getSeconds() < 10) {
+            sec = "0" + sec.toString();
+        }
+        var textureText = String(date.getHours()) + ":" + String(date.getMinutes()) + ":" + sec;
         this.createTexture(textureText, rgb);
         this.texture.needsUpdate = true;
         var nowColor = this.pointCloud.material.color;
@@ -241,20 +245,18 @@ var Clock = (function () {
             this.arraynow[i * 3 + 1] += (this.arraynext[i * 3 + 1] - this.arraynow[i * 3 + 1]) * 0.05;
             this.arraynow[i * 3 + 2] += (this.arraynext[i * 3 + 2] - this.arraynow[i * 3 + 2]) * 0.05;
         }
-        // $("body").css("background","radial-gradient(rgb("+
-        //     Math.round(this.arraynow[0]) + "," + Math.round(this.arraynow[1]) + "," + Math.round(this.arraynow[2]) + ")0%,rgb(" +
-        //     Math.round(this.arraynow[3]) + "," + Math.round(this.arraynow[4]) + "," + Math.round(this.arraynow[5]) + ")40%,rgb(" +
-        //     Math.round(this.arraynow[6]) + "," + Math.round(this.arraynow[7]) + "," + Math.round(this.arraynow[8]) + ")50%,rgb(" +
-        //     Math.round(this.arraynow[9]) + "," + Math.round(this.arraynow[10]) + "," + Math.round(this.arraynow[11]) + ")70%,rgb(" +
-        //     Math.round(this.arraynow[12]) + "," + Math.round(this.arraynow[13]) + "," + Math.round(this.arraynow[14]) + ")80%,rgb(" +
-        //     Math.round(this.arraynow[15]) + "," + Math.round(this.arraynow[16]) + "," + Math.round(this.arraynow[17]) + ")90%,rgb(" +
-        //     Math.round(this.arraynow[18]) + "," + Math.round(this.arraynow[19]) + "," + Math.round(this.arraynow[20]) + ")100%)");
         this.pointCloud.geometry.attributes.position.needsUpdate = true;
         this.lineMesh.geometry.attributes.position.needsUpdate = true;
         this.lineMesh.geometry.setDrawRange(0, lIndicesCount - 1);
         lIndices.needsUpdate = true;
         var date = new Date();
-        //if(preSec != date.getSeconds() && date.getSeconds() % 7 == 0 || isCick){
+        if (this.preSec != date.getSeconds()) {
+            clock();
+            if (date.getSeconds() % 4 == 0) {
+                this.isCick = true;
+                randomRingPlay();
+            }
+        }
         if (this.isCick) {
             this.rotate.y = Math.random() * 5 - 2.5;
             this.rotate.x = Math.random() * 5 - 2.5;

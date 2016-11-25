@@ -31,6 +31,7 @@ var computeShaderPosition = {
         'uniform float offsetC_z;',
         'uniform float time;',
         'uniform float speed;',
+        'uniform float init;',
         'float rnd(vec2 p){',
         '    return fract(sin(dot(p ,vec2(12.9898,78.233))) * 43758.5453);',
         '}',
@@ -50,6 +51,7 @@ var computeShaderPosition = {
         '    vec3 offset = offsetV.xyz;',
         '    //w -= 0.01;',
         '    pos += vel*speed;',
+        '    if(init == 1.0) {pos = offsetV.xyz;}',
         '    if(distance(pos.xyz,offsetV.xyz) > 200.0)',
         '    {',
         '        //w = 0.0;',
@@ -162,10 +164,11 @@ var computeShaderVelocity = {
             '    float _scale = snoise(pos)*0.1;',
             '    //float _scale = 0.04;',
             '    vec3 dist = pos;',
-            '    vec3 n = normalize(translate)*-1.0+normalize(dist);',
-            '    vel.x=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetX));',
-            '    vel.y=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetY));',
-            '    vel.z=snoise(vec3(pos.x*scale, pos.y*scale,time*offsetZ));',
+            '    //vec3 n = normalize(translate)*-1.0+normalize(dist);',
+            '    vec3 n = normalize(dist);',
+            '    vel.x=snoise(vec3(pos.x*scale, pos.y*scale,time));',
+            '    vel.y=snoise(vec3(pos.x*scale, pos.y*scale,time));',
+            '    vel.z=snoise(vec3(pos.x*scale, pos.y*scale,time));',
             '    vel += n*1.0;',
             '    //vel.z * = 1.0;',
             '    // ノイズの値を位置情報から生成',
@@ -342,6 +345,7 @@ class GPGPUParticle {
         this.velocityUniforms.offsetY = { value: Math.random() };
         this.velocityUniforms.offsetZ = { value: Math.random() };
         this.positionUniforms.speed = { value: 1.0 };
+        this.positionUniforms.init = { value: 0.0 };
         // this.velocityUniforms.velocity = { value: this.position };
         this.positionUniforms.alpha = { value: 1.0 };
         var seed = 0.1;
@@ -477,6 +481,11 @@ class GPGPUParticle {
 
     }
 
+    public init()
+    {
+        this.positionUniforms.init.value = 1.0;
+    }
+
     public update()
     {
         this.renderer.setClearColor ( 0x000000, 1.0 );
@@ -486,6 +495,7 @@ class GPGPUParticle {
         // this.resize();
         if(this.startUpdate)
         {
+
 
 
 
@@ -522,6 +532,14 @@ class GPGPUParticle {
                 }
 
 
+        }
+
+
+        if(this.positionUniforms.init.value == 1.0)
+        {
+            this.positionUniforms.init.value = 0.0;
+            this.startUpdate =false;
+            this.boxMaterial.color.set(0xffffff);
         }
 
     }
@@ -633,6 +651,10 @@ class GPGPUParticleScene {
             this.gpuparticle[i].resize();
         }
     }
+
+
+
+
 
    
     public remove()

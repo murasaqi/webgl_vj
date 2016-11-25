@@ -719,7 +719,7 @@ class Frame {
 
         // カメラを作成
         this.camera = new THREE.PerspectiveCamera( 110, window.innerWidth/window.innerHeight, 0.1, 10000 );
-        this.camera.position.z = 500;
+        this.camera.position.z = 400;
 
         var textureLoader = new THREE.TextureLoader();
 
@@ -1038,8 +1038,8 @@ class Frame {
                 }
 
                 //var radian = Math.abs(Math.sin(this.time_scene01));
-                var x = 500 * Math.cos(this.radian.value + Math.PI / 2);
-                var z = 500 * Math.sin(this.radian.value + Math.PI / 2);
+                var x = 300 * Math.cos(this.radian.value + Math.PI / 2);
+                var z = 300 * Math.sin(this.radian.value + Math.PI / 2);
 
                 this.camera.position.set(x, 0, z);
                 this.camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -1065,49 +1065,51 @@ class Frame {
     {
 
     }
-
-    public keyDown(event)
-    {
-
-    }
+    //
+    // public keyDown(event)
+    // {
+    //     console.log(event)
+    //     this.click();
+    // }
+    //
     public click()
     {
 
 
 
 
-        if(this.clickCount == 1)
-        {
-            this.scene01Update = false;
-            this.scene02Update = true;
-        }
-
-        if(this.clickCount == 0)
-        {
-
-            this.scene01Update = true;
-            this.scene02Update = false;
-            for(var i = 0; i < this.particles.length; i++)
-            {
-                this.particles[i].enableUpdate();
-            }
-        }
-
-        if(this.clickCount >= 3)
-        {
-            // this.remove();
-            this.initPosition();
-            this.scene01Update = true;
-            this.scene02Update = false;
-            for(var i = 0; i < this.particles.length; i++)
-            {
-                // this.particles[i].enableUpdate();
-                this.particles[i].initUpdate();
-            }
-            this.clickCount = 0;
-        } else {
-            this.clickCount++;
-        }
+        // if(this.clickCount == 1)
+        // {
+        //     this.scene01Update = false;
+        //     this.scene02Update = true;
+        // }
+        //
+        // if(this.clickCount == 0)
+        // {
+        //
+        //     this.scene01Update = true;
+        //     this.scene02Update = false;
+        //     for(var i = 0; i < this.particles.length; i++)
+        //     {
+        //         this.particles[i].enableUpdate();
+        //     }
+        // }
+        //
+        // if(this.clickCount >= 3)
+        // {
+        //     // this.remove();
+        //     this.initPosition();
+        //     this.scene01Update = true;
+        //     this.scene02Update = false;
+        //     for(var i = 0; i < this.particles.length; i++)
+        //     {
+        //         // this.particles[i].enableUpdate();
+        //         this.particles[i].initUpdate();
+        //     }
+        //     this.clickCount = 0;
+        // } else {
+        //     this.clickCount++;
+        // }
 
 
 
@@ -1125,7 +1127,7 @@ class Frame {
     public keyDown(keyCode)
     {
 
-        // console.log(keyCode);
+        console.log(keyCode);
         switch (keyCode){
             case 190:
                 this.scene01Update = false;
@@ -1135,6 +1137,44 @@ class Frame {
                 this.isSpeedDown = true;
                 break;
         }
+
+        if(keyCode.code == "Space")
+        {
+            if(this.clickCount == 1)
+            {
+                this.scene01Update = false;
+                this.scene02Update = true;
+            }
+
+            if(this.clickCount == 0)
+            {
+
+                this.scene01Update = true;
+                this.scene02Update = false;
+                for(var i = 0; i < this.particles.length; i++)
+                {
+                    this.particles[i].enableUpdate();
+                }
+            }
+
+            if(this.clickCount >= 2)
+            {
+                // this.remove();
+                this.initPosition();
+                this.scene01Update = true;
+                this.scene02Update = false;
+                for(var i = 0; i < this.particles.length; i++)
+                {
+                    // this.particles[i].enableUpdate();
+                    this.particles[i].initUpdate();
+                }
+                this.clickCount = 0;
+            } else {
+                this.clickCount++;
+            }
+
+        }
+
 
 
     }

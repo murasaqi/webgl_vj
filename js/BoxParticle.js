@@ -8,13 +8,17 @@ var BoxParticle = (function () {
         this.animateSetting = [];
         this.speed = 1.0;
         this.time = 0.0;
+        this.mode = [];
+        this.modeNum = 0;
+        this.mode.push("circle");
+        // this.mode.push("downup");
+        this.mode.push("leftright");
         this.renderer = renderer;
         this.camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 50000);
         this.camera.position.y = 0;
         this.camera.position.z = 600;
         this.scene = new THREE.Scene();
-        var yStep = 150;
-        var offsetRad = Math.random() * Math.PI - Math.PI / 2;
+        var offsetRad = 0;
         var _width = 700;
         var _height = 600;
         for (var i = 0; i < 6; i++) {
@@ -56,6 +60,94 @@ var BoxParticle = (function () {
     BoxParticle.prototype.keyUp = function () {
     };
     BoxParticle.prototype.keyDown = function (event) {
+        if (event.keyCode == 32) {
+            for (var i = 0; i < this.gpuparticle.length; i++) {
+                this.gpuparticle[i].init();
+            }
+            this.modeNum = Math.floor(Math.random() * 2);
+            console.log(this.modeNum);
+            this.initPos(this.modeNum);
+        }
+        if (event.keyCode == 68) {
+            if (this.clickCounter < this.gpuparticle.length) {
+                this.clickCounter++;
+            }
+        }
+    };
+    BoxParticle.prototype.initPos = function (mode) {
+        this.clickCounter = 0;
+        // this.initCircle();
+        switch (mode) {
+            case 0:
+                this.initCircle();
+                break;
+            case 1:
+                this.initLeftup();
+                break;
+        }
+    };
+    BoxParticle.prototype.initLeftup = function () {
+        this.camera.position.y = 0;
+        this.camera.position.z = 600;
+        this.camera.position.x = 0;
+        this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+        this.speed = 0.25;
+        for (var i = 0; i < 6; i++) {
+            this.animateSetting[i] =
+                {
+                    // moveToY:200,
+                    time: -9.0,
+                    rotateX: Math.random() * 0.04 - 0.02,
+                    rotateY: Math.random() * 0.04 - 0.02,
+                    rotateZ: Math.random() * 0.04 - 0.02,
+                    moveTox: 0.0
+                };
+            var x = 0;
+            // var b = Math.random();
+            if (i < 3) {
+                x = -1100;
+                this.animateSetting[i].moveTox = 300;
+            }
+            else {
+                x = 1100;
+                this.animateSetting[i].moveTox = -300;
+            }
+            var y = Math.random() * 400 - 200;
+            var z = Math.random() * 400 - 200;
+            //var position = new THREE.Vector3(yStep*i-(yStep*6)/2+100,-200,0);
+            this.startUpdate = false;
+            this.gpuparticle[i].position.set(x, y, z);
+        }
+    };
+    BoxParticle.prototype.initCircle = function () {
+        var offsetRad = 0;
+        var _width = 700;
+        var _height = 600;
+        for (var i = 0; i < 6; i++) {
+            var vec = 1;
+            offsetRad += Math.PI * 2 / 6;
+            if (i % 2 == 0) {
+                vec = -1;
+            }
+            else {
+                vec = 1;
+            }
+            this.animateSetting[i] =
+                {
+                    // moveToY:200,
+                    time: -9.0,
+                    rotateX: Math.random() * 0.02 - 0.001,
+                    rotateY: Math.random() * 0.02 - 0.001,
+                    rotateZ: Math.random() * 0.02 - 0.001
+                };
+            var x = _width * Math.cos(offsetRad);
+            // x = 100;
+            var y = _height * Math.sin(offsetRad);
+            // y = 100;
+            //var position = new THREE.Vector3(yStep*i-(yStep*6)/2+100,-200,0);
+            this.startUpdate = false;
+            this.gpuparticle[i].position.set(x, y, 0);
+        }
     };
     BoxParticle.prototype.initOrbitControls = function () {
         this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
@@ -110,51 +202,66 @@ var BoxParticle = (function () {
                 this.END = true;
             }
         }
-        this.time += 0.1;
         // this.camera.position.z -= 1;
         if (this.isUpdate) {
-            this.speed = 0.01;
-            for (var i = 0; i < this.clickCounter; i++) {
-                // var value = this.easeOutCubic(this.animateSetting[i].time,-200,400,1.0);
-                // console.log(value);
-                // console.log(this.animateSetting[i].time);
-                // this.animateSetting[i].time += 0.01;
-                if (this.gpuparticle[i].position.distanceTo(new THREE.Vector3(0, 0, 0)) < 10) {
-                    this.gpuparticle[i].startUpdate = true;
+            this.time += 0.1;
+            if (this.mode[this.modeNum] == "circle") {
+                this.speed = 0.01;
+                for (var i = 0; i < this.clickCounter; i++) {
+                    // var value = this.easeOutCubic(this.animateSetting[i].time,-200,400,1.0);
+                    // console.log(value);
+                    // console.log(this.animateSetting[i].time);
+                    // this.animateSetting[i].time += 0.01;
+                    if (this.gpuparticle[i].position.distanceTo(new THREE.Vector3(0, 0, 0)) < 10) {
+                        this.gpuparticle[i].startUpdate = true;
+                    }
+                    else {
+                        this.animateSetting[i].time += (0 - this.animateSetting[i].time) * 0.01;
+                        // if(this.animateSetting[i].rotateX < 0.007)
+                        // {
+                        //     this.animateSetting[i].rotateX = 0;
+                        // }
+                        // if(this.animateSetting[i].rotateY < 0.007)
+                        // {
+                        //     this.animateSetting[i].rotateY = 0;
+                        // }
+                        // if(this.animateSetting[i].rotateZ < 0.007)
+                        // {
+                        //     this.animateSetting[i].rotateZ = 0;
+                        // }
+                        this.animateSetting[i].rotateX += (0 - this.animateSetting[i].rotateX) * 0.02;
+                        this.animateSetting[i].rotateY += (0 - this.animateSetting[i].rotateY) * 0.02;
+                        this.animateSetting[i].rotateZ += (0 - this.animateSetting[i].rotateZ) * 0.02;
+                    }
+                    var vec = new THREE.Vector3(this.gpuparticle[i].position.x, this.gpuparticle[i].position.y, this.gpuparticle[i].position.z);
+                    //vec.multiplyScalar(-10);
+                    vec.normalize();
+                    this.gpuparticle[i].position.add(vec.multiplyScalar(this.animateSetting[i].time));
+                    this.gpuparticle[i].setRotateXYZ(this.animateSetting[i].rotateX, this.animateSetting[i].rotateY, this.animateSetting[i].rotateZ);
                 }
-                else {
-                    this.animateSetting[i].time += (0 - this.animateSetting[i].time) * 0.01;
-                    // if(this.animateSetting[i].rotateX < 0.007)
-                    // {
-                    //     this.animateSetting[i].rotateX = 0;
-                    // }
-                    // if(this.animateSetting[i].rotateY < 0.007)
-                    // {
-                    //     this.animateSetting[i].rotateY = 0;
-                    // }
-                    // if(this.animateSetting[i].rotateZ < 0.007)
-                    // {
-                    //     this.animateSetting[i].rotateZ = 0;
-                    // }
-                    this.animateSetting[i].rotateX += (0 - this.animateSetting[i].rotateX) * 0.02;
-                    this.animateSetting[i].rotateY += (0 - this.animateSetting[i].rotateY) * 0.02;
-                    this.animateSetting[i].rotateZ += (0 - this.animateSetting[i].rotateZ) * 0.02;
+                var radius = 500 + 200 * Math.sin(this.time * 0.2);
+                var camX = Math.cos(this.time * 0.1) * radius;
+                var camZ = Math.sin(this.time * 0.1) * radius;
+                var camY = Math.sin(this.time * 0.07) * 300;
+                this.camera.position.x = camX;
+                this.camera.position.z = camZ;
+                this.camera.position.y = camY;
+                this.camera.lookAt(new THREE.Vector3(0, 0, 0));
+            } // circle
+            if (this.mode[this.modeNum] == "leftright") {
+                this.speed += (0.001 - this.speed) * 0.198;
+                for (var i = 0; i < this.gpuparticle.length; i++) {
+                    if (this.speed < 0.0015) {
+                        this.gpuparticle[i].startUpdate = true;
+                    }
+                    this.animateSetting[i].rotateX += (0 - this.animateSetting[i].rotateX) * 0.05;
+                    this.animateSetting[i].rotateY += (0 - this.animateSetting[i].rotateY) * 0.05;
+                    this.animateSetting[i].rotateZ += (0 - this.animateSetting[i].rotateZ) * 0.05;
+                    this.gpuparticle[i].setRotateXYZ(this.animateSetting[i].rotateX, this.animateSetting[i].rotateY, this.animateSetting[i].rotateZ);
+                    this.gpuparticle[i].position.x += (this.animateSetting[i].moveTox - this.gpuparticle[i].position.x) * this.speed;
                 }
-                var vec = new THREE.Vector3(this.gpuparticle[i].position.x, this.gpuparticle[i].position.y, this.gpuparticle[i].position.z);
-                //vec.multiplyScalar(-10);
-                vec.normalize();
-                this.gpuparticle[i].position.add(vec.multiplyScalar(this.animateSetting[i].time));
-                this.gpuparticle[i].setRotateXYZ(this.animateSetting[i].rotateX, this.animateSetting[i].rotateY, this.animateSetting[i].rotateZ);
-            }
+            } // leftright
         }
-        var radius = 500 + 200 * Math.sin(this.time * 0.2);
-        var camX = Math.cos(this.time * 0.1) * radius;
-        var camZ = Math.sin(this.time * 0.1) * radius;
-        var camY = Math.sin(this.time * 0.07) * 300;
-        this.camera.position.x = camX;
-        this.camera.position.z = camZ;
-        this.camera.position.y = camY;
-        this.camera.lookAt(new THREE.Vector3(0, 0, 0));
         for (var i = 0; i < this.gpuparticle.length; i++) {
             this.gpuparticle[i].update();
         }

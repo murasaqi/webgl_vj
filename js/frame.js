@@ -520,7 +520,7 @@ var Frame = (function () {
             };
         // カメラを作成
         this.camera = new THREE.PerspectiveCamera(110, window.innerWidth / window.innerHeight, 0.1, 10000);
-        this.camera.position.z = 500;
+        this.camera.position.z = 400;
         var textureLoader = new THREE.TextureLoader();
         var image = textureLoader.load("textures/frame.jpg");
         var scale = 0.7;
@@ -724,8 +724,8 @@ var Frame = (function () {
                     this.time_scene01 = this.time_scene02;
                 }
                 //var radian = Math.abs(Math.sin(this.time_scene01));
-                var x = 500 * Math.cos(this.radian.value + Math.PI / 2);
-                var z = 500 * Math.sin(this.radian.value + Math.PI / 2);
+                var x = 300 * Math.cos(this.radian.value + Math.PI / 2);
+                var z = 300 * Math.sin(this.radian.value + Math.PI / 2);
                 this.camera.position.set(x, 0, z);
                 this.camera.lookAt(new THREE.Vector3(0, 0, 0));
             }
@@ -741,41 +741,53 @@ var Frame = (function () {
     };
     Frame.prototype.keyUp = function () {
     };
-    Frame.prototype.keyDown = function (event) {
-    };
+    //
+    // public keyDown(event)
+    // {
+    //     console.log(event)
+    //     this.click();
+    // }
+    //
     Frame.prototype.click = function () {
-        if (this.clickCount == 1) {
-            this.scene01Update = false;
-            this.scene02Update = true;
-        }
-        if (this.clickCount == 0) {
-            this.scene01Update = true;
-            this.scene02Update = false;
-            for (var i = 0; i < this.particles.length; i++) {
-                this.particles[i].enableUpdate();
-            }
-        }
-        if (this.clickCount >= 3) {
-            // this.remove();
-            this.initPosition();
-            this.scene01Update = true;
-            this.scene02Update = false;
-            for (var i = 0; i < this.particles.length; i++) {
-                // this.particles[i].enableUpdate();
-                this.particles[i].initUpdate();
-            }
-            this.clickCount = 0;
-        }
-        else {
-            this.clickCount++;
-        }
+        // if(this.clickCount == 1)
+        // {
+        //     this.scene01Update = false;
+        //     this.scene02Update = true;
+        // }
+        //
+        // if(this.clickCount == 0)
+        // {
+        //
+        //     this.scene01Update = true;
+        //     this.scene02Update = false;
+        //     for(var i = 0; i < this.particles.length; i++)
+        //     {
+        //         this.particles[i].enableUpdate();
+        //     }
+        // }
+        //
+        // if(this.clickCount >= 3)
+        // {
+        //     // this.remove();
+        //     this.initPosition();
+        //     this.scene01Update = true;
+        //     this.scene02Update = false;
+        //     for(var i = 0; i < this.particles.length; i++)
+        //     {
+        //         // this.particles[i].enableUpdate();
+        //         this.particles[i].initUpdate();
+        //     }
+        //     this.clickCount = 0;
+        // } else {
+        //     this.clickCount++;
+        // }
     };
     Frame.prototype.initOrbitControls = function () {
         this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
         this.controls.enableKeys = false;
     };
     Frame.prototype.keyDown = function (keyCode) {
-        // console.log(keyCode);
+        console.log(keyCode);
         switch (keyCode) {
             case 190:
                 this.scene01Update = false;
@@ -784,6 +796,33 @@ var Frame = (function () {
             case 82:
                 this.isSpeedDown = true;
                 break;
+        }
+        if (keyCode.code == "Space") {
+            if (this.clickCount == 1) {
+                this.scene01Update = false;
+                this.scene02Update = true;
+            }
+            if (this.clickCount == 0) {
+                this.scene01Update = true;
+                this.scene02Update = false;
+                for (var i = 0; i < this.particles.length; i++) {
+                    this.particles[i].enableUpdate();
+                }
+            }
+            if (this.clickCount >= 2) {
+                // this.remove();
+                this.initPosition();
+                this.scene01Update = true;
+                this.scene02Update = false;
+                for (var i = 0; i < this.particles.length; i++) {
+                    // this.particles[i].enableUpdate();
+                    this.particles[i].initUpdate();
+                }
+                this.clickCount = 0;
+            }
+            else {
+                this.clickCount++;
+            }
         }
     };
     Frame.prototype.remove = function () {
