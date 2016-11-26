@@ -288,7 +288,7 @@ class GPGPUParticle_frame {
 
         this.WIDTH = width;
         this.HEIGHT = height;
-        this.PARTICLES =  this.PARTICLE_NUM * this.PARTICLE_NUM;
+        this.PARTICLES =  this.PARTICLE_NUM * this.PARTICLE_NUM*10;
 
         this.scene = scene;
         this.camera = camera;
@@ -719,7 +719,7 @@ class Frame {
 
         // カメラを作成
         this.camera = new THREE.PerspectiveCamera( 110, window.innerWidth/window.innerHeight, 0.1, 10000 );
-        this.camera.position.z = 400;
+        this.camera.position.z = 300;
 
         var textureLoader = new THREE.TextureLoader();
 
@@ -962,7 +962,7 @@ class Frame {
 
                     this.camera.position.x = 500 * Math.cos(this.time_scene01 * 0.1 + Math.PI / 2);
                     this.camera.position.y = 200 * Math.sin(this.time_scene01 * 0.1);
-                    var z = 800 * Math.sin(this.time_scene01 * 0.1 + Math.PI / 2);
+                    var z = 700 * Math.sin(this.time_scene01 * 0.1 + Math.PI / 2);
                     this.camera.position.z += (z - this.camera.position.z) * 0.01;
                     this.camera.position.add(this.scene01CameraRotation.multiplyScalar(this.scene01Speed.now * 0.4));
                     this.camera.lookAt(new THREE.Vector3(0, 0, 0));

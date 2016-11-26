@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41384a8a-e3e3-4bb8-bbb1-c11a3fadfef4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ts/clear.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/building.html" afterPath="$PROJECT_DIR$/building.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/BoxParticle.js" afterPath="$PROJECT_DIR$/js/BoxParticle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/BoxParticle.js.map" afterPath="$PROJECT_DIR$/js/BoxParticle.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/GPGPUParticle.js" afterPath="$PROJECT_DIR$/js/GPGPUParticle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/GPGPUParticle.js.map" afterPath="$PROJECT_DIR$/js/GPGPUParticle.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/clock.js" afterPath="$PROJECT_DIR$/js/clock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/clock.js.map" afterPath="$PROJECT_DIR$/js/clock.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/frame.js" afterPath="$PROJECT_DIR$/js/frame.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/frame.js.map" afterPath="$PROJECT_DIR$/js/frame.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/sketch.js" afterPath="$PROJECT_DIR$/js/sketch.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/BoxParticle.ts" afterPath="$PROJECT_DIR$/ts/BoxParticle.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/GPGPUParticle.ts" afterPath="$PROJECT_DIR$/ts/GPGPUParticle.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/clock.ts" afterPath="$PROJECT_DIR$/ts/clock.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/frame.ts" afterPath="$PROJECT_DIR$/ts/frame.ts" />
     </list>
     <ignored path="vj_project.iws" />
@@ -42,11 +33,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.53441685">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="building.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="building.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/building.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="154">
-                  <caret line="403" column="13" selection-start-line="403" selection-start-column="13" selection-end-line="403" selection-end-column="13" />
+                <state relative-caret-position="3016">
+                  <caret line="412" column="13" selection-start-line="412" selection-start-column="13" selection-end-line="412" selection-end-column="13" />
                   <folding>
                     <marker date="1480099502000" expanded="true" signature="12921:14510" ph="..." />
                   </folding>
@@ -54,11 +45,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="frame.ts" pinned="false" current-in-tab="false">
+          <file leaf-file-name="frame.ts" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ts/frame.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="145">
-                  <caret line="884" column="5" selection-start-line="884" selection-start-column="5" selection-end-line="884" selection-end-column="5" />
+                <state relative-caret-position="189">
+                  <caret line="987" column="38" selection-start-line="987" selection-start-column="24" selection-end-line="987" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
@@ -67,8 +58,8 @@
           <file leaf-file-name="GPGPUParticle.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/GPGPUParticle.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2067">
-                  <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
+                <state relative-caret-position="156">
+                  <caret line="276" column="35" selection-start-line="276" selection-start-column="35" selection-end-line="276" selection-end-column="35" />
                   <folding />
                 </state>
               </provider>
@@ -77,7 +68,7 @@
           <file leaf-file-name="BoxParticle.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/BoxParticle.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="398">
+                <state relative-caret-position="1586">
                   <caret line="122" column="30" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="30" />
                   <folding />
                 </state>
@@ -87,7 +78,7 @@
           <file leaf-file-name="clock.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/clock.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="223">
+                <state relative-caret-position="5005">
                   <caret line="385" column="33" selection-start-line="385" selection-start-column="33" selection-end-line="385" selection-end-column="33" />
                   <folding />
                 </state>
@@ -97,7 +88,7 @@
           <file leaf-file-name="frame_normal.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/frame_normal.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="561">
+                <state relative-caret-position="4719">
                   <caret line="363" column="38" selection-start-line="363" selection-start-column="38" selection-end-line="363" selection-end-column="38" />
                   <folding />
                 </state>
@@ -111,7 +102,7 @@
           <file leaf-file-name="template.ts" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ts/template.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-377">
+                <state relative-caret-position="494">
                   <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
                   <folding />
                 </state>
@@ -131,8 +122,8 @@
           <file leaf-file-name="sketch.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/sketch.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="229">
-                  <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+                <state relative-caret-position="189">
+                  <caret line="67" column="4" selection-start-line="67" selection-start-column="3" selection-end-line="67" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -200,14 +191,14 @@
         <option value="$PROJECT_DIR$/ts/canvas_texture.ts" />
         <option value="$PROJECT_DIR$/ts/FontSwimming.ts" />
         <option value="$PROJECT_DIR$/js/GPGPUParticle.js" />
-        <option value="$PROJECT_DIR$/ts/GPGPUParticle.ts" />
         <option value="$PROJECT_DIR$/ts/BoxParticle.ts" />
         <option value="$PROJECT_DIR$/ts/frame_normal.ts" />
-        <option value="$PROJECT_DIR$/ts/frame.ts" />
         <option value="$PROJECT_DIR$/ts/clear.ts" />
         <option value="$PROJECT_DIR$/ts/clock.ts" />
         <option value="$PROJECT_DIR$/building.html" />
         <option value="$PROJECT_DIR$/js/sketch.js" />
+        <option value="$PROJECT_DIR$/ts/GPGPUParticle.ts" />
+        <option value="$PROJECT_DIR$/ts/frame.ts" />
       </list>
     </option>
   </component>
@@ -218,8 +209,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-21" />
-    <option name="y" value="40" />
+    <option name="x" value="194" />
+    <option name="y" value="26" />
     <option name="width" value="1246" />
     <option name="height" value="874" />
   </component>
@@ -248,7 +239,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -411,6 +401,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -541,12 +532,13 @@
       <workItem from="1479837245374" duration="1783000" />
       <workItem from="1479863734046" duration="6382000" />
       <workItem from="1479916553894" duration="7504000" />
-      <workItem from="1480069078303" duration="17335000" />
+      <workItem from="1480069078303" duration="17524000" />
+      <workItem from="1480154783513" duration="239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294523000" />
+    <option name="totallyTimeSpent" value="294951000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -558,7 +550,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-21" y="40" width="1246" height="874" extended-state="0" />
+    <frame x="194" y="26" width="1246" height="874" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20460358" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -566,18 +558,18 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24961714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17323944" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294423" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -907,7 +899,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ts/frame_normal.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
+        <state relative-caret-position="4719">
           <caret line="363" column="38" selection-start-line="363" selection-start-column="38" selection-end-line="363" selection-end-column="38" />
           <folding />
         </state>
@@ -917,29 +909,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ts/BoxParticle.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
+        <state relative-caret-position="1586">
           <caret line="122" column="30" selection-start-line="122" selection-start-column="28" selection-end-line="122" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ts/GPGPUParticle.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2067">
-          <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ts/template.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
+        <state relative-caret-position="494">
           <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
           <folding />
         </state>
@@ -947,7 +930,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ts/clock.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="5005">
           <caret line="385" column="33" selection-start-line="385" selection-start-column="33" selection-end-line="385" selection-end-column="33" />
           <folding />
         </state>
@@ -961,29 +944,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts/frame.ts">
+    <entry file="file://$PROJECT_DIR$/ts/GPGPUParticle.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="884" column="5" selection-start-line="884" selection-start-column="5" selection-end-line="884" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/sketch.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+        <state relative-caret-position="156">
+          <caret line="276" column="35" selection-start-line="276" selection-start-column="35" selection-end-line="276" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/building.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="403" column="13" selection-start-line="403" selection-start-column="13" selection-end-line="403" selection-end-column="13" />
+        <state relative-caret-position="3016">
+          <caret line="412" column="13" selection-start-line="412" selection-start-column="13" selection-end-line="412" selection-end-column="13" />
           <folding>
             <marker date="1480099502000" expanded="true" signature="12921:14510" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="67" column="4" selection-start-line="67" selection-start-column="3" selection-end-line="67" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/frame.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="987" column="38" selection-start-line="987" selection-start-column="24" selection-end-line="987" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
