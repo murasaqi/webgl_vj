@@ -274,7 +274,7 @@ class GPGPUParticle {
     {
 
         this.WIDTH = width;
-        this.PARTICLES =  500 * 500;
+        this.PARTICLES =  1000 * 1000;
 
         this.scene = scene;
         this.camera = camera;

@@ -288,7 +288,7 @@ class GPGPUParticle_frame {
 
         this.WIDTH = width;
         this.HEIGHT = height;
-        this.PARTICLES =  this.PARTICLE_NUM * this.PARTICLE_NUM;
+        this.PARTICLES =  this.PARTICLE_NUM * this.PARTICLE_NUM*3;
 
         this.scene = scene;
         this.camera = camera;
