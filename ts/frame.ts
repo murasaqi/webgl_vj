@@ -288,7 +288,7 @@ class GPGPUParticle_frame {
 
         this.WIDTH = width;
         this.HEIGHT = height;
-        this.PARTICLES =  this.PARTICLE_NUM * this.PARTICLE_NUM*10;
+        this.PARTICLES =  this.PARTICLE_NUM * this.PARTICLE_NUM*5;
 
         this.scene = scene;
         this.camera = camera;
@@ -896,7 +896,7 @@ class Frame {
                 this.speed += (0.001 - this.speed) * 0.1;
 
             } else {
-                this.speed += (0.015 - this.speed) * 0.1;
+                this.speed += (0.045 - this.speed) * 0.1;
                 // this.tween
             }
 

@@ -224,7 +224,7 @@ var particleShader = {
 var GPGPUParticle = (function () {
     function GPGPUParticle(scene, camera, renderer, width, position, color) {
         this.WIDTH = width;
-        this.PARTICLES = 1000 * 1000;
+        this.PARTICLES = 500 * 500;
         this.scene = scene;
         this.camera = camera;
         this.renderer = renderer;

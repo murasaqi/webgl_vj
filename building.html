@@ -142,6 +142,11 @@
             opacity: 0.0;
         }
 
+        .description
+        {
+            display: none!important;
+        }
+
 
     </style>
     <meta property='og:image' content='https://murasaki-uma.github.io/webgl_vj/img/og.png' />
@@ -254,15 +259,15 @@
 
 
             overscene = [];
-            scenes.push(new Clear(renderer));
+//            scenes.push(new Clear(renderer));
             scenes.push(new BoxParticle(renderer));
-            scenes.push(new Clear(renderer));
+//            scenes.push(new Clear(renderer));
             scenes.push(new Clock(renderer));
-            scenes.push(new Clear(renderer));
+//            scenes.push(new Clear(renderer));
             scenes.push(new Frame(renderer));
-            scenes.push(new Clear(renderer));
+//            scenes.push(new Clear(renderer));
             scenes.push(new Frame01(renderer));
-            scenes.push(new Clear(renderer));
+//            scenes.push(new Clear(renderer));
 //            scenes.push( new GPGPUParticleScene(renderer));
 
 

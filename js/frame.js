@@ -227,7 +227,7 @@ var GPGPUParticle_frame = (function () {
         this.radian = 0.0;
         this.WIDTH = width;
         this.HEIGHT = height;
-        this.PARTICLES = this.PARTICLE_NUM * this.PARTICLE_NUM * 10;
+        this.PARTICLES = this.PARTICLE_NUM * this.PARTICLE_NUM * 5;
         this.scene = scene;
         this.camera = camera;
         this.renderer = renderer;
@@ -625,7 +625,7 @@ var Frame = (function () {
                 this.speed += (0.001 - this.speed) * 0.1;
             }
             else {
-                this.speed += (0.015 - this.speed) * 0.1;
+                this.speed += (0.045 - this.speed) * 0.1;
             }
             this.scene01Speed.now += (this.scene01Speed.slow - this.scene01Speed.now) * 0.1;
             for (var i = 0; i < this.boxs.length; i++) {
