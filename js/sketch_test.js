@@ -57,54 +57,48 @@ function setup() {
 
 
 
-  song.playMode('restart');
-  noise01.playMode('restart');
-  ring.playMode('restart');
+    song.playMode('restart');
+    noise01.playMode('restart');
+    ring.playMode('restart');
     clock_drum.playMode('restart');
-  
 
-  
+
+
 }
 function draw()
 {
-
-    if(play)
-    {
-        // if(!bgm00.isPlaying())
-        // {
-        //     bgm00.play();
-        // }
-
-        for(var i = 0; i < BGM.length; i++)
-        {
-            if(isPlayBGM[i] == true && !BGM[i].isPlaying())
-            {
-                BGM[i].play();
-            }
-        }
-    }
-
-    counter++;
-
-    if (isKeyUp && start){//&& keyCode == '188') {
-    //   song.stop();
-        ring.pause();
-        if(counter%6 == 0){
-            song.play();
-        }
-        if(!noise01.isPlaying())
-        {
-          noise01.play();
-        }
-
-    }
-
-
-    // if()
+    //
+    // if(play)
     // {
-
+    //     // if(!bgm00.isPlaying())
+    //     // {
+    //     //     bgm00.play();
+    //     // }
+    //
+    //     for(var i = 0; i < BGM.length; i++)
+    //     {
+    //         if(isPlayBGM[i] == true && !BGM[i].isPlaying())
+    //         {
+    //             BGM[i].play();
+    //         }
+    //     }
     // }
-    // console.log(keyCode);
+    //
+    // counter++;
+    //
+    // if (isKeyUp && start){//&& keyCode == '188') {
+    // //   song.stop();
+    //     ring.pause();
+    //     if(counter%6 == 0){
+    //         song.play();
+    //     }
+    //     if(!noise01.isPlaying())
+    //     {
+    //       noise01.play();
+    //     }
+    //
+    // }
+
 }
 
 
@@ -121,49 +115,49 @@ function keyReleased()
 }
 
 function keyPressed() {
-    console.log(keyCode);
-    isKeyUp = false;
-    if (keyCode == '190') {
-        //   song.stop();
-        noise01.pause();
+    // console.log(keyCode);
+    // isKeyUp = false;
+    // if (keyCode == '190') {
+    //     //   song.stop();
+    //     noise01.pause();
+    //
+    //     if(!ring.isPlaying())
+    //     {
+    //         ring.play();
+    //     }
+    //
+    // }
+    //
+    // if (keyCode == '82') {
+    //     randomRingPlay();
+    //
+    // }
+    //
+    // if (keyCode == '68') {
+    //
+    //     randomDrumPlay();
+    // }
+    //
+    // if (keyCode == '27') {
+    //
+    //     start = false;
+    //     song.pause();
+    //     noise01.pause();
+    // }
+    //
+    // if(keyCode == "80")
+    // {
+    //     play = true;
+    // }
+    //
+    //
+    //
+    //
+    // if(keyCode == '188')
+    // {
+    //     start = !start;
+    // }
 
-        if(!ring.isPlaying())
-        {
-            ring.play();
-        }
-
-    }
-
-    if (keyCode == '82') {
-        randomRingPlay();
-
-    }
-
-    if (keyCode == '68') {
-
-        randomDrumPlay();
-    }
-
-    if (keyCode == '27') {
-
-        start = false;
-        song.pause();
-        noise01.pause();
-    }
-
-    if(keyCode == "80")
-    {
-        play = true;
-    }
-
-
-
-
-    if(keyCode == '188')
-    {
-        start = !start;
-    }
-    
 }
 function randomRingPlay() {
     var num = Math.floor(Math.random()*rings.length);
