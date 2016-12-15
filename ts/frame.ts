@@ -479,7 +479,7 @@ class GPGPUParticle_frame {
 
     public getCameraConstant(camera) {
         // カメラ情報を計算。
-        return window.innerHeight / ( Math.tan( THREE.Math.DEG2RAD * 0.5 * camera.fov*0.6 ) / camera.zoom );
+        return window.innerHeight / ( Math.tan( THREE.Math.DEG2RAD * 0.7 * camera.fov*0.6 ) / camera.zoom );
     }
 
     public resize() {
