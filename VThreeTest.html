@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -27,12 +27,17 @@
 
 <script>
     (function () {
+
+        // VThreeのインスタンスを作成
         var vthree = new VThree();
+        // 用意したシーンのインスタンスを作成
         var sceneBoxA = new SceneBoxA();
         var sceneBoxB = new SceneBoxB();
+        // vthreeオブジェクトに突っ込む
         vthree.addScene(sceneBoxA);
         vthree.addScene(sceneBoxB);
 
+        // ループ実行
         vthree.draw();
 
     })();
