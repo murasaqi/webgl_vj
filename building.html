@@ -144,7 +144,7 @@
 
         .description
         {
-            display: none!important;
+            /*display: none!important;*/
         }
 
 
@@ -259,15 +259,15 @@
 
 
             overscene = [];
-//            scenes.push(new Clear(renderer));
+            scenes.push(new Clear(renderer));
             scenes.push(new BoxParticle(renderer));
-//            scenes.push(new Clear(renderer));
+            scenes.push(new Clear(renderer));
             scenes.push(new Clock(renderer));
-//            scenes.push(new Clear(renderer));
+            scenes.push(new Clear(renderer));
             scenes.push(new Frame(renderer));
-//            scenes.push(new Clear(renderer));
+            scenes.push(new Clear(renderer));
             scenes.push(new Frame01(renderer));
-//            scenes.push(new Clear(renderer));
+            scenes.push(new Clear(renderer));
 //            scenes.push( new GPGPUParticleScene(renderer));
 
 
@@ -300,16 +300,16 @@
 
             if(NUM == 8)
             {
-//                $('.scene_desc').css('font-size',"20px");
-//                $('.end').css('font-size',"20px");
+                $('.scene_desc').css('font-size',"20px");
+                $('.end').css('font-size',"20px");
 
-//                if($('.scene_desc').css("opacity") <= 1 )
-//                {
+                if($('.scene_desc').css("opacity") <= 1 )
+                {
                     var op = Number($('.scene_desc').css("opacity"));
                 console.log(op);
                     op += 0.01;
                     $('.scene_desc').css("opacity",op.toString());
-//                }
+                }
 
                 if($('.scene_desc').css("opacity") >= 0.99)
                 {

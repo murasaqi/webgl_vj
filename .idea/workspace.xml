@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41384a8a-e3e3-4bb8-bbb1-c11a3fadfef4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cameraExample.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ts/cameraExample.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/VThree.js" afterPath="$PROJECT_DIR$/js/VThree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/VThree.js.map" afterPath="$PROJECT_DIR$/js/VThree.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/VThree.ts" afterPath="$PROJECT_DIR$/ts/VThree.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/building.html" afterPath="$PROJECT_DIR$/building.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/clock.js" afterPath="$PROJECT_DIR$/js/clock.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/clock.js.map" afterPath="$PROJECT_DIR$/js/clock.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ts/clock.ts" afterPath="$PROJECT_DIR$/ts/clock.ts" />
     </list>
     <ignored path="vj_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +28,7 @@
     <favorites_list name="vj_project" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5738318">
+    <splitter split-orientation="horizontal" split-proportion="0.18130842">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="gpuparticle_study.html" pinned="false" current-in-tab="false">
@@ -106,7 +104,7 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="173">
+                <state relative-caret-position="316">
                   <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
                   <folding />
                 </state>
@@ -147,24 +145,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="sketch_test.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/sketch_test.js">
+          <file leaf-file-name="building.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/building.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1638">
-                  <caret line="132" column="6" selection-start-line="132" selection-start-column="6" selection-end-line="132" selection-end-column="6" />
-                  <folding />
+                <state relative-caret-position="216">
+                  <caret line="151" column="86" selection-start-line="151" selection-start-column="86" selection-end-line="151" selection-end-column="86" />
+                  <folding>
+                    <marker date="1485169091000" expanded="true" signature="12994:14583" ph="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="building.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/building.html">
+          <file leaf-file-name="clock.ts" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ts/clock.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-                  <folding>
-                    <marker date="1481288239000" expanded="true" signature="13010:14599" ph="..." />
-                  </folding>
+                <state relative-caret-position="115">
+                  <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -209,7 +207,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gpu_particle_test.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="gpu_particle_test.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/gpu_particle_test.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="78">
@@ -283,8 +281,6 @@
         <option value="$PROJECT_DIR$/ts/frame_normal.ts" />
         <option value="$PROJECT_DIR$/ts/clear.ts" />
         <option value="$PROJECT_DIR$/ts/GPGPUParticle.ts" />
-        <option value="$PROJECT_DIR$/building.html" />
-        <option value="$PROJECT_DIR$/ts/clock.ts" />
         <option value="$PROJECT_DIR$/VThree.ts" />
         <option value="$PROJECT_DIR$/VThree_test.ts" />
         <option value="$PROJECT_DIR$/ts/VThree_test.ts" />
@@ -299,6 +295,8 @@
         <option value="$PROJECT_DIR$/ts/cameraExample.ts" />
         <option value="$PROJECT_DIR$/ts/VThree.ts" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/building.html" />
+        <option value="$PROJECT_DIR$/ts/clock.ts" />
       </list>
     </option>
   </component>
@@ -309,8 +307,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="y" value="209" />
+    <option name="x" value="128" />
+    <option name="y" value="23" />
     <option name="width" value="1331" />
     <option name="height" value="877" />
   </component>
@@ -531,12 +529,12 @@
       <workItem from="1482772465993" duration="776000" />
       <workItem from="1483040753642" duration="8796000" />
       <workItem from="1483814778773" duration="2626000" />
-      <workItem from="1485167236881" duration="457000" />
+      <workItem from="1485167236881" duration="1551000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="332556000" />
+    <option name="totallyTimeSpent" value="333650000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -548,7 +546,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="209" width="1331" height="877" extended-state="0" />
+    <frame x="128" y="23" width="1331" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3210191" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -805,18 +803,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ts/clock.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2262">
-          <caret line="174" column="10" selection-start-line="174" selection-start-column="10" selection-end-line="174" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/sketch.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1833">
           <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+          <folding>
+            <marker date="1481817402000" expanded="true" signature="2870:3424" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -849,16 +842,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/building.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
-          <folding>
-            <marker date="1481288239000" expanded="true" signature="13010:14599" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,14 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gpu_particle_test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="5" column="86" selection-start-line="5" selection-start-column="86" selection-end-line="5" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gpuparticle_study.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -983,8 +958,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="316">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gpu_particle_test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="5" column="86" selection-start-line="5" selection-start-column="86" selection-end-line="5" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/building.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="151" column="86" selection-start-line="151" selection-start-column="86" selection-end-line="151" selection-end-column="86" />
+          <folding>
+            <marker date="1485169091000" expanded="true" signature="12994:14583" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ts/clock.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
           <folding />
         </state>
       </provider>

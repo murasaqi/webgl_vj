@@ -133,7 +133,7 @@ var Clock = (function () {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.context = this.canvas.getContext('2d');
-        this.textPos = new THREE.Vector2(Math.random() * window.innerWidth, Math.random() * window.innerHeight / 2);
+        this.textPos = new THREE.Vector2(Math.random() * window.innerWidth / 3 - innerWidth / 6 + innerWidth / 2, Math.random() * window.innerHeight / 2);
         this.createTexture('test', "rgba(255,255,255,0.1)");
         this.texture = new THREE.CanvasTexture(this.canvas);
         this.texture.minFilter = THREE.LinearFilter;
@@ -141,7 +141,7 @@ var Clock = (function () {
         this.planematerial = new THREE.MeshBasicMaterial({ map: this.texture, alpha: true });
         this.planematerial.transparent = true;
         this.planematerial.blending = THREE["AdditiveBlending"];
-        var planegeometry = new THREE.PlaneGeometry(100 * window.innerWidth / window.innerHeight, 100, 8, 8);
+        var planegeometry = new THREE.PlaneGeometry(200 * window.innerWidth / window.innerHeight, 200, 8, 8);
         this.planeMesh = new THREE.Mesh(planegeometry, this.planematerial);
         this.planeMesh.position.z = 1900;
         this.scene.add(this.planeMesh);
@@ -151,7 +151,7 @@ var Clock = (function () {
         this.context.textAlign = "center";
         this.context.beginPath();
         this.context.fillStyle = color;
-        this.context.font = " bold 250px 'Source Sans Pro'";
+        this.context.font = " bold 150px 'Source Sans Pro'";
         this.context.fillText(text, this.textPos.x, this.textPos.y);
         this.context.fill();
     };
