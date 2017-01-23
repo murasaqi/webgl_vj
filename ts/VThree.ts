@@ -14,7 +14,7 @@ class VThree
         // 初期化処理後、イベント登録
         this.init();
 
-        document.addEventListener( 'resize', this.onWindowResize, false );
+        window.addEventListener( 'resize', this.onWindowResize, false );
         document.addEventListener("keydown", this.onKeyDown, true);
 
     }
@@ -22,6 +22,7 @@ class VThree
 
     public init()
     {
+
 
         // Rendererを作る
 
@@ -51,7 +52,13 @@ class VThree
     // ウィンドウの幅が変わったときの処理
     public onWindowResize = () =>
     {
+        var windowHalfX = window.innerWidth / 2;
+        var windowHalfY = window.innerHeight / 2;
+        this.scenes[this.NUM].camera.aspect = window.innerWidth / window.innerHeight;
+        this.scenes[this.NUM].camera.updateProjectionMatrix();
         this.renderer.setSize( window.innerWidth, window.innerHeight );
+
+        console.log("resize");
     }
 
     // 現在のシーン番号が、不適切な値にならないようにチェック

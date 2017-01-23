@@ -19,9 +19,11 @@
             left: 0;
             opacity: 1.0;
         }
-        canvas:last-child {
+
+        #sub {
             opacity: 0.0;
         }
+
         #fadeInOut
         {
             width: 100%;
@@ -190,7 +192,7 @@
 
         var fadeInOutTimer = -1;
         var screen;
-        var overAlpha = 0;
+        var overAlpha = 0.0;
         var mainOP = 1.0;
 
 
@@ -259,6 +261,7 @@
             renderer02.sortObjects = false;
             renderer02.shadowMap.enabled = true;
             renderer02.shadowMap.type = THREE.PCFShadowMap;
+            renderer02.domElement.id = "sub";
             renderer02.setClearColor( 0x000000, 0 );
             document.body.appendChild( renderer02.domElement );
 
@@ -426,14 +429,14 @@
                 $(".description").toggleClass("hide");
             }
 
-            $("canvas:last-child")
+//            $("canvas:last-child")
+//                    .css({
+//                        opacity: overAlpha
+//                    });
+
+            $("#sub")
                     .css({
                         opacity: overAlpha
-                    });
-
-            $("#main")
-                    .css({
-                        opacity: 1.0-overAlpha
                     });
 
 
@@ -457,15 +460,15 @@
             overAlpha = 0.0;
             mainOP = 1.0;
 
-            $("canvas:last-child")
+            $("#sub")
                     .css({
                         opacity: overAlpha
                     });
 
-            $("#main")
-                    .css({
-                        opacity: 1.0-overAlpha
-                    });
+//            $("#main")
+//                    .css({
+//                        opacity: 1.0-overAlpha
+//                    });
         }
     })();
 

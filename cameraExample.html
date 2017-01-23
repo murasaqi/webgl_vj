@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        width: 100%;
+        height:100%;
+        margin: 0;
+        background-color: #000
+    }
+    canvas {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+</style>
+<body>
+<script type="text/javascript" src="js/three.min.js"></script>
+<script type="text/javascript" src="js/VThree.js"></script>
+<script type="text/javascript" src="js/cameraExample.js"></script>
+
+<script>
+    (function () {
+
+        var vthree = new VThree();
+
+
+        var cameraA = new CameraA();
+//        vthree.addScene(cameraA);
+
+        var cameraB = new CameraB();
+        vthree.addScene(cameraB);
+
+        // ループ実行
+        vthree.draw();
+
+    })();
+</script>
+
+</body>
+</html>

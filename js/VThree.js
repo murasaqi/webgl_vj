@@ -8,7 +8,12 @@ var VThree = (function () {
         this.scenes = [];
         // ウィンドウの幅が変わったときの処理
         this.onWindowResize = function () {
+            var windowHalfX = window.innerWidth / 2;
+            var windowHalfY = window.innerHeight / 2;
+            _this.scenes[_this.NUM].camera.aspect = window.innerWidth / window.innerHeight;
+            _this.scenes[_this.NUM].camera.updateProjectionMatrix();
             _this.renderer.setSize(window.innerWidth, window.innerHeight);
+            console.log("resize");
         };
         // 現在のシーン番号が、不適切な値にならないようにチェック
         this.checkNum = function () {
@@ -35,7 +40,7 @@ var VThree = (function () {
         };
         // 初期化処理後、イベント登録
         this.init();
-        document.addEventListener('resize', this.onWindowResize, false);
+        window.addEventListener('resize', this.onWindowResize, false);
         document.addEventListener("keydown", this.onKeyDown, true);
     }
     VThree.prototype.init = function () {
