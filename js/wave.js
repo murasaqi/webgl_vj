@@ -61,7 +61,7 @@ var Wave = (function () {
     };
     Wave.prototype.update = function () {
         var date = new Date;
-        this.timer += 0.01;
+        this.timer += 0.0005;
         //console.log(this.END);
         if (this.UPDATE == false) {
             //this.scene.remove(this.scene.children[0]);
@@ -76,7 +76,7 @@ var Wave = (function () {
             this.noiseSeeds[i].z = this.timer;
             var value = noise.perlin3(this.noiseSeeds[i].x, this.noiseSeeds[i].y, this.noiseSeeds[i].z) * 300;
             this.waveGeomery.vertices[i].z = value;
-            this.waveGeomery.vertices[i].x += Math.sin(this.timer + i * 0.1) * 1;
+            this.waveGeomery.vertices[i].x += Math.sin(this.timer + i * 0.05) * 1;
         }
         this.waveGeomery.verticesNeedUpdate = true;
         this.scene.rotateX(this.noisestepx * 0.05);

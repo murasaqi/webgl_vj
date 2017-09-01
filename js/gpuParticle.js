@@ -60,7 +60,7 @@ var GPUParticle = (function () {
                 this.END = true;
             }
         }
-        var time = performance.now() * 0.0005;
+        var time = performance.now() * 0.0002;
         this.material.uniforms.time.value = time;
         this.mesh.rotation.x = time * 0.2;
         this.mesh.rotation.y = time * 0.4;
